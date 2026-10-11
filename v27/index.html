@@ -1,0 +1,1657 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5">
+<meta name="theme-color" content="#08090e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="F1 25 Tracker">
+<meta name="description" content="F1 25 Pro Garage: rundetider, racerunder, setup og gratis bildeskanning.">
+<title>F1 25 Pro Garage V27</title>
+<style>
+:root{color-scheme:dark;--bg:#090d16;--panel:#151d2c;--panel2:#1c2839;--border:#303b50;--text:#f5f7fc;--muted:#9ba8bb;--red:#f14b52;--cyan:#78d5ec;--green:#67d9b2;--yellow:#ffdb83}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;-webkit-font-smoothing:antialiased}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}a{color:var(--cyan)}.app-shell{max-width:740px;margin:auto;padding:max(8px,env(safe-area-inset-top)) 18px 125px}.topbar{display:flex;align-items:center;justify-content:space-between;padding:27px 0 24px;gap:12px}.brand{font-weight:950;font-size:35px;line-height:1;letter-spacing:-2px}.brand span{color:var(--red)}.tagline{letter-spacing:4px;font-size:10px;font-weight:800;color:var(--muted);margin-top:9px}.top-actions{display:flex;align-items:center;gap:9px}.live{font-size:10px;color:var(--green);border:1px solid #2e6a58;border-radius:30px;background:#12291f;padding:8px 10px;font-weight:900;white-space:nowrap}.icon-btn{width:42px;height:42px;border-radius:14px;background:var(--panel);border:1px solid var(--border);color:var(--text);font-size:20px}.overline{font-size:12px;font-weight:950;letter-spacing:2.6px;color:var(--red);margin:9px 0 14px}.season-strip{display:flex;gap:9px;overflow-x:auto;scrollbar-width:none;padding-bottom:14px}.season-strip::-webkit-scrollbar{display:none}.chip{border:1px solid var(--border);border-radius:15px;padding:12px 17px;background:var(--panel);color:var(--muted);font-weight:800;white-space:nowrap;min-height:44px}.chip.active{background:#38212b;color:white;border-color:var(--red)}.chip.sm{font-size:13px;padding:9px 12px;min-height:38px}.section{margin-top:25px}.section h2{font-size:25px;letter-spacing:-.8px;margin:0 0 6px;font-weight:950}.sub{font-size:14px;color:var(--muted);line-height:1.55;margin:0 0 14px}.hero{background:linear-gradient(135deg,#2c1c2a,#1a202f 76%);border:1px solid #68404a;border-radius:26px;padding:28px 24px;margin-top:12px}.hero h1{font-size:39px;line-height:1.08;letter-spacing:-1.6px;margin:14px 0;font-weight:950}.hero p{font-size:16px;line-height:1.55;color:var(--muted)}.primary{background:var(--red);color:#fff;border:0;border-radius:16px;padding:15px 21px;font-weight:900;min-height:48px}.secondary{background:#1c2b3a;color:var(--cyan);border:1px solid #477b91;border-radius:15px;padding:13px 17px;font-weight:800}.ghost{background:transparent;border:1px solid var(--border);color:var(--text);border-radius:14px;padding:11px 14px;font-weight:800}.full{width:100%}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}.stat,.panel,.track-card,.record,.empty,.track-hero,.setup-group,.coach,.notice,.news-card{background:linear-gradient(145deg,#1b2334,#141c2b);border:1px solid var(--border);border-radius:23px}.stat{padding:22px}.stat small,.label{display:block;font-size:11px;letter-spacing:1.4px;font-weight:950;color:var(--muted);text-transform:uppercase}.stat strong{font-size:34px;display:block;margin-top:16px}.panel{padding:19px;margin:12px 0}.record{padding:16px;margin:10px 0;display:flex;justify-content:space-between;gap:12px;align-items:center}.record strong{font-size:22px}.record .sub{margin:5px 0 0;font-size:12px}.empty{padding:20px;color:var(--muted);line-height:1.6}.track-card{display:flex;align-items:center;gap:12px;padding:15px;margin:12px 0;width:100%;text-align:left;color:var(--text)}.track-thumb{width:105px;height:88px;flex:0 0 105px;display:flex;align-items:center;justify-content:center;background:#101825;border-radius:16px;overflow:hidden}.track-thumb img{max-width:100%;max-height:100%;object-fit:contain}.track-info{min-width:0;flex:1}.track-info strong{font-size:18px;display:block;line-height:1.3}.track-info small{display:block;color:var(--muted);margin-top:6px;font-size:12px}.track-info em{display:block;color:var(--cyan);font-style:normal;font-weight:800;margin-top:8px;font-size:12px}.arrow{color:var(--red);font-size:25px}.track-hero{padding:22px 18px;margin-top:15px}.track-hero h1{font-size:32px;letter-spacing:-1px;margin:12px 0}.track-hero .map-big{height:210px;display:flex;align-items:center;justify-content:center}.map-big img{width:100%;height:100%;object-fit:contain}.map-fallback{color:var(--muted);font-size:14px;text-align:center}.back{background:none;border:0;color:var(--cyan);font-weight:800;padding:0 0 8px}.tab-row,.choice-row{display:flex;gap:9px;overflow-x:auto;scrollbar-width:none;margin:18px 0}.tab-row button{flex:1}.form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.field{margin-top:12px;min-width:0}.field label{display:block;font-size:11px;letter-spacing:1px;color:var(--muted);font-weight:900;margin-bottom:8px;text-transform:uppercase}.field input,.field select,.field textarea,.search{background:#0c1421;border:1px solid #3a465a;border-radius:13px;color:var(--text);padding:12px;width:100%;min-width:0;outline:0}.field textarea{min-height:95px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus,.search:focus{border-color:var(--cyan)}.choice-row{margin:8px 0 14px;gap:7px}.choice-row .chip{flex:0 0 auto}.best-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mini{background:#101927;border-radius:17px;padding:17px}.mini strong{display:block;color:var(--cyan);font-size:23px;margin-top:13px}.setup-head{background:linear-gradient(135deg,#2b2131,#192938);padding:21px;border:1px solid #68404a;border-radius:22px}.setup-head h2{margin:6px 0;font-size:27px}.setup-group{margin:13px 0;overflow:hidden}.setup-group h3{margin:0;padding:16px 18px;font-size:16px;border-bottom:1px solid var(--border)}.setup-line{display:flex;justify-content:space-between;gap:12px;padding:12px 18px;border-bottom:1px solid #2a3649;align-items:center}.setup-line:last-child{border:0}.setup-line span{color:#c3cddc;font-size:14px}.setup-line strong{color:var(--cyan);font-size:17px;text-align:right;white-space:nowrap}.coach{padding:20px;background:linear-gradient(135deg,#162d37,#192433);border-color:#3a6d79;margin:14px 0}.coach h3{color:var(--cyan);font-size:17px;margin:0 0 10px}.coach p{color:var(--muted);line-height:1.6}.notice{padding:14px 16px;color:var(--yellow);font-size:13px;line-height:1.55;margin:12px 0}.success{padding:12px 14px;background:#153a2c;border:1px solid #397c61;color:#a8ffda;border-radius:14px;margin:12px 0;font-size:13px}.danger{color:#ff858b;background:transparent;border:0;font-weight:800}.select-wrap{display:flex;flex-wrap:wrap;gap:8px}.select-wrap .chip{padding:10px 12px;font-size:12px}.editor{margin-top:15px}.edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.edit-grid .field{margin-top:5px}.history-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--border);padding:13px 0}.history-row:last-child{border:0}.history-row b{font-size:15px}.history-row small{display:block;color:var(--muted);margin-top:4px}.history-row strong{color:var(--cyan);text-align:right}.news-card{padding:18px;margin:12px 0}.news-card h3{margin:8px 0;font-size:17px;line-height:1.35}.news-card p{color:var(--muted);font-size:13px;line-height:1.5}.news-card a{font-weight:800;text-decoration:none}.news-date{font-size:11px;color:var(--cyan)}.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:5;background:#101724f7;border-top:1px solid #334055;padding:10px max(12px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));display:flex;gap:4px;justify-content:center}.bottom-nav button{border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:800;border-radius:14px;min-height:60px;flex:1;max-width:170px}.bottom-nav button.active{background:#242c3b;color:#fff}.bottom-nav button .nav-icon{display:block;font-size:23px;margin-bottom:5px}.bottom-nav button.active .nav-icon{color:var(--red)}.footer{color:#657187;font-size:11px;text-align:center;margin-top:26px;line-height:1.6}.divider{height:1px;background:var(--border);margin:18px 0}.boot{font-size:42px;text-align:center;margin-top:30vh;font-weight:950}.boot span{color:var(--red)}.boot small{display:block;font-size:12px;letter-spacing:4px}.helper{font-size:12px;color:var(--muted);margin-top:9px;line-height:1.6}.button-row{display:flex;gap:9px;flex-wrap:wrap}.button-row button{flex:1}.sticky-hint{color:var(--muted);font-size:12px}.search{margin:12px 0 2px}.hide{display:none!important}
+@media(min-width:650px){.app-shell{padding-left:30px;padding-right:30px}.track-thumb{width:125px;flex-basis:125px;height:90px}.track-hero .map-big{height:300px}.hero h1{font-size:48px}}
+@media(max-width:380px){.app-shell{padding-left:13px;padding-right:13px}.brand{font-size:31px}.live{font-size:9px}.track-thumb{width:82px;flex-basis:82px;height:72px}.track-info strong{font-size:16px}.chip{padding:11px 13px}.hero h1{font-size:33px}.stat{padding:17px}.form-grid{gap:5px}.field input{padding:10px 7px}}
+
+
+/* F1 25 LAP TRACKER — PRO GARAGE V5 */
+:root{--bg:#070a10;--panel:#121927;--panel2:#172034;--border:#29344a;--text:#f4f7fc;--muted:#8f9ab0;--red:#ff435b;--cyan:#7ce4f5;--green:#63e6b4;--yellow:#ffd65a}
+body{background:radial-gradient(ellipse 85% 20% at 50% -4%,#263149 0%,transparent 75%),#070a10;min-height:100dvh}
+.app-shell{padding-top:max(12px,env(safe-area-inset-top));padding-bottom:140px}
+.topbar{padding:24px 0 24px;align-items:center}.brand-wrap{min-width:0}.brand{font-style:italic;font-size:37px;letter-spacing:-2.5px;display:flex;align-items:center;gap:0}.brand span{color:var(--red)}.brand .version{font-style:normal;font-size:8px;letter-spacing:1.1px;margin-left:12px;padding:5px 7px;border:1px solid #454d5f;border-radius:5px;color:#b9c5d7;white-space:nowrap}.tagline{letter-spacing:2.8px;font-size:9px;color:#8390a7}.tagline i{display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--red);vertical-align:middle;margin:0 5px}.live{border-color:#24533e;background:#10271f;color:#8ff5c8;letter-spacing:.4px;font-size:9px}.live-dot,.pulse-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#60efb4;margin-right:5px;box-shadow:0 0 10px #60efb46b}.icon-btn{border-radius:12px;background:#1b2537}
+.season-heading{display:flex;justify-content:space-between;align-items:center}.season-heading .overline{font-size:10px;color:#9ba6b9;letter-spacing:2px}.season-label{font-size:11px;font-weight:900;color:var(--red)}.season-strip{margin-bottom:6px;padding-bottom:11px}.season-strip .chip{border-radius:11px;min-width:77px;font-size:13px;min-height:39px;padding:9px 13px}.season-strip .chip.active{background:linear-gradient(135deg,#512431,#321925);box-shadow:inset 0 0 0 1px #ff435b44}
+.eyebrow{font-size:10px;font-weight:900;letter-spacing:2.1px;color:#8c9db5;display:block;margin-bottom:7px}.red-dot{color:var(--red)}.count-pill{font-size:9px;font-weight:950;letter-spacing:1px;color:#d3ddeb;background:#202b3c;border:1px solid #35425a;border-radius:7px;padding:9px;white-space:nowrap}.section-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:13px}.section-heading h2{margin:0;font-size:24px;letter-spacing:-1.1px}.text-link{border:0;background:none;color:var(--red);font-size:10px;font-weight:900;letter-spacing:.7px;white-space:nowrap;padding:10px 0}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 100% 15%,#512a41 0%,transparent 49%),linear-gradient(135deg,#171d2e 0%,#111723 75%);border:1px solid #45516a;border-radius:25px;padding:0;min-height:325px;box-shadow:0 12px 45px #0004}.hero-grid{position:absolute;inset:0;opacity:.16;background-image:linear-gradient(90deg,transparent 98%,#9ca9c0 100%),linear-gradient(transparent 98%,#9ca9c0 100%);background-size:33px 33px;mask-image:linear-gradient(to left,black,transparent 88%);transform:skewX(-12deg) translateX(30px)}.hero:after{content:'';position:absolute;width:270px;height:270px;right:-135px;top:45px;border:35px solid #ff435b12;border-radius:50%;pointer-events:none}.hero-inner{position:relative;z-index:1;padding:25px 22px 18px}.hero-kicker{color:#8ee8fa;font-size:10px;letter-spacing:1.8px;font-weight:950;display:flex;align-items:center}.hero-kicker-side{margin-left:auto;color:#c4ccd9;letter-spacing:1px;font-size:9px}.hero h1{font-size:clamp(42px,11vw,66px);line-height:.98;font-style:italic;letter-spacing:-2.5px;margin:22px 0 16px;font-weight:1000}.hero h1 span{color:var(--red)}.hero p{font-size:13px;line-height:1.65;color:#b3c0d2;max-width:290px;margin:0 0 22px}.primary{background:linear-gradient(110deg,#ff4059,#e62e48);border-radius:12px;box-shadow:0 7px 25px #ff435b25;letter-spacing:.3px}.hero-cta{display:flex;align-items:center;justify-content:space-between;gap:26px;font-size:12px;min-height:46px}.hero-cta span{font-size:20px}.hero-foot{display:flex;gap:15px;margin-top:24px;padding-top:14px;border-top:1px solid #ffffff20;font-size:9px;letter-spacing:1.1px;font-weight:800;color:#a1afc1;justify-content:space-between}
+.stats{gap:9px}.stat{background:#121a29;border-color:#303b52;border-radius:17px;padding:18px}.stat strong{font-size:35px;margin-top:12px;letter-spacing:-1.4px}.stat small{font-size:9px;letter-spacing:1.2px}.stat-unit{font-size:10px;letter-spacing:0;color:#8695ad;font-weight:700}.pb-panel{position:relative;overflow:hidden;background:linear-gradient(125deg,#102d34,#141e2d 75%);border:1px solid #345b65;border-radius:20px;padding:21px}.pb-panel h2{font-size:clamp(32px,9vw,46px);font-weight:1000;letter-spacing:-2px;color:#91eaff;margin:11px 0 6px;font-variant-numeric:tabular-nums}.pb-panel p{font-size:12px;color:#a5b9c8;margin:0}.pb-decoration{position:absolute;right:-12px;bottom:-38px;font-size:130px;font-weight:1000;font-style:italic;color:#a6e5ef09;pointer-events:none}.recent-row{display:flex;gap:12px;align-items:center;background:#121a29;border:1px solid #2c3850;padding:12px 14px;border-radius:13px;margin:8px 0}.recent-row>div{flex:1;min-width:0}.recent-row strong{display:block;font-size:13px}.recent-row small{display:block;font-size:11px;color:var(--muted);margin-top:3px}.recent-row b{font-size:14px;font-variant-numeric:tabular-nums;color:#dffaff}.tyre-dot{width:10px;height:10px;border-radius:50%;flex:none}
+.track-card{background:linear-gradient(120deg,#182236,#121925);border-color:#313d54;border-radius:18px;padding:12px;margin:9px 0;min-height:110px;transition:transform .15s,border-color .15s}.track-card:active{transform:scale(.99);border-color:#ff435b}.track-thumb{background:radial-gradient(circle,#263b4e 0%,#101725 70%);border:1px solid #2d3b52;border-radius:12px;width:104px;flex-basis:104px;height:86px;position:relative}.track-thumb img{width:90%;height:85%;object-fit:contain;filter:drop-shadow(0 0 5px #9fe6ff33)}.track-thumb-no{position:absolute;bottom:5px;left:7px;font-size:9px;color:#8396ad;font-weight:900}.track-info strong{font-size:17px;margin-top:4px;letter-spacing:-.5px}.track-country{font-size:9px;font-weight:900;letter-spacing:1.2px;color:#97a9bf}.track-info em{color:#91e2f1;font-size:11px;margin-top:9px}.tiny-pb{color:var(--red);font-size:9px;border:1px solid #7c3645;border-radius:4px;padding:2px 3px;margin-right:3px}.track-arrow{font-size:20px;color:#ff5066;align-self:flex-start;padding-top:4px}
+.search-wrap{position:relative}.search-wrap>span{position:absolute;top:14px;left:16px;font-size:23px;color:#9db1c8}.search-wrap .search{padding:16px 14px 16px 44px;background:#131c2c;border-radius:15px;border-color:#35425a;font-size:15px;margin:7px 0 14px}.track-hero{background:radial-gradient(circle at 75% 60%,#213b51,#151e2e 65%);border:1px solid #37455e;border-radius:22px;padding:22px 20px 20px}.track-hero-top{display:flex;justify-content:space-between;align-items:center}.track-flag{font-size:22px}.track-hero .overline{font-size:10px;margin:6px 0}.track-hero h1{font-size:clamp(28px,8vw,38px);font-style:italic;font-weight:950;letter-spacing:-1.4px;margin:7px 0}.track-hero .map-big{height:195px}.track-description{color:#aebcd0;font-size:12px;text-align:center;margin:6px 0 0}.back{font-size:11px;letter-spacing:1px;color:#9feaff;margin-top:10px}.tab-row{margin:16px 0 23px}.tab-row .chip{font-size:12px;padding:12px 8px;border-radius:11px;min-width:0}.chip{background:#1b2434;border-color:#334159;border-radius:11px;font-size:13px}.chip.active{background:#3d2231;border-color:#ff435b;color:#fff}.chip.sm{font-size:12px;border-radius:10px}.best-grid{gap:9px}.mini{background:linear-gradient(140deg,#172237,#101825);border:1px solid #2b3952;border-radius:14px;padding:16px 12px}.mini strong{font-size:clamp(18px,5vw,24px);letter-spacing:-.8px;color:#9ce7f6;font-variant-numeric:tabular-nums}.mini .label{font-size:9px;letter-spacing:.9px}
+.selectors{background:#111a2a;border-radius:18px;padding:17px 15px}.selectors>.label{color:#d6ddeb}.selectors .choice-row{margin:8px 0 18px}.selector-split{display:block}.tyre-select{margin-top:4px;padding-top:15px;border-top:1px solid #2c3a50}.tyre-options{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:12px 0 8px}.tyre-option{border:1px solid #354159;background:#0b1422;color:#a7b2c5;border-radius:12px;padding:10px 3px;min-width:0;min-height:78px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:clamp(8px,2.4vw,11px);font-weight:900}.tyre-option.selected{background:#1e293a;border-color:#9aa8c0;box-shadow:inset 0 0 0 1px #ffffff24}.tyre-circle{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:4px solid currentColor;color:inherit;font-size:14px;font-weight:1000;box-shadow:inset 0 0 0 2px #0b1422}.soft{color:#ff5368}.medium{color:#ffd24f}.hard{color:#f6f7fb}.intermediate{color:#61e4a2}.wet{color:#58a6ff}.unknown{color:#9da9bb}.tyre-option.selected.soft{border-color:#ff5368}.tyre-option.selected.medium{border-color:#ffd24f}.tyre-option.selected.hard{border-color:#d9e0e9}.tyre-option.selected.intermediate{border-color:#61e4a2}.tyre-option.selected.wet{border-color:#58a6ff}.tyre-help{font-size:11px}.tyre-tag{display:inline-flex;gap:5px;align-items:center;white-space:nowrap;border:1px solid currentColor;border-radius:6px;padding:3px 7px;font-size:10px;font-weight:800;background:#101925}.tyre-tag b{font-size:12px}.tyre-dot.soft{background:#ff5368}.tyre-dot.medium{background:#ffd24f}.tyre-dot.hard{background:#f6f7fb}.tyre-dot.intermediate{background:#61e4a2}.tyre-dot.wet{background:#58a6ff}.tyre-dot.unknown{background:#8993a6}
+.timing-panel{background:linear-gradient(150deg,#18263a,#111927);border-color:#34465e;padding:18px 15px;border-radius:19px}.panel-heading{display:flex;align-items:center;justify-content:space-between}.timing-live{font-size:10px;letter-spacing:1px;color:#7decc0;font-weight:950}.form-grid{gap:8px}.field input,.field textarea{background:#0a111e;border-color:#374660;border-radius:12px;color:#fff;font-size:16px;min-height:52px;letter-spacing:.2px}.field input::placeholder{color:#697b95}.field input:focus{box-shadow:0 0 0 3px #7ce4f520}.field label{font-size:10px;letter-spacing:1.1px}.total-field{margin-top:19px}.total-field input{border:1px solid #6ecddd;font-size:23px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:.4px}.total-field input:read-only{background:#102c36;color:#9cecff}.optional{color:#71859c;font-weight:700;font-size:9px}.keyboard-tip{display:flex;gap:12px;align-items:flex-start;background:#132c36;border:1px solid #315969;border-radius:13px;padding:13px;margin:15px 0}.keyboard-tip>span{font-size:23px;color:#92e5f2}.keyboard-tip b{display:block;font-size:12px;color:#d8f9ff}.keyboard-tip small{display:block;font-size:11px;line-height:1.6;color:#9ab9c6;margin-top:4px}.keyboard-tip strong{color:#e6fbff}.save-lap{min-height:56px;display:flex;justify-content:space-between;align-items:center;font-size:13px;letter-spacing:1px}.save-lap span{font-size:21px}.tyre-best-list{background:#121b2b;border:1px solid #303e55;border-radius:16px;overflow:hidden}.tyre-best-row{display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-bottom:1px solid #303b50}.tyre-best-row:last-child{border-bottom:0}.tyre-best-row strong{font-variant-numeric:tabular-nums;color:#e6faff}.lap-record{border-radius:16px;padding:16px 13px}.record-left{flex:1;min-width:0}.record-time{display:flex;align-items:center;flex-wrap:wrap;gap:9px;font-size:23px;font-weight:950;font-variant-numeric:tabular-nums}.record .sub{font-size:11px;line-height:1.8}.sector-readout{color:#96bfd0}.danger{font-size:12px;padding:8px}
+.setup-head{border-radius:19px;background:linear-gradient(120deg,#292235,#142939);border-color:#5c4257}.coach{border-radius:18px;background:linear-gradient(130deg,#162c35,#152030);border-color:#346473}.coach-filter{display:flex;align-items:center;gap:10px;margin:12px 0;color:#a5c2d0;font-size:11px;flex-wrap:wrap}.tyre-recommendation{border:1px solid #354c5b;background:#13212e;padding:15px;border-radius:15px;margin:12px 0}.tyre-recommendation>div{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px}.tyre-recommendation small{color:#a5b5c5;line-height:1.6;display:block;margin-top:5px;flex-basis:100%}.setup-group{border-radius:16px;background:#121c2b}.setup-group h3{background:#1a2637}.setup-line strong{font-variant-numeric:tabular-nums}.news-card,.panel,.empty{border-radius:18px}.bottom-nav{background:#0e1420f8;backdrop-filter:blur(20px);border-color:#354258;gap:5px;padding-top:10px}.bottom-nav button{min-height:55px;border-radius:12px;font-size:10px;letter-spacing:.3px}.bottom-nav button.active{background:linear-gradient(180deg,#293349,#1e2738);color:#fff}.bottom-nav .nav-icon{display:flex!important;justify-content:center;align-items:center;height:26px;margin-bottom:4px!important}.bottom-nav .nav-icon svg{width:22px;height:22px}.bottom-nav button.active .nav-icon{color:#ff5368}
+@media(max-width:380px){.hero-inner{padding:22px 17px 16px}.hero-foot{gap:6px;font-size:8px}.tyre-options{gap:4px}.tyre-option{min-height:70px}.tyre-circle{width:29px;height:29px;border-width:3px}.track-thumb{width:87px;flex-basis:87px;height:77px}.track-info strong{font-size:15px}.brand .version{display:none}.record-time{font-size:21px}}
+@media(min-width:650px){.hero h1{font-size:68px}.hero{min-height:380px}.hero-inner{padding:38px}.track-thumb{width:125px;flex-basis:125px;height:94px}}
+
+.tagline{letter-spacing:1.4px;white-space:nowrap;font-size:9px}
+.track-thumb,.map-big{position:relative}
+.map-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;color:#91afc966;pointer-events:none}
+.map-placeholder>span{font-size:54px;font-weight:300;line-height:1}
+.map-placeholder small{font-size:8px;letter-spacing:2px;font-weight:900}
+.track-thumb .map-placeholder>span{font-size:31px}
+.track-thumb .map-placeholder small{font-size:6px;letter-spacing:1px}
+.map-big img,.track-thumb img{position:relative;z-index:1}
+.has-map .map-placeholder{display:none}
+
+/* V6 — Live tyre-colour theme. Active only inside a circuit detail. */
+.tyre-theme{--tyre-color:#ffd24f;--tyre-rgb:255,210,79;--tyre-ink:#101724;--tyre-soft:#fff2b0;}
+.tyre-theme-soft{--tyre-color:#ff5368;--tyre-rgb:255,83,104;--tyre-ink:#fff;--tyre-soft:#ffc5cd;}
+.tyre-theme-medium{--tyre-color:#ffd24f;--tyre-rgb:255,210,79;--tyre-ink:#121620;--tyre-soft:#fff1af;}
+.tyre-theme-hard{--tyre-color:#f6f7fb;--tyre-rgb:246,247,251;--tyre-ink:#121620;--tyre-soft:#fff;}
+.tyre-theme-intermediate{--tyre-color:#61e4a2;--tyre-rgb:97,228,162;--tyre-ink:#10251d;--tyre-soft:#b9f7d9;}
+.tyre-theme-wet{--tyre-color:#58a6ff;--tyre-rgb:88,166,255;--tyre-ink:#0c1c31;--tyre-soft:#b7d9ff;}
+.tyre-theme .red-dot,.tyre-theme .tab-row .chip.active{color:var(--tyre-color)}
+.tyre-theme .tab-row .chip.active,.tyre-theme .chip.active{border-color:var(--tyre-color);background:rgba(var(--tyre-rgb),.12);box-shadow:inset 0 0 0 1px rgba(var(--tyre-rgb),.08)}
+.tyre-theme .track-hero{border-color:rgba(var(--tyre-rgb),.35);background:radial-gradient(ellipse at 74% 57%,rgba(var(--tyre-rgb),.09),transparent 65%),#151e2e;transition:background .25s,border-color .25s}
+.tyre-theme .tyre-option.selected{border:2px solid var(--tyre-color);background:rgba(var(--tyre-rgb),.14);box-shadow:0 0 20px rgba(var(--tyre-rgb),.16),inset 0 0 0 1px rgba(var(--tyre-rgb),.13);transform:translateY(-2px);color:var(--tyre-color)}
+.tyre-theme .tyre-option{transition:background .22s,border-color .22s,box-shadow .22s,transform .22s}
+.tyre-live-banner{position:relative;display:flex;align-items:center;gap:15px;overflow:hidden;border-radius:18px;border:1px solid rgba(var(--tyre-rgb),.55);background:linear-gradient(110deg,rgba(var(--tyre-rgb),.20),#101927 73%);padding:17px 15px;margin:12px 0 13px;box-shadow:0 0 30px rgba(var(--tyre-rgb),.07);animation:tyre-appear .26s ease-out}
+.tyre-live-banner::before{content:'';position:absolute;inset:0 auto 0 0;width:4px;background:var(--tyre-color)}
+.tyre-live-orbit{height:66px;width:66px;min-width:66px;display:grid;place-items:center;border:7px solid var(--tyre-color);border-radius:50%;box-shadow:inset 0 0 0 3px #0e1724,0 0 18px rgba(var(--tyre-rgb),.23);color:var(--tyre-color);font-size:25px;font-weight:1000;font-style:italic}
+.tyre-live-info{display:flex;flex-direction:column;gap:5px;min-width:0;flex:1}
+.tyre-live-info small{color:var(--tyre-soft);font-size:9px;letter-spacing:1.1px;font-weight:950}
+.tyre-live-info strong{font-size:27px;letter-spacing:-.9px;line-height:1.05;color:var(--tyre-color);font-style:italic;text-transform:uppercase}
+.tyre-live-info>span{font-size:11px;color:#b9c5d7;line-height:1.35}
+.tyre-live-signal{position:absolute;right:12px;top:12px;font-size:8px;letter-spacing:1px;color:var(--tyre-color);font-weight:900}
+.tyre-theme .selectors{border-color:rgba(var(--tyre-rgb),.28);background:linear-gradient(145deg,rgba(var(--tyre-rgb),.065),#111a2a 56%)}
+.tyre-theme .timing-panel{background:linear-gradient(150deg,rgba(var(--tyre-rgb),.13),#111927 60%);border-color:rgba(var(--tyre-rgb),.55);box-shadow:0 8px 30px rgba(var(--tyre-rgb),.05)}
+.tyre-theme .timing-panel .eyebrow,.tyre-theme .timing-live{color:var(--tyre-color)}
+.tyre-theme .timing-panel .field input:focus{border-color:var(--tyre-color);box-shadow:0 0 0 3px rgba(var(--tyre-rgb),.20)}
+.tyre-theme .total-field input{border-color:var(--tyre-color);color:var(--tyre-soft);box-shadow:inset 0 0 0 1px rgba(var(--tyre-rgb),.16)}
+.tyre-theme .total-field input:read-only{background:rgba(var(--tyre-rgb),.09);color:var(--tyre-soft)}
+.tyre-theme .save-lap{background:var(--tyre-color);color:var(--tyre-ink);box-shadow:0 8px 24px rgba(var(--tyre-rgb),.18);transition:background .22s,box-shadow .22s,transform .22s}
+.tyre-theme .save-lap:active{transform:scale(.99)}
+.tyre-theme .best-grid .mini{border-color:rgba(var(--tyre-rgb),.26)}
+.tyre-theme .best-grid .mini strong{color:var(--tyre-color)}
+.tyre-theme .keyboard-tip{border-color:rgba(var(--tyre-rgb),.32);background:rgba(var(--tyre-rgb),.065)}
+.tyre-theme .keyboard-tip>span,.tyre-theme .keyboard-tip strong{color:var(--tyre-color)}
+.tyre-theme .setup-head{border-color:rgba(var(--tyre-rgb),.48);background:linear-gradient(120deg,rgba(var(--tyre-rgb),.13),#142939 75%)}
+.tyre-theme .setup-group h3>span,.tyre-theme .setup-line strong{color:var(--tyre-color)!important}
+.tyre-theme .coach{border-color:rgba(var(--tyre-rgb),.40)}
+.tyre-theme .coach h3{color:var(--tyre-color)}
+.tyre-theme .tyre-recommendation{border-color:rgba(var(--tyre-rgb),.35)}
+.tyre-theme .tyre-best-list{border-color:rgba(var(--tyre-rgb),.30)}
+.tyre-record-soft{--record-accent:#ff5368;--record-rgb:255,83,104}
+.tyre-record-medium{--record-accent:#ffd24f;--record-rgb:255,210,79}
+.tyre-record-hard{--record-accent:#f6f7fb;--record-rgb:246,247,251}
+.tyre-record-intermediate{--record-accent:#61e4a2;--record-rgb:97,228,162}
+.tyre-record-wet{--record-accent:#58a6ff;--record-rgb:88,166,255}
+.tyre-record-unknown{--record-accent:#a9b6c9;--record-rgb:169,182,201}
+.lap-record[class*="tyre-record-"]{border-left:3px solid var(--record-accent);background:linear-gradient(95deg,rgba(var(--record-rgb),.12),#141c2b 56%)}
+.lap-record[class*="tyre-record-"] .record-time{color:var(--record-accent)}
+@keyframes tyre-appear{from{opacity:.7;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.tyre-live-banner{animation:none}.tyre-theme .tyre-option{transition:none}}
+@media(max-width:390px){.tyre-live-banner{gap:12px;padding:14px 11px}.tyre-live-orbit{width:55px;min-width:55px;height:55px;border-width:6px}.tyre-live-info strong{font-size:23px}.tyre-live-signal{font-size:7px;top:8px;right:8px}}
+
+/* V7 — Setup telemetry and practice/qualifying sessions. */
+.setup-telemetry-section{margin-top:20px;margin-bottom:20px}
+.setup-telemetry-section .section-heading h2{font-size:23px}
+.setup-telemetry-section .tyre-live-banner{margin-top:15px}
+.setup-timing-summary{background:linear-gradient(135deg,rgba(var(--tyre-rgb),.13),#131c2d 67%);border:1px solid rgba(var(--tyre-rgb),.38);border-radius:17px;padding:16px;margin:12px 0 14px}
+.setup-timing-label{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--tyre-color);font-size:10px;font-weight:950;letter-spacing:1px}
+.setup-timing-label span:last-child{font-size:9px;color:#aab9ce;letter-spacing:.5px}
+.setup-time-cards{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
+.setup-time-cards>div{padding:12px 10px;border:1px solid #35465d;border-radius:12px;background:#0d1727;min-width:0}
+.setup-time-cards small,.setup-sector-strip small{display:block;color:#9cacc3;font-size:9px;font-weight:900;letter-spacing:.7px}
+.setup-time-cards strong{display:block;color:var(--tyre-color);font-size:clamp(17px,5vw,26px);font-variant-numeric:tabular-nums;margin-top:6px;letter-spacing:-.4px}
+.setup-sector-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.setup-sector-strip>div{border-radius:10px;background:#111f2d;padding:10px 8px;min-width:0}
+.setup-sector-strip b{display:block;font-size:14px;font-variant-numeric:tabular-nums;color:#dce8fa;margin-top:6px}
+.setup-timing-panel{margin-bottom:8px}
+.saved-lap-meta{color:#9ee7ff;font-weight:850;line-height:1.8}
+@media(max-width:360px){.setup-time-cards strong{font-size:18px}.setup-sector-strip b{font-size:12px}}
+
+/* V8: responsive selected-car showcase */
+.car-showcase{position:relative;isolation:isolate;overflow:hidden;min-height:245px;margin:6px 0 22px;border-radius:18px;border:1px solid color-mix(in srgb,var(--car-main) 46%,#34415b);background:radial-gradient(ellipse at 73% 69%,color-mix(in srgb,var(--car-main) 25%,transparent),transparent 65%),linear-gradient(135deg,#101c2b 5%,color-mix(in srgb,var(--car-deep) 25%,#0b111d) 62%,#080e18 100%);box-shadow:inset 0 1px 0 #ffffff13,0 10px 28px #00000022;}
+.car-showcase:before{content:'';position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--car-main),var(--car-accent),transparent 80%);z-index:2}
+.car-showcase-grid{position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:28px 28px;transform:perspective(220px) rotateX(24deg) scale(1.3);transform-origin:center bottom;mask-image:linear-gradient(transparent 10%,#000 100%);opacity:.6;z-index:-1;}
+.car-showcase-copy{position:relative;z-index:2;padding:18px 19px 0;display:flex;flex-direction:column;align-items:flex-start;gap:5px;pointer-events:none}
+.car-showcase-kicker{font-size:9px;letter-spacing:1.7px;color:#c7d4e7;font-weight:950;display:flex;gap:8px;align-items:center}
+.car-showcase-dot{width:7px;height:7px;border-radius:50%;background:var(--car-accent);box-shadow:0 0 12px var(--car-accent)}
+.car-showcase-copy strong{font-size:clamp(22px,7vw,34px);font-style:italic;font-weight:1000;letter-spacing:-1.3px;color:#fff;text-shadow:0 2px 14px #0007;line-height:1.2}
+.car-showcase-sub{color:#b9c9df;font-size:11px;font-weight:700}
+.car-showcase-image{position:relative;z-index:1;display:block;width:112%;height:164px;object-fit:contain;object-position:center center;margin:-1px -6% -6px;filter:drop-shadow(0 11px 12px #0008);pointer-events:none;user-select:none}
+.car-showcase-bottom{position:relative;z-index:2;display:flex;justify-content:space-between;gap:10px;padding:11px 18px;background:linear-gradient(90deg,#070d17da,#0b1525c9);border-top:1px solid #ffffff1c;font-size:9px;letter-spacing:1.2px;color:#b2c1d4;font-weight:900}
+@media(max-width:390px){.car-showcase{min-height:224px}.car-showcase-image{height:143px}.car-showcase-copy{padding:16px 16px 0}}
+@media(min-width:650px){.car-showcase{min-height:290px}.car-showcase-image{height:210px;width:100%;margin:-8px 0 -12px}}
+
+
+/* V9 — authentic 2025 F1 car photography, editorial cinematic garage */
+.photo-showcase{
+  min-height:278px; height:278px; margin:12px 0 22px;
+  background:radial-gradient(ellipse at 70% 70%,color-mix(in srgb,var(--car-main) 24%,#0b111d),#090d15 74%);
+  border-radius:20px; border:1px solid color-mix(in srgb,var(--car-main) 42%,#354158);
+  box-shadow:0 18px 42px #0005,inset 0 1px 0 #ffffff13;
+}
+.photo-showcase:before{height:3px;z-index:4;}
+.car-photo{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;
+  object-position:center 56%;filter:brightness(.78) contrast(1.12) saturate(1.15);
+  transform:scale(1.015);z-index:0;pointer-events:none;user-select:none;
+  transition:opacity .22s ease-out;}
+.car-photo-shade{position:absolute;inset:0;z-index:1;pointer-events:none;
+ background:linear-gradient(180deg,#080c17ef 0%,#090f1bcf 22%,#0a111b16 45%,#080d1769 78%,#080c16f2 100%),
+ linear-gradient(100deg,#080d179c 0%,transparent 50%),
+ radial-gradient(ellipse at 76% 36%,color-mix(in srgb,var(--car-main) 17%,transparent),transparent 70%);
+}
+.photo-showcase .car-showcase-copy{position:absolute;top:0;left:0;right:0;z-index:3;padding:21px 21px 0;gap:5px;}
+.photo-showcase .car-showcase-kicker{font-size:9px;color:#dce6f7;letter-spacing:1.6px;text-shadow:0 2px 5px #000b;}
+.photo-showcase .car-showcase-copy strong{font-size:clamp(30px,8vw,42px);font-style:normal;font-weight:950;letter-spacing:-1.6px;text-shadow:0 3px 12px #000c;}
+.photo-showcase .car-showcase-sub{color:#dce7f6;font-size:11px;letter-spacing:.5px;text-shadow:0 2px 6px #000e;}
+.car-photo-label{position:absolute;z-index:3;bottom:44px;left:19px;right:19px;display:flex;align-items:end;justify-content:space-between;gap:10px;pointer-events:none;}
+.car-photo-tag{font-size:8px;font-weight:950;letter-spacing:1.35px;color:#e7f0ff;padding:7px 9px;border-radius:6px;border:1px solid #ffffff4b;background:#060c15ac;backdrop-filter:blur(8px);}
+.car-photo-number{font-size:13px;font-style:italic;font-weight:1000;letter-spacing:-1px;color:#fff;text-shadow:0 1px 7px #000;}
+.car-photo-number b{color:var(--car-main);}
+.photo-showcase .car-showcase-bottom{position:absolute;bottom:0;left:0;right:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:38px;padding:8px 14px;
+ background:#080e18ed;border-top:1px solid #ffffff26;font-size:8px;letter-spacing:.25px;}
+.photo-showcase .car-showcase-bottom i{font-style:normal;color:var(--car-main);padding:0 2px;}
+.photo-showcase .car-showcase-bottom a{color:#c8d6e8;text-decoration:underline;text-decoration-color:#c8d6e875;text-underline-offset:3px;white-space:nowrap;font-size:8px;}
+.photo-showcase .car-showcase-bottom span{white-space:normal;}
+.car-no-photo{position:absolute;inset:35% 15% auto;text-align:center;color:#a5b6cc;font-size:13px;z-index:1;}
+.photo-unavailable .car-photo-shade{background:linear-gradient(135deg,#111e31,#090d16 80%)}
+.photo-unavailable .car-photo-label .car-photo-tag{font-size:0}
+.photo-unavailable .car-photo-label .car-photo-tag:before{content:'BILDE KREVER INTERNETT';font-size:8px}
+@media(max-width:390px){.photo-showcase{min-height:246px;height:246px}.photo-showcase .car-showcase-copy{padding:16px 15px 0}.photo-showcase .car-showcase-copy strong{font-size:30px}.car-photo-label{left:14px;right:14px;bottom:44px}.photo-showcase .car-showcase-bottom{padding:7px 10px}.photo-showcase .car-showcase-bottom a{font-size:7px}.photo-showcase .car-showcase-bottom span{font-size:7px}}
+@media(min-width:650px){.photo-showcase{height:320px;min-height:320px}.car-photo{object-position:center 60%}}
+
+
+/* V11 — practice, qualifying and race log, clean racing results */
+.session-best-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:18px 0 20px}
+.session-best-card{background:linear-gradient(145deg,#192538,#101725);border:1px solid #344156;border-radius:16px;padding:14px 11px;min-width:0}
+.session-best-card strong{display:block;font-size:clamp(15px,3.8vw,23px);font-variant-numeric:tabular-nums;letter-spacing:-.7px;margin:12px 0 7px;white-space:nowrap}
+.session-best-card small{font-size:10px;color:var(--muted)}
+.session-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border-radius:8px;border:1px solid #466d81;color:#8de0ff;background:#143347;font-weight:900;font-size:10px;letter-spacing:.3px;white-space:nowrap}
+.session-badge.quali{color:#ffe0a0;background:#42331e;border-color:#927038}
+.session-badge.race{color:#ffb2bb;background:#41202e;border-color:#ad4d62}
+.session-save-indicator{display:flex;align-items:center;gap:10px;margin:12px 0 3px;padding:12px 13px;border:1px solid #34445a;background:#121e2f;border-radius:12px;font-size:12px;color:#b4c5d8}
+.session-save-indicator strong{color:white}
+.record-session{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+.record-session>span:last-child{color:#7e8fa6;font-size:11px}
+.log-filters{display:flex;overflow-x:auto;gap:7px;scrollbar-width:none;padding:6px 0 12px}
+.log-filters::-webkit-scrollbar{display:none}.log-filters .chip{flex:0 0 auto}
+.race-zone{border:1px solid #544355;border-radius:22px;padding:17px;background:radial-gradient(ellipse at top right,#472735aa,transparent 60%),#101723}
+.race-zone-heading .eyebrow{color:#ff8b9e}.race-zone-heading h2{font-size:25px;margin:9px 0}.race-zone-heading p{font-size:13px;color:#acb9cd;line-height:1.55;margin:0 0 12px}
+.race-form{background:#141e2e;border-color:#465169;margin:8px 0 12px}
+.race-input-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 12px}
+.race-status{margin:8px 0 14px}.race-status .chip.active{background:#422431;border-color:#ff7088;color:#fff}
+.race-save{margin-top:18px;background:linear-gradient(120deg,#ff455d,#cc324f);box-shadow:0 6px 28px #ff536820}
+.race-results{margin-top:16px}.race-result-card{background:#121c2b;border:1px solid #34455c;border-radius:16px;padding:15px;margin:10px 0}
+.race-result-top{display:flex;justify-content:space-between;align-items:flex-start}.race-result-top h3{font-size:27px;margin:8px 0 10px}.race-status-pill{font-size:10px;letter-spacing:1px;font-weight:900;color:#ffb5be}
+.race-result-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.race-result-stats span{font-size:10px;color:#92a3bb;background:#0c1420;border-radius:9px;padding:10px 6px}
+.race-result-stats b{display:block;font-size:16px;color:white;margin-top:5px}
+.race-positions{font-size:12px;color:#71e3af;font-weight:800}.race-note{color:#b5c5d9;font-size:12px;line-height:1.6;white-space:pre-wrap}
+.race-result-card>small{display:block;color:#788ba4;font-size:11px;margin-top:10px}.race-history-line,.history-race-count{color:#ffb5be;font-size:12px;margin-top:12px}.race-history-line b{color:white}
+@media(max-width:390px){.session-best-grid{gap:6px}.session-best-card{padding:12px 7px}.session-badge{font-size:9px;padding:5px 6px}.session-best-card strong{font-size:15px}.race-result-stats{gap:4px}.race-result-stats span{font-size:9px;padding:9px 4px}}
+
+/* V12 · Cleaner race weekend UI. Keep pinch zoom, prevent double-tap zoom. */
+html,body,#app,.app-shell,button,a,input,textarea,select,summary{touch-action:manipulation}
+html{-webkit-text-size-adjust:100%}
+.v12-hero{margin:16px 0 18px;border-radius:22px;padding:26px 22px 24px;background:radial-gradient(ellipse at 100% 0%,#85253a70,transparent 66%),linear-gradient(140deg,#1a2435,#111724 80%);border:1px solid #344158;position:relative;overflow:hidden}
+.v12-hero .eyebrow{display:flex;align-items:center;gap:8px;font-size:10px;color:#d3dbe9}
+.v12-hero .eyebrow b{margin-left:auto;border:1px solid #3e4d65;padding:5px 7px;border-radius:7px;color:#9db4d2}
+.v12-hero h1{font-size:clamp(30px,9vw,47px);line-height:1.04;letter-spacing:-1.8px;margin:22px 0 12px;color:#fff;font-weight:950}
+.v12-hero h1 span{display:block;color:#ff4b67}
+.v12-hero p{color:#b2c0d4;font-size:13px;line-height:1.55;margin:0 0 20px}
+.v12-hero-btn{min-height:51px;padding:0 22px;display:inline-flex;align-items:center;gap:30px;font-size:12px;letter-spacing:1px}
+.v12-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:0 0 16px}
+.v12-overview-item{border:1px solid #303e55;background:#141e2d;border-radius:15px;padding:16px 12px;min-width:0}
+.v12-overview-item small{display:block;font-size:9px;letter-spacing:1px;color:#a2b2c8;white-space:nowrap}
+.v12-overview-item strong{display:block;margin-top:10px;font-size:29px;color:#fff;font-weight:900}
+.v12-pb{border:1px solid #346074;border-radius:17px;padding:19px 18px;background:linear-gradient(110deg,#153443,#141e2c);display:flex;align-items:center;justify-content:space-between;margin-bottom:25px}
+.v12-pb>div{display:flex;flex-direction:column;gap:7px;min-width:0}.v12-pb strong{font-size:clamp(28px,8vw,39px);font-variant-numeric:tabular-nums;color:#7de5f6;letter-spacing:-1px}.v12-pb small{color:#a8c5d2;font-size:11px}.v12-pb>span{font-size:25px;color:#74cfdf}
+.v12-home-recent,.v12-home-tracks{margin-bottom:22px}.v12-recent{display:flex;align-items:center;gap:12px;padding:14px 12px;border:1px solid #2e3c52;background:#141d2b;border-radius:13px;margin-top:8px}.v12-recent>div{flex:1;min-width:0}.v12-recent strong{display:block;font-size:13px}.v12-recent small{display:flex;align-items:center;gap:6px;color:#a1b0c6;font-size:10px;margin-top:5px}.v12-recent .session-badge{font-size:9px}.v12-recent>b{font-size:15px;font-variant-numeric:tabular-nums;white-space:nowrap}.v12-empty{padding:20px;border:1px solid #344159;border-radius:14px;color:#a9b9d0;font-size:13px}
+.v12-lap-section .selectors,.setup-telemetry-section{margin-top:12px}.v12-lap-section .car-showcase,.setup-telemetry-section~.car-showcase{min-height:0}.car-showcase{height:205px!important;min-height:205px!important}.car-showcase-copy strong{font-size:28px!important}.car-showcase-bottom{font-size:9px!important}.car-photo-label{display:none!important}
+.v12-session-note{display:flex;align-items:center;gap:10px;margin:15px 0 8px;color:#aabbd1;font-size:11px;line-height:1.4}.v12-session-note .session-badge{flex-shrink:0}
+.v12-lap-section .v12-race-entry{margin-top:14px;padding:18px 16px;border:1px solid #3a4962;background:linear-gradient(160deg,#19253a,#111b2b 65%)}
+.v12-race-heading h2{font-size:23px;margin:6px 0 7px}.v12-race-heading p{font-size:12px;color:#aebed1;line-height:1.55;margin-bottom:19px}
+.v12-race-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.v12-race-entry .field{min-width:0}.v12-race-entry .field input{width:100%;font-size:16px}.v12-best-time{margin:12px 0 20px}.v12-best-time input{font-size:25px!important;font-weight:900;border-color:var(--tyre-color)!important;color:var(--tyre-soft)!important}
+.v12-used-tyres{margin:16px 0 22px}.v12-used-tyres .helper{margin:7px 0 12px}.v12-used-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.v12-used-chip{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:9px 2px;border-radius:11px;border:1px solid #39465d;background:#101827;color:#aab6ca;font-size:9px;min-width:0}.v12-used-chip>span{display:grid;place-items:center;width:27px;height:27px;border-radius:50%;border:3px solid currentColor;font-weight:900;font-size:12px}.v12-used-chip.soft{--compound:#ff5368}.v12-used-chip.medium{--compound:#ffd24f}.v12-used-chip.hard{--compound:#f6f7fb}.v12-used-chip.intermediate{--compound:#61e4a2}.v12-used-chip.wet{--compound:#58a6ff}.v12-used-chip.on{border-color:var(--compound);color:var(--compound);background:color-mix(in srgb,var(--compound) 10%,#101827)}
+.v12-extras{border-top:1px solid #334158;margin:0 0 19px;padding-top:14px}.v12-extras summary{cursor:pointer;font-size:12px;font-weight:800;color:#d6e2f0;padding:7px 0;list-style:none}.v12-extras summary::-webkit-details-marker{display:none}.v12-extras summary span{font-weight:500;color:#91a3ba;font-size:10px}.v12-extras-inner{padding-top:17px}.v12-extras .field{margin-bottom:12px}.v12-extras textarea{font-size:16px}.v12-race-save{min-height:53px;font-size:12px}.v12-autosave-note{text-align:center;margin:12px 0 0}
+.v12-race-results{margin-top:20px}.v12-race-result{border:1px solid #35435b;border-radius:15px;padding:15px;margin-top:10px;background:#141f2e}.v12-race-result-head{display:flex;justify-content:space-between;align-items:center}.v12-race-result-head strong{font-size:24px;font-variant-numeric:tabular-nums}.v12-race-result-head small{display:block;color:#9eb0c7;margin-top:6px;font-size:11px}.v12-race-result-meta{display:flex;flex-wrap:wrap;gap:12px;margin:13px 0;font-size:11px;color:#bdc9db}.v12-race-tyres{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.v12-race-tyres small{font-size:10px;color:#a7b9ce}.v12-records{margin-top:22px}.v12-records .session-best-grid{margin:12px 0 18px}.v12-records .log-filters{margin:14px 0}.v12-records .record{margin-bottom:9px}
+@media(max-width:370px){.v12-used-chip{font-size:8px}.v12-race-grid{gap:7px}.v12-overview-item{padding:12px 9px}.v12-overview-item small{font-size:8px}}
+
+.v12-extras select{background:#0a111e;border:1px solid #374660;border-radius:12px;color:#fff;font-size:16px;min-height:52px;width:100%;padding:12px}
+
+/* ───────────────────────────────────────────────────────────────
+   V13 • PADDOCK EDITION / REFINED DARK GARAGE
+   Cleaner mobile-first visual hierarchy, no double-tap zoom.
+   ─────────────────────────────────────────────────────────────── */
+:root{
+ --bg:#080a0f;--panel:#121620;--panel2:#191e2b;--border:#292f3d;
+ --text:#f7f8fc;--muted:#8c96a8;--red:#ff3855;--cyan:#8fe7ff;
+ --green:#79e6b4;--yellow:#ffd56c;
+}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+html,body,#app,.app-shell,button,a,input,textarea,select,summary{touch-action:manipulation}
+body{
+ background:radial-gradient(ellipse 95% 420px at 50% -180px,#3a1723 0%,transparent 84%),
+ linear-gradient(180deg,#080a0f,#0a0c12 60%,#07080d);
+ color:var(--text);min-height:100dvh;
+ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+}
+button{-webkit-tap-highlight-color:transparent;transition:background-color .18s,border-color .18s,transform .18s,box-shadow .18s}
+button:active{transform:scale(.978)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #ff687e;outline-offset:3px}
+.app-shell{max-width:790px;padding:0 19px 132px;margin:auto}
+.v13-topbar{padding:calc(18px + env(safe-area-inset-top)) 0 21px;gap:8px;align-items:center}
+.v13-topbar .brand{font-size:33px;letter-spacing:-2.2px;display:flex;align-items:baseline;gap:0}
+.v13-topbar .brand .brand-f1{color:#fff;font-weight:1000}
+.v13-topbar .brand .brand-25{color:var(--red);font-weight:1000}
+.v13-topbar .brand .version{position:relative;top:-12px;margin-left:7px;border:1px solid #5b2837;border-radius:4px;background:#311722;color:#ff9aa7;padding:3px 5px;font-size:8px;letter-spacing:.8px;font-weight:950}
+.v13-topbar .tagline{font-size:8px;letter-spacing:2.4px;margin-top:7px;color:#8792a5;font-weight:850}
+.v13-topbar .top-actions{gap:8px}
+.v13-season{border:1px solid #303542;border-radius:11px;padding:7px 11px;background:#131722;min-width:79px;display:flex;flex-direction:column;gap:1px}
+.v13-season span{font-size:8px;letter-spacing:1.3px;font-weight:900;color:#9fa8ba}
+.v13-season select{font-weight:900;color:#fff;font-size:14px;border:0;background:transparent;outline:none;padding:1px 0;min-width:0;appearance:none;-webkit-appearance:none}
+.v13-season option{color:#fff;background:#10131b}
+.v13-settings{border-radius:11px;background:#141924;border-color:#303642;font-size:20px;width:43px;height:43px}
+.season-heading,.season-strip{display:none!important}
+/* Reusable typography */
+.section{margin-top:28px}.section-heading{margin-bottom:13px;gap:10px;align-items:end}
+.section h2,.section-heading h2{font-size:clamp(22px,5.8vw,30px);letter-spacing:-1.2px;font-weight:950;line-height:1.12;margin:7px 0 0}
+.v13-eyebrow{font-size:9px;font-weight:950;letter-spacing:2px;color:#9ba5b6}
+.eyebrow{font-size:10px;letter-spacing:1.5px;font-weight:900}
+.red-dot{color:var(--red)}
+.sub{color:#a5aebe;font-size:13px;line-height:1.65}
+.text-link{background:transparent;border:0;color:#ff7186;font-size:10px;font-weight:950;letter-spacing:1.2px;white-space:nowrap;padding:10px 0}
+.label{font-size:10px;letter-spacing:1.4px;color:#a6b0c1}
+/* Homepage hero */
+.v13-hero{position:relative;isolation:isolate;overflow:hidden;border-radius:23px;border:1px solid #663042;background:linear-gradient(135deg,#28121e 0%,#17111b 42%,#10131d 100%);box-shadow:0 18px 44px #0006, inset 0 1px 0 #ffffff17}
+.v13-hero:before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 92% 30%,#ff375a36,transparent 57%),linear-gradient(130deg,#ff5c750b,transparent 56%);z-index:-1}
+.v13-hero:after{content:'';position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff07 1px,transparent 1px);background-size:30px 30px;mask-image:linear-gradient(90deg,transparent 30%,#000);z-index:-1;opacity:.75}
+.v13-hero-art{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.v13-watermark{position:absolute;right:-19px;top:32px;font-size:clamp(180px,54vw,340px);line-height:.95;letter-spacing:-33px;font-style:italic;font-weight:1000;color:#ffffff09;transform:rotate(-9deg)}
+.v13-speedline{position:absolute;right:-30%;width:100%;height:2px;background:linear-gradient(90deg,transparent,#ff4c6666,transparent);transform:rotate(-27deg);filter:blur(.3px)}
+.v13-speedline.a{top:20%}.v13-speedline.b{top:45%;opacity:.5}.v13-speedline.c{top:70%;opacity:.3}
+.v13-hero-inner{position:relative;padding:29px 23px 25px;z-index:1}
+.v13-hero-eyebrow{display:flex;align-items:center;gap:9px;color:#f6c9d2;font-size:9px;letter-spacing:1.45px;font-weight:900}
+.v13-live-dot{display:inline-block;width:7px;height:7px;flex:0 0 7px;background:#ff4764;border-radius:50%;box-shadow:0 0 0 4px #ff476425,0 0 14px #ff47646b}
+.v13-version{margin-left:auto;border:1px solid #b34d6580;background:#3b1b2a9c;padding:5px 7px;border-radius:6px;color:#ff9aaa;font-size:9px}
+.v13-hero h1{margin:24px 0 12px;font-size:clamp(39px,11.5vw,71px);line-height:.98;letter-spacing:-2.8px;font-weight:1000;color:#fff;font-style:italic;text-shadow:0 5px 20px #0005}
+.v13-hero h1 em{font-style:italic;color:#ff4b67}
+.v13-hero p{color:#b9becb;font-size:13px;line-height:1.65;margin:0 0 23px}
+.v13-hero-actions{display:flex;gap:9px;flex-wrap:wrap}
+.v13-cta{border-radius:12px;padding:15px 18px;min-height:49px;background:linear-gradient(110deg,#ff3c5a,#e82346);box-shadow:0 9px 25px #ff33502e;display:flex;align-items:center;justify-content:space-between;gap:24px;font-size:11px;letter-spacing:1px}
+.v13-cta span{font-size:17px}
+.v13-hero-secondary{border:1px solid #ffffff32;background:#ffffff0a;border-radius:12px;color:#f3dbe1;font-weight:900;font-size:10px;letter-spacing:.8px;padding:12px 14px;min-height:49px}
+.v13-hero-foot{display:flex;justify-content:space-between;gap:8px;align-items:center;border-top:1px solid #ffffff1d;padding:13px 21px;color:#aab0bf;font-size:8px;letter-spacing:1.15px;font-weight:850;background:#070b1299}
+.v13-hero-foot b{color:#fff;font-size:12px;margin-right:4px}
+/* Slim, unified stat bar */
+.v13-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:14px 0 17px;border:1px solid #303542;border-radius:16px;background:linear-gradient(130deg,#161a24,#10141d);overflow:hidden}
+.v13-metrics>div{padding:15px 10px 13px;text-align:center;min-width:0}
+.v13-metrics>div+div{border-left:1px solid #303542}
+.v13-metrics small{display:block;font-size:8px;font-weight:900;letter-spacing:.65px;color:#919aac;min-height:23px}
+.v13-metrics strong{display:block;font-size:26px;font-weight:950;letter-spacing:-1px;color:#f4f6fc;margin-top:5px;font-variant-numeric:tabular-nums}
+/* Last lap as hero telemetry */
+.v13-last{position:relative;overflow:hidden;background:linear-gradient(115deg,#12252d,#101b25 75%,#10151f);border:1px solid #3a6c73;border-radius:18px;padding:20px 19px 0;box-shadow:inset 0 1px 0 #ffffff0e}
+.v13-last:before{content:'';position:absolute;right:-30px;top:-30px;width:180px;height:180px;border-radius:50%;border:27px solid #8de9ff06;pointer-events:none}
+.v13-last-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.v13-last-head .session-badge{font-size:9px}
+.v13-last-time{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:13px 0 9px;font-size:clamp(35px,9vw,52px);line-height:1;letter-spacing:-2px;color:#98ecfa;font-weight:950;font-variant-numeric:tabular-nums}
+.v13-last-time>span{font-size:10px;letter-spacing:.6px;border:1px solid #4c777a;border-radius:8px;color:#a8e6d8;padding:7px 8px;font-weight:950;white-space:nowrap}
+.v13-last-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;color:#c6d5de;padding-bottom:16px}
+.v13-last-meta .tyre-tag{font-size:9px;padding:5px 7px}
+.v13-last-open{width:calc(100% + 38px);margin:0 -19px;padding:13px 19px;background:#ffffff0b;border:0;border-top:1px solid #ffffff1c;color:#a3ebf3;font-size:10px;font-weight:950;letter-spacing:1.3px;text-align:left;display:flex;justify-content:space-between}
+.v13-first{padding-top:24px}.v13-first h2{font-size:22px;letter-spacing:-.7px;margin:12px 0 8px}.v13-first p{color:#a9c4d1;font-size:13px;margin-bottom:20px}
+/* Last rounds - clean single-line log */
+.v13-recent-row{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:1px solid #2d3442;border-radius:13px;background:linear-gradient(125deg,#171c29,#111720);padding:13px 13px;color:var(--text);margin:8px 0;min-height:68px}
+.v13-recent-compound{display:grid;place-items:center;flex:0 0 33px;width:33px;height:33px;border:4px solid #f3f3f3;border-radius:50%;font-size:12px;font-weight:950;color:#fff;background:#0e1219}
+.v13-recent-compound.soft{border-color:#ff516b;color:#ff7186}.v13-recent-compound.medium{border-color:#ffda54;color:#ffda54}.v13-recent-compound.hard{border-color:#f3f6fa;color:#f3f6fa}.v13-recent-compound.intermediate{border-color:#62e6a7;color:#62e6a7}.v13-recent-compound.wet{border-color:#62a5ff;color:#62a5ff}
+.v13-recent-name{display:block;flex:1;min-width:0}
+.v13-recent-name strong{display:block;font-size:13px;font-weight:850;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v13-recent-name small{display:block;margin-top:5px;color:#9ca7b8;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v13-recent-value{text-align:right;flex:0 0 auto;font-weight:900;font-size:14px;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
+.v13-recent-value small{display:block;margin-top:5px;color:#ff6c85;font-size:10px}
+/* Track cards and search */
+.track-card{background:linear-gradient(120deg,#191e2c,#121720);border-color:#30384b;border-radius:17px;padding:12px;margin:9px 0;box-shadow:0 6px 20px #00000020}
+.track-thumb{background:radial-gradient(circle at 50% 50%,#222b3d,#0c121b);border:1px solid #2f394b;border-radius:12px}
+.track-info strong{font-weight:900;letter-spacing:-.4px}
+.track-info em{color:#92ddec}
+.track-arrow{color:#ff7186}
+.search-wrap .search{border-radius:13px;background:#111823;border-color:#333b4d}
+/* Track detail / tab bar */
+.v13-back{color:#b8c6d8;letter-spacing:1px;font-size:11px;margin-top:9px;padding-bottom:10px}
+.v13-track-hero{margin-top:6px;padding:21px 20px 0;background:radial-gradient(ellipse at 80% 18%,#64223736,transparent 70%),linear-gradient(135deg,#171c29,#10151f);border-color:#3b3e4e;border-radius:20px;overflow:hidden}
+.v13-track-hero .overline{font-size:10px;margin:11px 0 5px;color:#ff7e94}
+.v13-track-hero h1{font-size:clamp(28px,8vw,43px);letter-spacing:-1.4px;margin:5px 0 0;line-height:1.1}
+.v13-track-hero .map-big{height:170px;margin-top:8px}
+.v13-track-hero .map-big img{max-height:160px;filter:drop-shadow(0 7px 14px #0005)}
+.v13-track-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 -20px;padding:13px 20px;background:#0c111b;border-top:1px solid #303747;color:#9faabc;font-size:9px;letter-spacing:.7px;font-weight:900}
+.v13-track-foot strong{display:block;font-size:15px;color:#8ce8fa;margin-top:4px;font-variant-numeric:tabular-nums}
+.v13-tabs{margin:15px 0 20px;padding:4px;border:1px solid #30394b;border-radius:13px;background:#121722;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;overflow:visible}
+.v13-tabs .v13-tab{padding:12px 3px;min-width:0;border:0;border-radius:9px;background:transparent;color:#929eb2;font-size:12px;font-weight:850}
+.v13-tabs .v13-tab.active{color:#fff;background:linear-gradient(125deg,#e83b55,#c52b46);box-shadow:0 4px 14px #ff3b532c}
+/* Form / race control */
+.panel,.setup-group,.record,.empty,.coach,.notice,.news-card{background:linear-gradient(145deg,#171c29,#111720);border:1px solid #30394a;border-radius:18px}
+.panel{padding:17px;margin:11px 0}
+.v13-selectors{padding:18px 15px 15px;border:1px solid #353d4d;background:linear-gradient(135deg,#191f2c,#111720);border-radius:18px}
+.v13-panel-heading{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:17px}
+.v13-panel-heading h3{margin:6px 0 0;font-size:20px;font-weight:950;letter-spacing:-.7px}
+.v13-control-indicator{border:1px solid #305e50;background:#143024;color:#9ae8c5;font-size:9px;font-weight:900;letter-spacing:.7px;border-radius:30px;padding:8px 9px;white-space:nowrap}
+.v13-control-indicator i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#79e6b4;margin-right:5px}
+.v13-car-field select{display:block;width:100%;min-height:49px;border-radius:11px;border:1px solid #414b5e;background:#0d141f;color:#fff;font-size:15px;font-weight:850;padding:10px 13px;margin:9px 0 0}
+.v13-selectors .car-showcase{height:190px!important;min-height:190px!important;margin:13px 0 17px;border-radius:14px;border-color:#435063}
+.v13-selectors .photo-showcase .car-showcase-copy{padding:15px 16px 0}
+.v13-selectors .photo-showcase .car-showcase-copy strong{font-size:25px!important}
+.v13-selectors .car-showcase-bottom{min-height:31px;padding:6px 11px}
+.v13-session-field{margin:12px 0 18px}
+.v13-session-switch{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:4px;background:#0c111a;border:1px solid #343d50;border-radius:12px;margin-top:9px}
+.v13-session-button{min-width:0;min-height:42px;background:transparent;border:0;color:#a2adbe;font-weight:850;font-size:11px;border-radius:9px;padding:9px 3px}
+.v13-session-button.selected{background:#f03d57;color:#fff;box-shadow:0 4px 15px #ff435525}
+.v13-selectors .v13-session-switch:has(button:nth-child(2):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
+.v13-weather-field{margin-bottom:18px}
+.v13-weather-switch{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}
+.v13-weather-switch .chip{min-height:41px;border-radius:10px;font-size:12px;padding:9px}
+.chip{border-color:#3a4355;border-radius:11px;background:#171e2b;color:#acb5c6}
+.chip.active{border-color:#ff4e6c;background:#4c2031;color:#fff}
+.tyre-select{margin-top:12px}.tyre-options{gap:6px}.tyre-option{border-radius:12px}
+.tyre-live-banner{border-radius:13px}
+.field input,.field select,.field textarea,.search{background:#0d131e;border:1px solid #394457;border-radius:11px;color:#f8faff;min-height:46px;font-size:16px}
+.field input::placeholder,.field textarea::placeholder{color:#6f7d93}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#ff5c76;box-shadow:0 0 0 3px #ff50611d}
+.timing-panel{border:1px solid #354257;background:linear-gradient(130deg,#171e2b,#111824);padding:18px 15px}
+.total-field input{font-size:24px;font-weight:950;letter-spacing:-.7px;color:#92e9fa;border-color:#47717d}
+.primary{border-radius:12px;background:linear-gradient(115deg,#ff425d,#dd284a);box-shadow:0 8px 20px #f32d4824}
+.secondary,.ghost{border-radius:11px}
+.save-lap,.v12-race-save{min-height:52px;font-size:12px;letter-spacing:.7px}
+.v12-race-entry{border-color:#493849!important;background:radial-gradient(ellipse at 95% 0%,#64243a65,transparent 55%),linear-gradient(150deg,#1c1b2a,#111722)!important;border-radius:18px!important}
+.v12-race-heading h2{font-size:25px;letter-spacing:-.8px}
+.v12-best-time input{color:#fff!important;background:#0d141f!important;border-color:#f2546a!important;font-variant-numeric:tabular-nums}
+.v12-used-chip{min-height:61px;border-radius:11px}
+.v12-extras{border-color:#414459}.v12-extras summary{font-size:13px;color:#e2e6f0}
+.v12-race-result{border-radius:13px;background:#151c29}
+.session-best-grid{gap:7px;margin:15px 0}
+.session-best-card{padding:12px 9px;border-radius:12px;background:#151c28;border-color:#343d4c}
+.session-best-card strong{font-size:clamp(14px,3.9vw,21px);letter-spacing:-.4px;margin:11px 0 7px}
+.session-best-card small{font-size:9px}
+.session-badge{border-radius:6px;font-size:9px;padding:5px 7px}
+.record{border-radius:12px}.record-time{font-variant-numeric:tabular-nums}
+/* Race, setup and history cards */
+.setup-head{border-radius:17px;border-color:#453848;background:linear-gradient(120deg,#261923,#151b2a)}
+.setup-head h2{font-size:26px;letter-spacing:-1px}
+.setup-group{border-radius:13px}.setup-group h3{font-size:14px}.setup-line strong{font-variant-numeric:tabular-nums}
+.coach{border-color:#315968;background:linear-gradient(135deg,#132832,#151c2a)}
+.news-card{border-radius:13px}
+/* Navigation: refined glassy dock, comfortable touch targets */
+.bottom-nav{left:0;right:0;bottom:0;z-index:10;gap:4px;padding:9px max(10px,env(safe-area-inset-right)) calc(9px + env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));background:#0b0e17f5;border-top:1px solid #33394a;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 -12px 35px #0005}
+.bottom-nav button{min-height:59px;border-radius:12px;font-size:10px;letter-spacing:.1px}
+.bottom-nav button.active{background:linear-gradient(135deg,#302233,#211e2b);color:#fff;border:1px solid #5b3a4c}
+.bottom-nav button .nav-icon{margin-bottom:5px}.bottom-nav button .nav-icon svg{width:24px;height:24px}
+.bottom-nav button.active .nav-icon{color:#ff526d}
+.footer{font-size:10px;color:#737e91;margin-top:34px}
+@media(min-width:650px){.app-shell{padding-left:30px;padding-right:30px}.v13-hero-inner{padding:42px 34px 32px}.v13-hero-foot{padding:17px 34px}.v13-metrics strong{font-size:33px}.v13-track-hero .map-big{height:230px}.v13-track-hero .map-big img{max-height:220px}.v13-selectors .car-showcase{height:245px!important;min-height:245px!important}}
+@media(max-width:375px){.app-shell{padding-left:13px;padding-right:13px}.v13-topbar .brand{font-size:29px}.v13-topbar .tagline{letter-spacing:1.6px;font-size:7px}.v13-hero-inner{padding:23px 18px}.v13-hero h1{font-size:40px}.v13-hero-foot{padding:12px 15px}.v13-metrics small{font-size:7px}.v13-metrics strong{font-size:23px}.v13-recent-row{gap:8px;padding:11px 9px}.v13-recent-value{font-size:13px}.v13-last-time{font-size:34px}.v13-selectors .car-showcase{height:175px!important;min-height:175px!important}.session-best-card{padding:11px 6px}.session-best-card strong{font-size:13px}.session-badge{font-size:8px;padding:5px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* V14 / race photo scanner */
+.v14-scan{margin:18px 0;border:1px solid rgba(116,164,194,.24);border-radius:18px;background:linear-gradient(145deg,rgba(16,32,45,.95),rgba(11,15,25,.97));overflow:hidden}
+.v14-scan>summary{list-style:none;display:flex;align-items:center;gap:13px;cursor:pointer;padding:19px 16px;min-height:82px}
+.v14-scan>summary::-webkit-details-marker{display:none}
+.v14-scan>summary strong{display:block;font-size:16px;color:#f6f9fd;line-height:1.3}
+.v14-scan>summary small{display:block;color:#9eabbc;font-size:12px;margin-top:5px;line-height:1.45}
+.v14-scan-symbol{display:grid;place-items:center;flex:none;width:42px;height:42px;border-radius:12px;background:rgba(51,219,233,.12);color:#6ae4f1;font-size:25px}
+.v14-scan-chevron{margin-left:auto;color:#8ba6b8;font-size:24px}
+.v14-scan[open] .v14-scan-chevron{transform:rotate(180deg)}
+.v14-scan-content{border-top:1px solid rgba(255,255,255,.08);padding:17px 14px 19px}
+.v14-scan-buttons{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:15px 0}
+.v14-scan-buttons button{font-size:13px;padding:13px 8px;min-width:0}
+.v14-hidden-file{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.v14-file-count{font-size:11px;font-weight:850;letter-spacing:.12em;color:#8ea8ba;margin:8px 0}
+.v14-scan-gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin:12px 0}
+.v14-scan-photo{position:relative;aspect-ratio:3/4;border:1px solid rgba(255,255,255,.18);border-radius:9px;overflow:hidden;background:#0b111d}
+.v14-scan-photo img{width:100%;height:100%;object-fit:cover}
+.v14-scan-photo button{position:absolute;top:3px;right:3px;background:#d83552;color:#fff;border:0;border-radius:50%;width:24px;height:24px;padding:0;font-size:13px}
+.v14-scan-photo small{position:absolute;bottom:3px;left:4px;background:#050b13bd;border-radius:4px;padding:1px 5px}
+.v14-scan-run{margin-top:12px;font-weight:950;letter-spacing:.09em}
+.v14-scan-status{color:#90dce8;font-size:12px;line-height:1.5;min-height:20px;margin:10px 0}
+.v14-review{margin-top:20px;border-top:1px solid rgba(255,255,255,.12);padding-top:17px}
+.v14-review-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.v14-review-heading h3{font-size:19px;margin:5px 0}
+.v14-review-heading button{font-size:12px;padding:9px}
+.v14-review-table{overflow-x:auto;margin-top:12px}
+.v14-review-header,.v14-review-row{display:grid;grid-template-columns:55px minmax(96px,1fr) minmax(86px,1fr) 25px;gap:6px;align-items:center}
+.v14-review-header{font-size:10px;font-weight:800;letter-spacing:.09em;color:#94a6b9;padding:0 0 7px}
+.v14-review-row{padding:5px 0;border-top:1px solid rgba(255,255,255,.07)}
+.v14-review-row input,.v14-review-row select{width:100%;min-width:0;padding:10px 6px;background:#0c1521;color:#f4f8fb;border:1px solid rgba(129,159,186,.35);border-radius:8px;font-size:14px;min-height:43px}
+.v14-review-row input:focus,.v14-review-row select:focus{outline:2px solid #48c8de}
+.v14-row-remove{background:none;border:0;color:#fc7a90;font-size:19px;padding:4px}
+.v14-tyre-best{border-radius:12px;background:rgba(8,18,29,.9);padding:13px;margin-top:16px}
+.v14-tyre-line{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:10px;flex-wrap:wrap}
+.v14-tyre-line b{font-size:16px;font-variant-numeric:tabular-nums}
+.v14-tyre-line small{color:#a7b6c4}
+.v14-save-help{font-size:12px;color:#93c4ce;line-height:1.5;margin-top:14px}
+.v14-raw{margin-top:10px}.v14-raw pre{white-space:pre-wrap;word-break:break-word;max-height:220px;overflow:auto;font-size:11px}
+.v14-saved-best{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.v14-saved-best span{border:1px solid #344557;border-radius:8px;padding:6px 8px;font-size:11px}
+@media(max-width:360px){.v14-review-header,.v14-review-row{grid-template-columns:45px minmax(88px,1fr) minmax(75px,1fr) 22px;gap:4px}.v14-review-row input,.v14-review-row select{font-size:12px;padding:8px 4px}}
+
+/* V15: photo scan lives in Racerunder, before the result form */
+.v15-race-flow{display:flex;flex-direction:column;gap:0;margin-top:15px}
+.v15-stage-heading{display:flex;align-items:flex-start;gap:13px;margin:18px 0 10px}
+.v15-stage-heading h2{font-size:clamp(23px,6vw,32px);line-height:1.15;letter-spacing:-.045em;margin:5px 0 8px}
+.v15-stage-heading p{font-size:13px;line-height:1.65;color:#a4afbe;margin:0;max-width:44ch}
+.v15-stage-number{width:39px;height:39px;flex:none;display:grid;place-items:center;border:1px solid #ef3d50;border-radius:12px;background:#ee2e4818;color:#ff5a6b;font-weight:950;font-size:16px}
+.v15-stage-second{margin-top:26px}
+.v15-race-flow>.v14-scan{margin:5px 0 12px;box-shadow:0 15px 30px #00000035}
+.v15-race-flow>.v14-scan>summary{background:linear-gradient(90deg,#0d2630,#121822)}
+.v15-scan-result{padding:18px;border:1px solid #246c65;border-radius:16px;background:linear-gradient(115deg,#092820,#0b1820);display:flex;flex-direction:column;gap:9px}
+.v15-scan-result>span{color:#86dac9;font-size:10px;font-weight:850;letter-spacing:.13em}
+.v15-scan-result>strong{font-size:clamp(28px,8vw,41px);letter-spacing:-.06em;line-height:1.15;font-variant-numeric:tabular-nums}
+.v15-scan-result>div{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.v15-scan-result small{color:#a7bdc4}
+.v15-no-scan{font-size:12px;line-height:1.55;color:#a9b5c2;background:#111822;border:1px solid #273343;border-radius:13px;padding:13px 14px}
+.v15-result-entry{margin:0}
+.v15-auto-note{font-size:12px;line-height:1.55;color:#a0e6cc;border-radius:10px;background:#133328;border:1px solid #245b4b;padding:11px 13px}
+.v15-race-flow .v14-scan-run{min-height:52px}
+.v15-race-flow .v14-review-row input,.v15-race-flow .v14-review-row select{min-width:0}
+.v15-race-flow .v14-scan-gallery{margin-bottom:18px}
+@media(max-width:390px){.v15-stage-heading{gap:10px}.v15-stage-number{width:34px;height:34px}.v15-race-flow .v14-scan-content{padding:12px 10px}}
+
+/* V18 – compact optional sector review */
+.v18-sectors{margin:15px 0;border:1px solid rgba(139,163,190,.22);border-radius:15px;padding:12px;background:rgba(9,15,27,.45)}
+.v18-sectors>summary{cursor:pointer;font-weight:750;color:#bdeeff;list-style:none;padding:5px 2px}
+.v18-sectors>summary::before{content:'▸ ';color:#68d6f5}.v18-sectors[open]>summary::before{content:'▾ '}
+.v18-sector-row{display:grid;grid-template-columns:70px repeat(3,minmax(0,1fr));gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(140,165,190,.13)}
+.v18-sector-row strong{font-size:12px}.v18-sector-row label{font-size:10px;color:#9db4c8;display:flex;flex-direction:column;gap:4px}.v18-sector-row input{width:100%;min-width:0;font-size:13px;padding:9px 5px;border-radius:8px}
+
+.v21-best-tyre{margin-top:17px}.v21-best-tyre select{width:100%;background:#0b1422;border:1px solid #39465d;border-radius:12px;color:#f5f7fc;min-height:49px;padding:10px 12px;font-size:16px}.v21-best-tyre .helper{margin-top:8px}
+/* V22: full keyboard and readable sector editing on narrow iPhones */
+.v18-sectors-scroll{overflow:visible;max-width:100%}
+.v18-sector-row{grid-template-columns:1fr 1fr 1fr;gap:9px;min-width:0}
+.v18-sector-row>strong{grid-column:1/-1;font-size:12px;color:#d9edfb;margin:0 0 1px}
+.v18-sector-row label{min-width:0;font-size:11px;letter-spacing:.03em}
+.v18-sector-row input{width:100%;min-width:0;min-height:46px;font-size:16px;padding:10px 7px;color:#f5f8ff;background:#0c1521;border:1px solid #51627b}
+.v18-sector-row input:focus{border-color:#ff435b;outline:2px solid #ff435b;outline-offset:1px}
+.v22-sector-tip{font-size:12px;color:#a9bdcf;line-height:1.55;margin:8px 0 0}
+
+/* V24: mark incomplete OCR rows for review, never invent a value */
+.v24-review-needed{box-shadow:inset 3px 0 0 #f0c454;background:rgba(240,196,84,.055)}
+.v24-review-needed input:placeholder-shown{border-color:#c9a247}
+
+/* V25 review: avoid losing the reason a lap cannot be saved. */
+.v25-sector-warn{color:#f4b94d;font-size:.75em;font-weight:600}
+.v26-review-note{grid-column:1/-1;color:#f5c26b;font-size:12px;padding:2px 6px 6px;line-height:1.45}
+.v26-estimated{border-color:#e6b957!important;box-shadow:0 0 0 1px rgba(230,185,87,.32)}
+.v26-fix-note{display:block;color:#f5c26b;font-size:12px;margin-top:5px}
+.v18-sector-row strong{display:block;margin-bottom:12px}
+
+/* V27: OCR-free import from a verified results file. */
+.v27-direct{margin:14px 0 20px;padding:18px;border:1px solid #396c77;border-radius:18px;background:linear-gradient(130deg,#0d2a31,#121827 72%)}
+.v27-direct h3{font-size:20px;line-height:1.2;margin:0 0 7px;color:#e7f9ff}
+.v27-direct p{color:#a9c4ce;font-size:14px;line-height:1.55;margin:0 0 14px}
+.v27-direct input[type=file]{width:100%;max-width:100%;font-size:15px;color:#d8edf2;padding:12px;border:1px dashed #5b8493;border-radius:12px;background:#0b1823}
+.v27-direct textarea{width:100%;min-height:108px;resize:vertical;font-size:14px;line-height:1.5;color:#f5f9ff;background:#0c1521;border:1px solid #56687d;border-radius:12px;padding:12px;margin:10px 0}
+.v27-direct button{margin-top:12px}
+.v27-direct details{margin-top:10px}
+.v27-direct summary{color:#c0e6ed;cursor:pointer;font-size:14px}
+.v27-import-status{color:#b5f0c3;font-size:13px;line-height:1.5;margin:12px 0 0}
+</style>
+</head>
+<body>
+<div id="app"><div class="boot">F1<span>25</span><small>LAP TRACKER</small></div></div>
+<script>
+// If initialization fails, show a readable explanation rather than a white screen.
+window.addEventListener('error', function(event){
+  if (!document.querySelector('.v20-boot-error')) {
+    var box=document.createElement('div');box.className='v20-boot-error';
+    box.style.cssText='position:fixed;inset:16px;z-index:99999;background:#111927;color:white;border:1px solid #f14662;border-radius:18px;padding:24px;overflow:auto;font:16px/1.5 system-ui';
+    box.textContent='Appen fikk en oppstartsfeil. Prøv å oppdatere siden. Dine lagrede rundetider er ikke slettet.';
+    document.body.appendChild(box);
+  }
+});
+</script>
+<script>
+const TRACKS = [{"id":"albert_park","name":"Albert Park","country":"Australia","flag":"🇦🇺","style":"balanced","description":"Raske retningsendringer og flere harde bremsesoner."},{"id":"shanghai","name":"Shanghai","country":"Kina","flag":"🇨🇳","style":"balanced","description":"Lang baklangside og tekniske svinger."},{"id":"suzuka","name":"Suzuka","country":"Japan","flag":"🇯🇵","style":"corners","description":"Raske svingkombinasjoner og behov for stabil bil."},{"id":"bahrain","name":"Bahrain","country":"Bahrain","flag":"🇧🇭","style":"balanced","description":"Trekkraft ut av langsomme svinger er viktig."},{"id":"jeddah","name":"Jeddah","country":"Saudi-Arabia","flag":"🇸🇦","style":"speed","description":"Svært rask gatebane med presise svinger."},{"id":"miami","name":"Miami","country":"USA","flag":"🇺🇸","style":"balanced","description":"Blanding av raske partier og langsom sjikane."},{"id":"imola","name":"Imola","country":"Italia","flag":"🇮🇹","style":"corners","description":"Kerbs, retningsendringer og god balanse."},{"id":"monaco","name":"Monaco","country":"Monaco","flag":"🇲🇨","style":"corners","description":"Maks grep og presisjon i trange svinger."},{"id":"catalunya","name":"Barcelona-Catalunya","country":"Spania","flag":"🇪🇸","style":"balanced","description":"God test av balanse og dekkslitasje."},{"id":"villeneuve","name":"Circuit Gilles-Villeneuve","country":"Canada","flag":"🇨🇦","style":"speed","description":"Lange rettstrekninger og harde nedbremsinger."},{"id":"red_bull_ring","name":"Red Bull Ring","country":"Østerrike","flag":"🇦🇹","style":"speed","description":"Kort runde med høydeendringer og viktige utganger."},{"id":"silverstone","name":"Silverstone","country":"Storbritannia","flag":"🇬🇧","style":"corners","description":"Høy fart gjennom raske svingkombinasjoner."},{"id":"spa","name":"Spa-Francorchamps","country":"Belgia","flag":"🇧🇪","style":"balanced","description":"Lang runde med høy fart, høydeendringer og raske svinger."},{"id":"hungaroring","name":"Hungaroring","country":"Ungarn","flag":"🇭🇺","style":"corners","description":"Mange svinger og få lange rettstrekninger."},{"id":"zandvoort","name":"Zandvoort","country":"Nederland","flag":"🇳🇱","style":"corners","description":"Doserte svinger og kontinuerlig rytme."},{"id":"monza","name":"Monza","country":"Italia","flag":"🇮🇹","style":"speed","description":"Lav luftmotstand og god stabilitet under bremsing."},{"id":"baku","name":"Baku","country":"Aserbajdsjan","flag":"🇦🇿","style":"speed","description":"Svært lang rettstrekning og trange gatepartier."},{"id":"marina_bay","name":"Marina Bay","country":"Singapore","flag":"🇸🇬","style":"corners","description":"Mange langsomme svinger og høy belastning."},{"id":"americas","name":"Circuit of the Americas","country":"USA","flag":"🇺🇸","style":"balanced","description":"Høydeforskjeller, raske S-svinger og hard bremsing."},{"id":"rodriguez","name":"Hermanos Rodríguez","country":"Mexico","flag":"🇲🇽","style":"balanced","description":"Lang rettstrekning og teknisk stadionparti."},{"id":"interlagos","name":"Interlagos","country":"Brasil","flag":"🇧🇷","style":"balanced","description":"Korte sektorer med variasjon og høydeforskjell."},{"id":"vegas","name":"Las Vegas","country":"USA","flag":"🇺🇸","style":"speed","description":"Høy toppfart og tunge bremsesoner."},{"id":"losail","name":"Lusail","country":"Qatar","flag":"🇶🇦","style":"corners","description":"Raske svinger som krever stabil front."},{"id":"yas_marina","name":"Yas Marina","country":"Abu Dhabi","flag":"🇦🇪","style":"balanced","description":"Balanse mellom rettstrekninger og langsomme svinger."}];
+const DRY_BASE = {"albert_park":[23,17,90,35,41,4,12,11,21,48,54,29.5,21.3],"shanghai":[29,23,90,25,37,1,1,8,22,45,54,26.0,22.0],"suzuka":[31,12,100,20,41,1,1,15,22,41,54,29.5,21.7],"bahrain":[27,23,100,30,41,10,9,16,21,46,54,26.5,21.1],"jeddah":[12,6,100,20,41,10,15,10,20,44,54,26.5,21.6],"miami":[12,10,100,35,41,5,9,12,21,46,55,29.0,21.3],"imola":[37,32,90,50,40,3,11,19,23,50,54,24.2,21.3],"monaco":[50,50,90,30,39,15,8,8,22,49,54,22.7,20.5],"catalunya":[36,31,100,30,40,2,6,10,20,47,54,29.5,20.9],"villeneuve":[23,19,100,35,38,8,8,11,22,48,54,28.8,21.5],"red_bull_ring":[22,16,100,30,40,4,6,8,22,47,55,29.5,21.9],"silverstone":[20,17,100,25,41,3,10,18,21,44,54,29.5,22.4],"spa":[6,1,100,30,40,1,5,20,22,40,54,27.6,26.5],"hungaroring":[50,47,100,25,41,4,9,18,21,44,54,27.0,23.0],"zandvoort":[47,41,100,20,41,1,8,20,22,42,51,29.5,20.9],"monza":[0,0,90,30,39,4,10,15,22,48,55,29.5,22.0],"baku":[10,7,100,30,41,5,10,14,21,45,54,28.5,21.5],"marina_bay":[50,47,100,25,41,1,14,19,21,48,54,29.5,20.9],"americas":[39,36,100,30,41,3,9,16,20,46,54,29.0,20.9],"rodriguez":[33,23,100,30,39,1,4,20,20,43,53,28.0,20.9],"interlagos":[27,20,100,25,41,3,3,18,21,42,52,29.5,21.3],"vegas":[1,0,100,25,37,6,5,19,24,48,54,24.5,22.0],"losail":[38,35,100,25,41,4,4,19,21,45,53,29.5,22.9],"yas_marina":[26,23,100,30,41,4,5,15,20,46,54,29.5,21.3]};
+const WET_CHANGES = {"albert_park":[23,19,70,45,21,49,55],"shanghai":[27,23,90,35,22,47,54],"suzuka":[30,23,90,35,22,45,55],"bahrain":[25,25,55,55,22,50,58],"jeddah":[12,12,90,55,23,48,57],"miami":[12,12,85,40,21,47,55],"imola":[28,23,80,50,24,50,55],"monaco":[50,50,80,30,22,50,54],"catalunya":[35,32,70,30,21,47,54],"villeneuve":[20,17,75,40,22,48,55],"red_bull_ring":[24,16,85,35,22,47,55],"silverstone":[23,22,65,30,21,46,55],"spa":[9,3,90,30,22,45,54],"hungaroring":[48,47,75,30,21,47,54],"zandvoort":[40,38,75,30,24,49,55],"monza":[0,0,80,30,22,48,55],"baku":[10,11,65,35,23,48,55],"marina_bay":[50,47,80,25,21,50,54],"americas":[40,36,80,30,21,48,54],"rodriguez":[36,36,75,40,23,49,56],"interlagos":[28,23,90,25,21,44,53],"vegas":[9,8,85,35,23,48,55],"losail":[35,36,90,45,22,47,55],"yas_marina":[29,28,85,30,20,46,54]};
+
+'use strict';
+const CARS=['Ferrari','McLaren','Mercedes','Red Bull','Aston Martin','Alpine','Williams','Haas','Racing Bulls','Sauber','Egendefinert'];
+const CAR_ART={
+ 'Ferrari':{file:'ferrari',main:'#ed2839',deep:'#8c0b1d',accent:'#ffd966'},
+ 'McLaren':{file:'mclaren',main:'#ff8700',deep:'#cc4f00',accent:'#161d27'},
+ 'Mercedes':{file:'mercedes',main:'#c7d1d6',deep:'#73838b',accent:'#26e0bf'},
+ 'Red Bull':{file:'red-bull',main:'#172b65',deep:'#081632',accent:'#ffcc16'},
+ 'Aston Martin':{file:'aston-martin',main:'#087c66',deep:'#024c48',accent:'#b0ffdc'},
+ 'Alpine':{file:'alpine',main:'#126bda',deep:'#0d338d',accent:'#ff73c7'},
+ 'Williams':{file:'williams',main:'#1c65df',deep:'#0a317c',accent:'#6fcaff'},
+ 'Haas':{file:'haas',main:'#e6e9ed',deep:'#aeb6c1',accent:'#dc3441'},
+ 'Racing Bulls':{file:'racing-bulls',main:'#edf2fa',deep:'#8999b3',accent:'#184ac4'},
+ 'Sauber':{file:'sauber',main:'#101819',deep:'#05090c',accent:'#69f219'},
+ 'Egendefinert':{file:'custom',main:'#a676ef',deep:'#553098',accent:'#54dcff'}
+};
+const CAR_PHOTOS={
+ 'Ferrari':{model:'SF-25',src:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2025_Japan_GP_-_Ferrari_-_Lewis_Hamilton_-_FP1.jpg/960px-2025_Japan_GP_-_Ferrari_-_Lewis_Hamilton_-_FP1.jpg',backup:'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/2025_Japan_GP_-_Ferrari_-_Lewis_Hamilton_-_FP1.jpg/960px-2025_Japan_GP_-_Ferrari_-_Lewis_Hamilton_-_FP1.jpg',credit:'https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Ferrari_-_Lewis_Hamilton_-_FP1.jpg'},
+ 'McLaren':{model:'MCL39',src:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/2025_Japan_GP_-_McLaren_-_Lando_Norris_-_FP1.jpg/960px-2025_Japan_GP_-_McLaren_-_Lando_Norris_-_FP1.jpg',backup:'https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/2025_Japan_GP_-_McLaren_-_Lando_Norris_-_FP1.jpg/960px-2025_Japan_GP_-_McLaren_-_Lando_Norris_-_FP1.jpg',credit:'https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_McLaren_-_Lando_Norris_-_FP1.jpg'},
+ 'Mercedes':{model:'W16',src:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/2025_Japan_GP_-_Mercedes_-_George_Russell_-_FP2.jpg/960px-2025_Japan_GP_-_Mercedes_-_George_Russell_-_FP2.jpg',backup:'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/2025_Japan_GP_-_Mercedes_-_George_Russell_-_FP2.jpg/960px-2025_Japan_GP_-_Mercedes_-_George_Russell_-_FP2.jpg',credit:'https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Mercedes_-_George_Russell_-_FP2.jpg'},
+ 'Red Bull':{model:'RB21',src:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/2025_Japan_GP_-_Red_Bull_-_Max_Verstappen_-_FP3.jpg/960px-2025_Japan_GP_-_Red_Bull_-_Max_Verstappen_-_FP3.jpg',backup:'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/2025_Japan_GP_-_Red_Bull_-_Max_Verstappen_-_FP3.jpg/960px-2025_Japan_GP_-_Red_Bull_-_Max_Verstappen_-_FP3.jpg',credit:'https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Red_Bull_-_Max_Verstappen_-_FP3.jpg'},
+ 'Aston Martin':{model:'AMR25',src:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/2025_Japan_GP_-_Aston_Martin_-_Fernando_Alonso_-_FP1.jpg/960px-2025_Japan_GP_-_Aston_Martin_-_Fernando_Alonso_-_FP1.jpg',backup:'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/2025_Japan_GP_-_Aston_Martin_-_Fernando_Alonso_-_FP1.jpg/960px-2025_Japan_GP_-_Aston_Martin_-_Fernando_Alonso_-_FP1.jpg',credit:'https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Aston_Martin_-_Fernando_Alonso_-_FP1.jpg'},
+ 'Alpine':{model:'A525',src:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/2025_Japan_GP_-_Alpine_-_Pierre_Gasly_-_FP2.jpg/960px-2025_Japan_GP_-_Alpine_-_Pierre_Gasly_-_FP2.jpg',backup:'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/2025_Japan_GP_-_Alpine_-_Pierre_Gasly_-_FP2.jpg/960px-2025_Japan_GP_-_Alpine_-_Pierre_Gasly_-_FP2.jpg',credit:'https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Alpine_-_Pierre_Gasly_-_FP2.jpg'},
+ 'Williams':{model:'FW47',src:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/2025_Japan_GP_-_Williams_-_Carlos_Sainz_-_FP1.jpg/960px-2025_Japan_GP_-_Williams_-_Carlos_Sainz_-_FP1.jpg',backup:'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/2025_Japan_GP_-_Williams_-_Carlos_Sainz_-_FP1.jpg/960px-2025_Japan_GP_-_Williams_-_Carlos_Sainz_-_FP1.jpg',credit:'https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Williams_-_Carlos_Sainz_-_FP1.jpg'},
+ 'Haas':{model:'VF-25',src:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/2025_Japan_GP_-_Haas_-_Oliver_Bearman_-_FP2.jpg/960px-2025_Japan_GP_-_Haas_-_Oliver_Bearman_-_FP2.jpg',backup:'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/2025_Japan_GP_-_Haas_-_Oliver_Bearman_-_FP2.jpg/960px-2025_Japan_GP_-_Haas_-_Oliver_Bearman_-_FP2.jpg',credit:'https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Haas_-_Oliver_Bearman_-_FP2.jpg'},
+ 'Racing Bulls':{model:'VCARB 02',src:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/2025_Japan_GP_-_Racing_Bulls_-_Liam_Lawson_-_FP2.jpg/960px-2025_Japan_GP_-_Racing_Bulls_-_Liam_Lawson_-_FP2.jpg',backup:'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/2025_Japan_GP_-_Racing_Bulls_-_Liam_Lawson_-_FP2.jpg/960px-2025_Japan_GP_-_Racing_Bulls_-_Liam_Lawson_-_FP2.jpg',credit:'https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Racing_Bulls_-_Liam_Lawson_-_FP2.jpg'},
+ 'Sauber':{model:'C45',src:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/2025_Japan_GP_-_Sauber_-_Nico_Hulkenberg_-_FP1.jpg/960px-2025_Japan_GP_-_Sauber_-_Nico_Hulkenberg_-_FP1.jpg',backup:'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/2025_Japan_GP_-_Sauber_-_Nico_Hulkenberg_-_FP1.jpg/960px-2025_Japan_GP_-_Sauber_-_Nico_Hulkenberg_-_FP1.jpg',credit:'https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Sauber_-_Nico_Hulkenberg_-_FP1.jpg'},
+};
+function carShowcase(){
+ const car=CAR_ART[ui.car]||CAR_ART['Egendefinert'];
+ const photo=CAR_PHOTOS[ui.car];
+ return `<div class="car-showcase photo-showcase" style="--car-main:${car.main};--car-deep:${car.deep};--car-accent:${car.accent}">
+  ${photo?`<img class="car-photo" src="${esc(photo.src)}" alt="Ekte foto av ${esc(ui.car)} ${esc(photo.model)} fra Formel 1 2025" loading="lazy" decoding="async" onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='${esc(photo.backup)}'}else{this.style.display='none';this.parentElement.classList.add('photo-unavailable')}">`:`<div class="car-no-photo">Velg et F1-lag for å se den ekte bilen.</div>`}
+  <div class="car-photo-shade" aria-hidden="true"></div>
+  <div class="car-showcase-copy"><span class="car-showcase-kicker"><span class="car-showcase-dot"></span> DIN F1-GARASJE / 2025 MACHINE</span><strong>${esc(ui.car)}</strong><span class="car-showcase-sub">${photo?esc(photo.model)+' · ':''}${esc(ui.session)} · ${data.season}</span></div>
+  <div class="car-photo-label"><span class="car-photo-tag">REAL F1 PHOTOGRAPHY</span><span class="car-photo-number">F1 <b>25</b></span></div>
+  <div class="car-showcase-bottom"><span>G29 <i>•</i> MANUELLE GIR <i>•</i> UTEN ASSISTS</span>${photo?`<a href="${esc(photo.credit)}" target="_blank" rel="noopener noreferrer" aria-label="Fotokilde og lisens for ${esc(ui.car)}">Foto: Liauzh · CC BY-SA 4.0 ↗</a>`:'<span>PERSONLIG GARASJE</span>'}</div>
+ </div>`;
+}
+const GROUPS=[
+ ['Aerodynamikk',[['frontWing','Frontvinge'],['rearWing','Bakvinge']]],
+ ['Differensial',[['diffOn','Diff. på gass'],['diffOff','Diff. uten gass']]],
+ ['Hjulgeometri',[['frontCamber','Camber foran'],['rearCamber','Camber bak'],['frontToe','Toe foran'],['rearToe','Toe bak']]],
+ ['Fjæring og høyde',[['frontSuspension','Fjæring foran'],['rearSuspension','Fjæring bak'],['frontARB','Stabilisator foran'],['rearARB','Stabilisator bak'],['frontHeight','Bakkehøyde foran'],['rearHeight','Bakkehøyde bak']]],
+ ['Bremser',[['brakePressure','Bremsetrykk'],['brakeBias','Bremsebalanse foran']]],
+ ['Dekktrykk',[['flPressure','Venstre foran'],['frPressure','Høyre foran'],['rlPressure','Venstre bak'],['rrPressure','Høyre bak']]],
+];
+const ISSUES={none:'Ingen problem',understeer:'Understyring',oversteer:'Overstyring',traction:'Hjulspinn ut av sving',braking:'Ustabil bremsing',speed:'Lav toppfart',kerbs:'Urolig over kerbs'};
+const STORAGE='f1-25-tracker-webapp-v1'; // Same key as V1-V4: preserve existing records
+function initial(){return {laps:[],setups:[],races:[],season:2025};}
+let data=initial();try{const raw=JSON.parse(localStorage.getItem(STORAGE)||'null');if(raw&&Array.isArray(raw.laps)&&Array.isArray(raw.setups)){data={...initial(),...raw,races:Array.isArray(raw.races)?raw.races:[]};}}catch{}
+let scanFiles=[]; // Selected photos stay in memory; never uploaded or saved.
+let scanRows=[]; // OCR draft: editable until the race is saved.
+let scanBusy=false;
+let scanStatus='';
+let scanRawPreview='';
+let ui={screen:'home',trackId:null,tab:'laps',car:'Ferrari',session:'Trening',logFilter:'Alle',weather:'Tørt',tyre:'Medium',tyreAge:'',lapNumber:'',raceStart:'',raceFinish:'',raceLaps:'',racePits:'',raceStatus:'Fullført',raceNotes:'',raceBestTime:'',raceBestLap:'',raceUsedTyres:[],raceBestTyre:'',issue:'none',editor:false,editValues:null,editNote:'',s1:'',s2:'',s3:'',total:'',search:'',notice:'',news:[],newsStatus:'',settings:false};
+const $=s=>document.querySelector(s);
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const num=v=>Number(v)||0;
+function persist(){try{localStorage.setItem(STORAGE,JSON.stringify(data));return true;}catch{ui.notice='Kunne ikke lagre. Sjekk lagringsplass på telefonen.';return false;}}
+function formatTime(ms){if(!Number.isFinite(ms))return '–';const m=Math.floor(ms/60000),s=Math.floor(ms%60000/1000),mil=Math.round(ms%1000);return `${m}:${String(s).padStart(2,'0')}.${String(mil).padStart(3,'0')}`;}
+function parseTime(raw){
+  const value=String(raw||'').trim().replace(/\s+/g,'').replace(/,/g,'.');
+  const match=value.match(/^(?:(\d+):)?([0-5]?\d)(?:\.(\d{1,3}))?$/);
+  if(!match)return null;
+  const ms=Number(match[1]||0)*60000+Number(match[2])*1000+Number((match[3]||'').padEnd(3,'0'));
+  return ms>0?ms:null;
+}
+function track(){return TRACKS.find(t=>t.id===ui.trackId)||TRACKS[0];}
+function mapUrl(t){return t.id==='imola'?'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Imola_2009.svg/330px-Imola_2009.svg.png':`https://raw.githubusercontent.com/MasterPlay007/F1-Track-Layouts-SVG/main/${t.image||t.id}.png`;}
+function mapImg(t){return `<span class="map-placeholder" aria-hidden="true"><span>⌁</span><small>TRACK MAP</small></span><img src="${esc(mapUrl(t))}" alt="Banekart ${esc(t.name)}" loading="lazy" onload="this.parentElement.classList.add('has-map')" onerror="this.style.display='none'">`;}
+function setup(trackId=track().id){const base=[...(DRY_BASE[trackId]||DRY_BASE.albert_park)];if(ui.weather==='Vått'){const w=WET_CHANGES[trackId];if(w){[0,1,2,3,8,9,10].forEach((index,i)=>base[index]=w[i]);}}const rear=Math.max(20,base[12]-(ui.session==='Trening'?.2:0));return {frontWing:String(base[0]),rearWing:String(base[1]),diffOn:String(Math.max(50,base[2]-(ui.session==='Trening'?15:10))),diffOff:String(base[3]),frontCamber:'-3.50',rearCamber:'-2.00',frontToe:trackId==='spa'?'0.02':'0.00',rearToe:'0.10',frontSuspension:String(base[4]),rearSuspension:String(base[5]),frontARB:String(base[6]),rearARB:String(base[7]),frontHeight:String(base[8]),rearHeight:String(base[9]),brakePressure:ui.weather==='Vått'?'93':'95',brakeBias:String(base[10]),flPressure:base[11].toFixed(1),frPressure:base[11].toFixed(1),rlPressure:rear.toFixed(1),rrPressure:rear.toFixed(1)};}
+function formattedValue(key,v){if(['diffOn','diffOff','brakePressure','brakeBias'].includes(key))return `${v} %`;if(['frontCamber','rearCamber','frontToe','rearToe'].includes(key))return `${v}°`;if(['flPressure','frPressure','rlPressure','rrPressure'].includes(key))return `${v} PSI`;return String(v??'–');}
+function adjust(base){const values={...base},changes=[];const change=(key,label,delta,min,max)=>{const old=Number(values[key]);const next=Math.max(min,Math.min(max,old+delta));values[key]=String(next);if(next!==old)changes.push(`${label}: ${old} → ${next}`);};let why='';switch(ui.issue){case 'understeer':change('frontWing','Frontvinge',1,0,50);change('diffOff','Diff. uten gass',-5,0,100);why='Kan hjelpe bilen å svinge inn. Test frontvingen først.';break;case 'oversteer':change('rearWing','Bakvinge',1,0,50);change('diffOn','Diff. på gass',-5,0,100);why='Prøv litt mer stabilitet bak.';break;case 'traction':change('diffOn','Diff. på gass',-5,0,100);change('rearARB','Stabilisator bak',-1,1,21);why='Kan gi mer kontroll ved gasspådrag uten traction control.';break;case 'braking':change('brakeBias','Bremsebalanse',1,50,70);change('brakePressure','Bremsetrykk',-2,80,100);why='Kan gi litt mer stabilitet uten ABS.';break;case 'speed':change('frontWing','Frontvinge',-1,0,50);change('rearWing','Bakvinge',-1,0,50);why='Mindre vinge kan gi mer toppfart, men mindre svinggrep.';break;case 'kerbs':change('frontSuspension','Fjæring foran',-2,1,41);change('frontARB','Stabilisator foran',-1,1,21);why='Litt mykere front kan hjelpe over kanter.';break;}return {values,changes,why};}
+function bestLap(laps,session){return laps.filter(l=>l.session===session).sort((a,b)=>a.totalMs-b.totalMs)[0];}
+function chip(label,action,value,active,small=false){return `<button type="button" class="chip ${active?'active':''} ${small?'sm':''}" data-action="${action}" data-value="${esc(value)}">${esc(label)}</button>`;}
+function nav(){
+ const icons={
+ home:'<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',
+ tracks:'<path d="M5 3v18M5 4c5-4 9 4 14 0v11c-5 4-9-4-14 0"/>',
+ history:'<path d="M4 19V11m6 8V5m6 14v-7m4 7V8"/>',
+ news:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/>'};
+ return `<nav class="bottom-nav" aria-label="Hovedmeny">${[['home','Hjem'],['tracks','Baner'],['history','Historikk'],['news','F1 Live']].map(([key,label])=>`<button type="button" data-action="nav" data-value="${key}" class="${ui.screen===key?'active':''}"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${icons[key]}</svg></span><span>${label}</span></button>`).join('')}</nav>`;
+}
+function header(){
+ const options=Array.from({length:9},(_,i)=>2025+i).map(y=>`<option value="${y}" ${data.season===y?'selected':''}>${y}</option>`).join('');
+ return `<header class="topbar v13-topbar"><div class="brand-wrap"><div class="brand"><span class="brand-f1">F1</span><span class="brand-25">25</span><b class="version">PRO</b></div><div class="tagline">LAP TRACKER <i></i> RACE GARAGE</div></div><div class="top-actions"><div class="v13-season"><span>SESONG</span><select id="season-select" aria-label="Velg sesong">${options}</select></div><button class="icon-btn v13-settings" data-action="settings" aria-label="Innstillinger">⚙</button></div></header>`;
+}
+function card(t){
+ const trackLaps=data.laps.filter(l=>l.trackId===t.id&&l.season===data.season);
+ const best=trackLaps.length?Math.min(...trackLaps.map(l=>l.totalMs)):null;
+ return `<button class="track-card" data-action="track" data-value="${t.id}"><div class="track-thumb">${mapImg(t)}<span class="track-thumb-no">${String(TRACKS.indexOf(t)+1).padStart(2,'0')}</span></div><div class="track-info"><span class="track-country">${esc(t.flag)} ${esc(t.country.toUpperCase())}</span><strong>${esc(t.name)}</strong><em>${best?`<span class="tiny-pb">PB</span> ${formatTime(best)}`:'Åpne bane og registrer tid'}</em></div><span class="track-arrow">↗</span></button>`;
+}
+function home(){
+ const seasonLaps=data.laps.filter(l=>l.season===data.season);
+ const recent=seasonLaps.slice().sort((a,b)=>b.createdAt.localeCompare(a.createdAt)).slice(0,4);
+ const latest=recent[0];
+ const latestTrack=latest?TRACKS.find(t=>t.id===latest.trackId):null;
+ const same=latest?seasonLaps.filter(l=>l.trackId===latest.trackId&&l.car===latest.car&&l.session===latest.session&&l.id!==latest.id):[];
+ const previousBest=same.length?Math.min(...same.map(l=>l.totalMs)):null;
+ const diff=previousBest!=null?latest.totalMs-previousBest:null;
+ const raceCount=data.races.filter(x=>x.season===data.season).length;
+ const setupCount=data.setups.filter(x=>x.season===data.season).length;
+ return `<section class="v13-hero"><div class="v13-hero-art" aria-hidden="true"><span class="v13-speedline a"></span><span class="v13-speedline b"></span><span class="v13-speedline c"></span><span class="v13-watermark">25</span></div><div class="v13-hero-inner"><div class="v13-hero-eyebrow"><span class="v13-live-dot"></span> DIN PERSONLIGE RACE GARASJE <span class="v13-version">V27</span></div><h1>EVERY LAP<br><em>COUNTS.</em></h1><p>Trening. Kvalifisering. Race.<br>Alle tidene dine, på ett sted.</p><div class="v13-hero-actions"><button class="primary v13-cta" data-action="nav" data-value="tracks">VELG BANE <span>↗</span></button><button class="v13-hero-secondary" data-action="nav" data-value="history">MINE TIDER ↗</button></div></div><div class="v13-hero-foot"><span><b>24</b> GRAND PRIX-BANER</span><span>G29 · NO ASSISTS</span></div></section>
+ <section class="v13-metrics" aria-label="Sesongstatistikk"><div><small>REGISTRERTE RUNDER</small><strong>${seasonLaps.length.toString().padStart(2,'0')}</strong></div><div><small>MINE SETUP</small><strong>${setupCount.toString().padStart(2,'0')}</strong></div><div><small>REGISTRERTE RACE</small><strong>${raceCount.toString().padStart(2,'0')}</strong></div></section>
+ ${latest?`<section class="v13-last"><div class="v13-last-head"><span class="v13-eyebrow">SISTE REGISTRERING</span>${sessionBadge(latest.session)}</div><div class="v13-last-time">${formatTime(latest.totalMs)}<span>${diff===null?'NY TID':diff<0?`−${(Math.abs(diff)/1000).toFixed(3)}s PB`:diff===0?'SAMME PB':`+${(diff/1000).toFixed(3)}s`}</span></div><div class="v13-last-meta"><span>${esc(latestTrack?.flag||'🏁')} ${esc(latestTrack?.name||'Bane')}</span><span>${tyreTag(latest.tyre)}</span></div><button class="v13-last-open" data-action="track" data-value="${esc(latest.trackId)}">ÅPNE BANE <span>↗</span></button></section>`:`<section class="v13-last v13-first"><span class="v13-eyebrow">KLAR FOR FØRSTE RUNDE?</span><h2>Din neste rekord starter her.</h2><p>Velg en bane og registrer trening, kvalifisering eller race.</p><button class="v13-last-open" data-action="nav" data-value="tracks">UTFORSK ALLE BANER ↗</button></section>`}
+ <section class="section v13-recent"><div class="section-heading"><div><span class="v13-eyebrow">DIN TELEMETRI</span><h2>Siste runder<span class="red-dot">.</span></h2></div><button class="text-link" data-action="nav" data-value="history">SE ALLE ↗</button></div>${recent.length?recent.map(l=>`<button type="button" class="v13-recent-row" data-action="track" data-value="${esc(l.trackId)}"><span class="v13-recent-compound ${tyreClass(l.tyre)}">${TYRES.find(t=>t[0]===l.tyre)?.[1]||'?'}</span><span class="v13-recent-name"><strong>${esc(TRACKS.find(t=>t.id===l.trackId)?.name||'Bane')}</strong><small>${sessionLabel(l.session)} · ${esc(l.car)}</small></span><span class="v13-recent-value">${formatTime(l.totalMs)}<small>↗</small></span></button>`).join(''):'<div class="v12-empty">Ingen runder ennå. Velg en bane for å starte.</div>'}</section>
+ <section class="section v13-tracks"><div class="section-heading"><div><span class="v13-eyebrow">THE GRID</span><h2>Populære baner<span class="red-dot">.</span></h2></div><button class="text-link" data-action="nav" data-value="tracks">ALLE 24 ↗</button></div>${['spa','monza'].map(id=>TRACKS.find(t=>t.id===id)).filter(Boolean).map(card).join('')}</section>`;
+}
+function tracks(){
+ const q=ui.search.trim().toLowerCase();
+ const list=TRACKS.filter(t=>`${t.name} ${t.country}`.toLowerCase().includes(q));
+ return `<section class="section"><div class="section-heading"><div><span class="eyebrow">TRACK DIRECTORY / ${data.season}</span><h2>Velg din bane<span class="red-dot">.</span></h2></div><span class="count-pill">24 BANER</span></div><p class="sub">Banekart, rundetider, dekk og komplette setup-anbefalinger.</p><div class="search-wrap"><span>⌕</span><input class="search" id="search" value="${esc(ui.search)}" placeholder="Søk etter bane eller land" aria-label="Søk etter bane"></div><div id="track-list">${list.map(card).join('')||'<div class="empty">Fant ingen baner.</div>'}</div></section>`;
+}
+function detailHeader(){
+ const t=track();const idx=TRACKS.indexOf(t)+1;
+ const lapList=data.laps.filter(l=>l.trackId===t.id&&l.season===data.season);
+ const pb=lapList.length?Math.min(...lapList.map(l=>l.totalMs)):null;
+ return `<button class="back v13-back" data-action="back">← ALLE BANER</button><div class="track-hero v13-track-hero"><div class="track-hero-top"><span class="v13-eyebrow">GRAND PRIX ${String(idx).padStart(2,'0')} / 24</span><span class="track-flag">${esc(t.flag)}</span></div><div class="overline">${esc(t.country.toUpperCase())}</div><h1>${esc(t.name)}<span class="red-dot">.</span></h1><div class="map-big">${mapImg(t)}</div><div class="v13-track-foot"><span>${pb?`BESTE TID <strong>${formatTime(pb)}</strong>`:'KLAR FOR FØRSTE RUNDE'}</span><span>${lapList.length} REGISTRERTE RUNDER</span></div></div><div class="tab-row v13-tabs">${[['laps','Rundetider'],['setup','Setup'],['history','Historikk']].map(([k,label])=>`<button class="v13-tab ${ui.tab===k?'active':''}" data-action="detailtab" data-value="${k}" aria-pressed="${ui.tab===k}">${label}</button>`).join('')}</div>`;
+}
+const TYRES=[['Soft','S'],['Medium','M'],['Hard','H'],['Intermediate','I'],['Wet','W']];
+function tyreClass(tyre){return ({Soft:'soft',Medium:'medium',Hard:'hard',Intermediate:'intermediate',Wet:'wet'})[tyre]||'unknown';}
+const TYRE_DESCRIPTIONS={Soft:'Maks grep · raske runder',Medium:'Balanse · jevn ytelse',Hard:'Slitestyrke · lange stint',Intermediate:'Fuktig bane · variabelt grep',Wet:'Mye vann · maksimalt regngrep'};
+function tyreStatus(){const code=TYRES.find(t=>t[0]===ui.tyre)?.[1]||'?';return `<div class="tyre-live-banner" aria-live="polite"><div class="tyre-live-orbit"><span>${code}</span></div><div class="tyre-live-info"><small>VALGT DEKK / ACTIVE COMPOUND</small><strong>${esc(ui.tyre)}</strong><span>${esc(TYRE_DESCRIPTIONS[ui.tyre]||'')}</span></div><span class="tyre-live-signal" aria-hidden="true">● LIVE</span></div>`;}
+function tyreTag(tyre){const t=TYRES.find(t=>t[0]===tyre);return `<span class="tyre-tag ${tyreClass(tyre)}"><b>${t?t[1]:'?'}</b> ${esc(tyre||'Ukjent')}</span>`;}
+function tyreSelector(){return `<div class="tyre-select"><div class="label">DEKKBLANDING / COMPOUND</div><div class="tyre-options">${TYRES.map(([label,letter])=>`<button type="button" class="tyre-option ${tyreClass(label)} ${ui.tyre===label?'selected':''}" data-action="tyre" data-value="${label}"><span class="tyre-circle">${letter}</span><span>${label}</span></button>`).join('')}</div><p class="helper tyre-help">Velg dekkene du kjørte runden med. Dette lagres sammen med rundetiden.</p></div>`;}
+function inputAttrs(){return 'type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"';}
+function selectors(context='laps'){
+ const sessions=context==='setup'?['Trening','Kvalifisering']:['Trening','Kvalifisering','Løp'];
+ return `<div class="panel selectors v13-selectors"><div class="v13-panel-heading"><div><span class="v13-eyebrow">RACE CONTROL</span><h3>Velg bil og økt</h3></div><span class="v13-control-indicator"><i></i> READY</span></div>
+ <div class="v13-car-field"><label class="label" for="car-select">DIN F1-BIL</label><select id="car-select" aria-label="Velg F1-bil">${CARS.map(c=>`<option value="${esc(c)}" ${ui.car===c?'selected':''}>${esc(c)}</option>`).join('')}</select></div>
+ ${carShowcase()}
+ <div class="v13-session-field"><span class="label">ØKT / SESSION</span><div class="v13-session-switch">${sessions.map(s=>`<button type="button" class="v13-session-button ${ui.session===s?'selected':''}" data-action="session" data-value="${s}" aria-pressed="${ui.session===s}">${s==='Løp'?'🏁 Race':s}</button>`).join('')}</div></div>
+ <div class="v13-weather-field"><span class="label">BANEFORHOLD</span><div class="v13-weather-switch">${['Tørt','Vått'].map(w=>chip(w==='Tørt'?'☀ Tørt':'☂ Vått','weather',w,ui.weather===w,true)).join('')}</div></div>
+ ${tyreSelector()}</div>`;
+}
+function timingEntry(context='laps'){
+ const sect=[ui.s1,ui.s2,ui.s3].map(parseTime);
+ const total=sect.every(v=>v!=null)?sect.reduce((a,b)=>a+b,0):null;
+ return `<div class="panel timing-panel ${context==='setup'?'setup-timing-panel':''}">
+ <div class="panel-heading"><span class="eyebrow">${context==='setup'?'SETUP / LAP TELEMETRY':'LAP DATA ENTRY'}</span><span class="timing-live">● READY</span></div>
+ <div class="form-grid">${['s1','s2','s3'].map((key,i)=>`<div class="field"><label for="${key}">SEKTOR ${i+1}</label><input ${inputAttrs()} id="${key}" data-field="${key}" value="${esc(ui[key])}" placeholder="32.456" aria-label="Sektor ${i+1}"></div>`).join('')}</div>
+ <div class="field total-field"><label for="total">TOTAL RUNDETID</label><input ${inputAttrs()} id="total" data-field="total" value="${esc(total!=null?formatTime(total):ui.total)}" ${total!=null?'readonly':''} placeholder="1:51.806" aria-label="Total rundetid"></div>
+ ${context==='laps'&&ui.session==='Løp'?`<div class="field"><label for="lapNumber">RUNDE NUMMER I LØPET <span class="optional">VALGFRITT</span></label><input ${inputAttrs()} id="lapNumber" data-field="lapNumber" value="${esc(ui.lapNumber)}" placeholder="F.eks. 12"></div>`:''}
+ <div class="field"><label for="tyreAge">ANTALL RUNDER PÅ DEKKET <span class="optional">VALGFRITT</span></label><input ${inputAttrs()} id="tyreAge" data-field="tyreAge" value="${esc(ui.tyreAge)}" placeholder="F.eks. 5" aria-label="Antall runder på dekket"></div>
+ <p class="helper">Skriv for eksempel 32.456 eller 32,456. Du kan også skrive bare totaltiden. Tre sektorer regnes automatisk sammen.</p>
+ <button class="primary full save-lap" data-action="save-lap"><span>＋</span> LAGRE ${context==='setup'?'TID OG SEKTORER':'RUNDETID'} <span>↗</span></button>
+ </div>`;
+}
+function sessionTimingSummary(){
+ const laps=data.laps.filter(l=>l.trackId===ui.trackId&&l.season===data.season&&l.car===ui.car&&l.session===ui.session&&l.weather===ui.weather&&l.tyre===ui.tyre).sort((a,b)=>a.totalMs-b.totalMs);
+ const best=laps[0],latest=laps.slice().sort((a,b)=>b.createdAt.localeCompare(a.createdAt))[0];
+ return `<div class="setup-timing-summary"><div class="setup-timing-label"><span>⏱ DINE TIDER</span><span>${esc(ui.session.toUpperCase())} · ${esc(ui.car.toUpperCase())}</span></div>
+ <div class="setup-time-cards"><div><small>PERSONLIG BESTE</small><strong>${best?formatTime(best.totalMs):'–:––.–––'}</strong></div><div><small>SISTE RUNDE</small><strong>${latest?formatTime(latest.totalMs):'–:––.–––'}</strong></div></div>
+ ${best?`<div class="setup-sector-strip">${[1,2,3].map(i=>`<div><small>SEKTOR ${i}</small><b>${esc(best['s'+i]||'–')}</b></div>`).join('')}</div>`:`<p class="helper">Ingen registrert tid for denne bilen, økten og dekktypen ennå.</p>`}</div>`;
+}
+const SESSIONS=['Trening','Kvalifisering','Løp'];
+function sessionLabel(s){return s==='Løp'||s==='Race'?'Race':s==='Kvalifisering'?'Kvalifisering':'Trening';}
+function sessionBadge(s){const kind=s==='Løp'||s==='Race'?'race':s==='Kvalifisering'?'quali':'practice';return `<span class="session-badge ${kind}">${esc(sessionLabel(s))}</span>`;}
+function bestSessionCards(list){return `<div class="session-best-grid">${SESSIONS.map(s=>`<div class="session-best-card"><span>${sessionBadge(s)}</span><strong>${formatTime(bestLap(list,s)?.totalMs)}</strong><small>${list.filter(l=>l.session===s).length} lagrede runder</small></div>`).join('')}</div>`;}
+function raceResultEntry(){
+ const raceResults=data.races.filter(r=>r.trackId===ui.trackId&&r.season===data.season&&r.car===ui.car).sort((a,b)=>b.createdAt.localeCompare(a.createdAt));
+ const best=data.laps.filter(l=>l.trackId===ui.trackId&&l.season===data.season&&l.car===ui.car&&l.session==='Løp').sort((a,b)=>a.totalMs-b.totalMs)[0];
+ return `<section class="section race-zone"><div class="race-zone-heading"><span class="eyebrow">RACE WEEKEND / RESULTAT</span><h2>🏁 Mitt løpsresultat</h2><p>Registrer hvordan løpet gikk. Du kan lagre resultatet selv om du ikke har lagt inn alle rundetidene.</p></div>
+ <div class="panel race-form"><div class="race-input-grid">
+ <div class="field"><label for="raceStart">STARTPOSISJON</label><input ${inputAttrs()} id="raceStart" data-field="raceStart" value="${esc(ui.raceStart)}" placeholder="F.eks. 8"></div>
+ <div class="field"><label for="raceFinish">SLUTTPLASSERING</label><input ${inputAttrs()} id="raceFinish" data-field="raceFinish" value="${esc(ui.raceFinish)}" placeholder="F.eks. 3"></div>
+ <div class="field"><label for="raceLaps">KJØRTE RUNDER</label><input ${inputAttrs()} id="raceLaps" data-field="raceLaps" value="${esc(ui.raceLaps)}" placeholder="F.eks. 18"></div>
+ <div class="field"><label for="racePits">PITSTOPP</label><input ${inputAttrs()} id="racePits" data-field="racePits" value="${esc(ui.racePits)}" placeholder="F.eks. 1"></div>
+ </div><div class="field"><label>RESULTAT</label><div class="choice-row race-status">${['Fullført','DNF','DSQ'].map(s=>chip(s,'race-status',s,ui.raceStatus===s,true)).join('')}</div></div>
+ <div class="field"><label for="raceNotes">NOTATER <span class="optional">VALGFRITT</span></label><textarea id="raceNotes" data-field="raceNotes" placeholder="Strategi, dekkbytter, safety car eller hva som skjedde …">${esc(ui.raceNotes)}</textarea></div>
+ <button class="primary full race-save" data-action="save-race">🏁 LAGRE LØPSRESULTAT ↗</button>
+ ${best?`<p class="helper">Din beste registrerte race-runde med ${esc(ui.car)}: <b>${formatTime(best.totalMs)}</b></p>`:''}</div>
+ ${raceResults.length?`<div class="race-results"><span class="eyebrow">LAGREDE LØP / ${data.season}</span>${raceResults.map(r=>`<div class="race-result-card"><div class="race-result-top"><div><span class="race-status-pill">${esc(r.status||'Fullført')}</span><h3>${r.status==='Fullført'&&r.finishPos?'P'+esc(r.finishPos):esc(r.status||'Fullført')}</h3></div><button class="danger" data-action="delete-race" data-value="${esc(r.id)}" aria-label="Slett løpsresultat">✕</button></div><div class="race-result-stats"><span>Start <b>${r.startPos?'P'+esc(r.startPos):'–'}</b></span><span>Slutt <b>${r.finishPos?'P'+esc(r.finishPos):'–'}</b></span><span>Runder <b>${esc(r.laps||'–')}</b></span><span>Pitstopp <b>${esc(r.pits??'–')}</b></span></div>${r.startPos&&r.finishPos&&r.status==='Fullført'?`<p class="race-positions">${r.startPos>r.finishPos?'↗ +'+(r.startPos-r.finishPos)+' plasser':r.startPos<r.finishPos?'↘ −'+(r.finishPos-r.startPos)+' plasser':'→ Samme plassering'}</p>`:''}${r.notes?`<p class="race-note">${esc(r.notes)}</p>`:''}<small>${new Date(r.createdAt).toLocaleDateString('nb-NO')} · ${esc(r.car)}</small></div>`).join('')}</div>`:''}</section>`;
+}
+
+// V14: local, opt-in OCR for up to five race screenshots. No API key or image upload.
+// V18: F1 25 LAP DELTA scanner. Reads lap number, lap-time column and tyre colour.
+function scanTyre(text){
+ const v=String(text||'').toLowerCase();
+ if(/\b(intermediate|inter|inters|int)\b/.test(v))return 'Intermediate';
+ if(/\b(wet|wets|full wet)\b/.test(v))return 'Wet';
+ if(/\b(soft|softs)\b/.test(v))return 'Soft';
+ if(/\b(medium|mediums|med)\b/.test(v))return 'Medium';
+ if(/\b(hard|hards)\b/.test(v))return 'Hard';
+ return '';
+}
+// OCR may drop the colon: 147.875 means 1:47.875; 215.977 means 2:15.977.
+function scanNormalizeTime(t){
+ let v=String(t||'').trim().replace(/[Oo]/g,'0').replace(/[’']/g,':').replace(/,/g,'.').replace(/\s/g,'');
+ v=v.replace(/^[|lI](?=\d)/,'1');
+ if(/^\d{3,4}\.\d{3}$/.test(v))v=v.slice(0,-6)+':'+v.slice(-6);
+ if(/^\d{1,2}\.\d{2}\.\d{3}$/.test(v))v=v.replace('.',':');
+ if(/^\d{1,2}:\d{2}:\d{3}$/.test(v))v=v.replace(/:(?=\d{3}$)/,'.');
+ return v;
+}
+function scanTimeToken(text){
+ const t=String(text||'').replace(/[Oo]/g,'0').replace(/([:.])[,.:](?=\d{3}(?:\D|$))/g,'$1').replace(/(\d)[,.](?=\d{3}(?:\D|$))/g,'$1.');
+ if(/^\d{6}$/.test(t)){const guess=t[0]+':'+t.slice(1,3)+'.'+t.slice(3);const ms=parseTime(guess);return ms!=null&&ms>=40000&&ms<=1200000?formatTime(ms):'';}
+ const found=[...t.matchAll(/(?:^|[^\d])((?:\d{1,2}[:.]\d{2}[.,:]\d{3})|(?:\d{3,4}[.,]\d{3}))(?!\d)/g)];
+ for(const match of found.reverse()){
+  const normalized=scanNormalizeTime(match[1]);const ms=parseTime(normalized);
+  if(ms!=null&&ms>=40000&&ms<=1200000)return formatTime(ms);
+ }
+ return '';
+}
+function scanParseText(text){
+ const lines=String(text||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean), rows=[];
+ for(let i=0;i<lines.length;i++){
+  const line=lines[i].replace(/[|]/g,' ');
+  const match=line.match(/^\s*(?:(?:lap|runde|r\.?|#)\s*)?(\d{1,3})(?=\s+|[.)\]-]\s*)/i);
+  if(!match)continue;
+  const lap=Number(match[1]);if(lap<1||lap>999)continue;
+  // Pick the RIGHTMOST complete lap-time token, not a sector value.
+  const rest=line.slice(match[0].length);const time=scanTimeToken(rest);
+  if(!time)continue;
+  const tyre=scanTyre(rest);
+  rows.push({lapNumber:String(lap),time,tyre,source:'tekst'});
+ }
+ return rows;
+}
+function scanWordList(data){
+ if(Array.isArray(data?.words)&&data.words.length)return data.words;
+ const out=[];
+ function walk(node){
+  if(!node||typeof node!=='object')return;
+  if(node.text&&node.bbox&&!node.words&&!node.lines&&!node.paragraphs)out.push(node);
+  for(const key of ['blocks','paragraphs','lines','words'])if(Array.isArray(node[key]))node[key].forEach(walk);
+ }
+ if(Array.isArray(data?.blocks))data.blocks.forEach(walk);
+ return out;
+}
+function scanColorTyre(canvas,y){
+ const w=canvas.width,h=canvas.height;
+ const ctx=canvas.getContext('2d',{willReadFrequently:true});
+ // Tyre column of F1 25 LAP DELTA, includes a little extra room for monitor photos.
+ const from=Math.floor(w*.70),to=Math.floor(w*.90),cy=Math.max(0,Math.min(h-1,Math.round(y)));
+ const half=Math.max(6,Math.round(h*.008));
+ const top=Math.max(0,cy-half),bottom=Math.min(h,cy+half+1);
+ const pix=ctx.getImageData(from,top,Math.max(1,to-from),Math.max(1,bottom-top));
+ const count={Soft:0,Medium:0,Wet:0,Intermediate:0};
+ for(let i=0;i<pix.data.length;i+=4){
+  const r=pix.data[i],g=pix.data[i+1],b=pix.data[i+2];
+  if(r>110&&r>g*1.42&&r>b*1.3)count.Soft++;
+  if(r>115&&g>100&&b<Math.min(r,g)*.72)count.Medium++;
+  if(b>100&&g>100&&r<g*.72&&r<b*.70)count.Wet++;
+  if(g>95&&g>r*1.35&&g>b*1.15)count.Intermediate++;
+ }
+ const winner=Object.entries(count).sort((a,b)=>b[1]-a[1])[0];
+ return winner&&winner[1]>=8?winner[0]:'';
+}
+// Geometry-aware scanner: read the LAP TIME column as the source of truth.
+// F1 25 displays tilted rows in a monitor photo: the lap column can be 70px
+// lower than the time column. Grouping by a shared horizontal Y coordinate
+// loses rows, so identify a consistent lap sequence instead.
+function scanParseLayout(data,canvas){
+ const words=scanWordList(data).filter(w=>w?.text&&w?.bbox&&Number.isFinite(w.bbox.x0));
+ const width=canvas.width;
+ const inColumn=(min,max)=>words.filter(w=>{const x=(w.bbox.x0+w.bbox.x1)/2/width;return x>=min&&x<=max;});
+ const center=w=>(w.bbox.y0+w.bbox.y1)/2;
+ const times=inColumn(.57,.79).map(w=>({time:scanTimeToken(w.text),y:center(w)})).filter(w=>w.time).sort((a,b)=>a.y-b.y);
+ if(times.length<2)return [];
+ const differences=times.slice(1).map((t,i)=>t.y-times[i].y).filter(n=>n>8).sort((a,b)=>a-b);
+ const step=differences[Math.floor(differences.length/2)]||Math.max(30,canvas.height*.05);
+ const lapTokens=inColumn(0,.12).filter(w=>/^\d{1,3}$/.test(String(w.text).trim())).map(w=>({n:Number(w.text),y:center(w)})).filter(w=>w.n>0&&w.n<1000);
+ const votes=new Map();
+ for(const lap of lapTokens){
+  const nearest=times.map((t,i)=>({i,delta:Math.abs(lap.y-t.y-step*.88)})).sort((a,b)=>a.delta-b.delta)[0];
+  if(!nearest||nearest.delta>step*.55)continue;
+  const base=lap.n-nearest.i;
+  if(base<1||base>999)continue;
+  votes.set(base,(votes.get(base)||0)+1);
+ }
+ const winner=[...votes.entries()].sort((a,b)=>b[1]-a[1])[0];
+ // Infer missing lap labels ONLY with >=2 independent OCR anchors.
+ const start=winner&&winner[1]>=2?winner[0]:null;
+ const sectorColumn=(min,max)=>inColumn(min,max).map(w=>{
+  let t=String(w.text).replace(/[,]/g,'.').replace(/[^0-9.]/g,'');
+  if(/^\d{5}$/.test(t))t=t.slice(0,2)+'.'+t.slice(2);
+  if(/^\d{4}$/.test(t))t=t.slice(0,1)+'.'+t.slice(1);
+  const sectorNumber=Number(t);
+  const formatted=/^\d{2,3}\.\d{3}$/.test(t)&&sectorNumber>=60?formatTime(Math.round(sectorNumber*1000)):t;
+  const ms=parseTime(formatted);
+  return {time:ms!=null&&ms>10000&&ms<300000?formatted:'',y:center(w)};
+ }).filter(x=>x.time).sort((a,b)=>a.y-b.y);
+ const cols=[sectorColumn(.075,.24),sectorColumn(.25,.41),sectorColumn(.42,.56)];
+ const offsets=cols.map(col=>{
+  if(!col.length)return 0;
+  const n=Math.min(4,col.length,times.length);
+  const diffs=[];for(let i=0;i<n;i++)if(Math.abs(col[i].y-times[i].y)<step*.9)diffs.push(col[i].y-times[i].y);
+  diffs.sort((a,b)=>a-b);return diffs.length?diffs[Math.floor(diffs.length/2)]:0;
+ });
+ return times.map((item,i)=>{
+  const lap=start!=null?String(start+i):'';
+  const sectors=cols.map((col,j)=>{
+   const nearest=col.map(c=>({value:c.time,diff:Math.abs(c.y-item.y-offsets[j])})).sort((a,b)=>a.diff-b.diff)[0];
+   return nearest&&nearest.diff<step*.36?nearest.value:'';
+  });
+  // A valid F1 sector split should add up to the displayed lap time.
+  const sum=sectors.map(parseTime);
+  if(sum.some(v=>v==null)||Math.abs(sum.reduce((a,b)=>a+b,0)-parseTime(item.time))>5)sectors.fill('');
+  return {lapNumber:lap,time:item.time,tyre:scanColorTyre(canvas,item.y),s1:sectors[0],s2:sectors[1],s3:sectors[2],source:'F1-tabell'};
+ });
+}
+function scanColumnItems(data,kind){
+ const words=scanWordList(data).filter(w=>w?.text&&w?.bbox);
+ const items=[];
+ for(const word of words){
+  const raw=String(word.text).trim();
+  const value=kind==='time'?scanTimeToken(raw):(/^\d{1,3}$/.test(raw)?String(Number(raw)):'');
+  if(!value)continue;
+  if(kind==='lap'&&(Number(value)<1||Number(value)>999))continue;
+  items.push({value,y:(word.bbox.y0+word.bbox.y1)/2});
+ }
+ if(!items.length){
+  const lines=String(data?.text||'').split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+  for(let i=0;i<lines.length;i++){
+   const v=kind==='time'?scanTimeToken(lines[i]):(/^\d{1,3}$/.test(lines[i])?lines[i]:'');
+   if(v)items.push({value:v,y:null});
+  }
+ }
+ return items;
+}
+function scanTimeList(text){
+ return String(text||'').split(/\r?\n/).map(scanTimeToken).filter(Boolean);
+}
+function scanSequence(times,laps,original,range){
+ const sorted=times.filter(t=>t.value).sort((a,b)=>(a.y??0)-(b.y??0));
+ if(!sorted.length)return [];
+ const good=sorted.filter(x=>x.y!=null);
+ const diffs=good.slice(1).map((t,i)=>t.y-good[i].y).filter(n=>n>8).sort((a,b)=>a-b);
+ const step=diffs[Math.floor(diffs.length/2)]||Math.max(25,original.height*.04);
+ const anchors=new Map();
+ // Screen rows slope downward from the right LAP TIME column to the left LAP column.
+ for(const l of laps.filter(x=>x.y!=null)){
+  for(let i=0;i<sorted.length;i++){
+   if(sorted[i].y==null)continue;
+   const delta=l.y-sorted[i].y;
+   if(delta>=-step*.15&&delta<=step*1.4){
+    const base=Number(l.value)-i;
+    if(base>0&&base<1000)anchors.set(base,(anchors.get(base)||0)+1);
+   }
+  }
+ }
+ const winner=[...anchors].sort((a,b)=>b[1]-a[1])[0];
+ const start=winner&&winner[1]>=2?winner[0]:null;
+ const rows=sorted.map((item,i)=>{
+  const y=item.y!=null?item.y:original.height*(.24+i*.045);
+  return {lapNumber:start!=null?String(start+i):'',time:item.value,tyre:scanColorTyre(original,y),source:'tidskolonne'};
+ });
+ return rows;
+}
+function scanMergeRows(rows){
+ const map=new Map();
+ for(const row of rows){
+  if(!row.time&&!row.lapNumber&&!row.tyre)continue;
+  const key=row.lapNumber||`missing-${map.size}`;
+  const old=map.get(key);
+  if(!old)map.set(key,row);else map.set(key,{...old,...(row.tyre?{tyre:row.tyre}:{}),...(!old.s1&&row.s1?{s1:row.s1,s2:row.s2,s3:row.s3}:{})});
+ }
+ return [...map.values()];
+}
+function scanSummary(){
+ const result={};
+ for(const row of scanRows){const ms=parseTime(row.time);if(!ms||!row.tyre||!row.lapNumber)continue;
+  if(!result[row.tyre]||ms<result[row.tyre].timeMs)result[row.tyre]={timeMs:ms,lapNumber:row.lapNumber};
+ }
+ return result;
+}
+
+function raceDirectImportPanel(){
+ return `<section class="v27-direct" aria-label="Importer rundetider uten skanning">
+ <h3>✓ Importer rundetider uten SCAN</h3>
+ <p>Dette er den sikre metoden når bildeskanningen leser feil. Velg en CSV-fil med runde, sektor 1, sektor 2, sektor 3, rundetid og dekk. Filen fyller kontrolltabellen automatisk – du lagrer først når du selv trykker Lagre racerunder og resultat.</p>
+ <input id="v27-race-file" type="file" accept=".csv,.txt,text/csv,text/plain" aria-label="Velg CSV-fil med rundetider">
+ <details><summary>Eller lim inn rundedata</summary><textarea id="v27-race-paste" placeholder="RUNDE;S1;S2;S3;RUNDETID;DEKK\n1;29.652;25.543;21.526;1:16.722;Soft"></textarea><button class="secondary full" type="button" data-action="race-import-paste">Importer innlimte runder</button></details>
+ <p class="v27-import-status">Importen bruker ikke kamera, OCR, internett eller betalte tjenester. Eksisterende historikk slettes ikke.</p>
+ </section>`;
+}
+function raceImportText(text){
+ const lines=String(text||'').replace(/^\uFEFF/,'').split(/\r?\n/).map(s=>s.trim()).filter(s=>s&&!s.startsWith('#'));
+ if(!lines.length)throw Error('Filen er tom.');
+ let parsed=[],seen=new Set();
+ for(let i=0;i<lines.length;i++){
+  const line=lines[i];
+  const parts=line.includes(';')?line.split(';'):line.includes('\t')?line.split('\t'):line.split(',');
+  if(parts.length!==6)throw Error(`Linje ${i+1}: forventer 6 kolonner (RUNDE;S1;S2;S3;RUNDETID;DEKK).`);
+  const [lapRaw,s1Raw,s2Raw,s3Raw,timeRaw,tyreRaw]=parts.map(s=>s.trim().replace(/^"|"$/g,''));
+  if(i===0&&/^(?:lap|runde)$/i.test(lapRaw))continue;
+  const lap=Number(lapRaw);
+  if(!/^\d{1,3}$/.test(lapRaw)||lap<1||lap>999)throw Error(`Linje ${i+1}: ugyldig rundenummer.`);
+  if(seen.has(lap))throw Error(`Runde ${lap} finnes flere ganger.`);
+  seen.add(lap);
+  const tyreNames={s:'Soft',soft:'Soft',m:'Medium',medium:'Medium',h:'Hard',hard:'Hard',i:'Intermediate',intermediate:'Intermediate',w:'Wet',wet:'Wet'};
+  const tyre=tyreNames[tyreRaw.toLowerCase()];
+  if(!tyre)throw Error(`Runde ${lap}: ukjent dekk (${tyreRaw}).`);
+  const total=parseTime(timeRaw),sectorMs=[s1Raw,s2Raw,s3Raw].map(parseTime);
+  if(total==null||total<45000||total>1200000)throw Error(`Runde ${lap}: ugyldig rundetid (${timeRaw}).`);
+  if(sectorMs.some(x=>x==null||x<10000||x>240000))throw Error(`Runde ${lap}: ugyldig sektortid.`);
+  const difference=Math.abs(sectorMs.reduce((a,b)=>a+b,0)-total);
+  if(difference>5)throw Error(`Runde ${lap}: sektorene avviker ${difference} ms fra rundetiden. Sjekk filen.`);
+  parsed.push({lapNumber:String(lap),s1:s1Raw,s2:s2Raw,s3:s3Raw,time:timeRaw,tyre,sectorConfirmed:true,timeEstimated:false,autoCorrected:false,source:'csv-import'});
+ }
+ if(!parsed.length)throw Error('Fant ingen runder i filen.');
+ if(parsed.length>300)throw Error('Filen inneholder for mange runder.');
+ parsed.sort((a,b)=>Number(a.lapNumber)-Number(b.lapNumber));
+ // Never merge an unreliable OCR draft with the verified file.
+ scanRows=parsed;
+ scanStatus=`✓ ${parsed.length} runder importert fra fil, med rundetid, sektorer og dekk. Ingen OCR brukt.`;
+ scanRawPreview='Importert fra fil, ikke OCR.';
+ const maxLap=Number(parsed[parsed.length-1].lapNumber);
+ ui.raceLaps=String(maxLap);
+ render();
+ const review=document.querySelector('.v14-review');if(review)review.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function scanPanel(){
+ const summary=scanSummary();
+ return `<details class="v14-scan" open>
+ <summary><span class="v14-scan-symbol">⌗</span><span><strong>SCAN RACERUNDER · V27</strong><small>Ta bilde / velg bilder · maks 5</small></span><span class="v14-scan-chevron">⌄</span></summary>
+ <div class="v14-scan-content">
+ <p class="helper">Ta bilde av <b>LAP DELTA-tabellen</b> på PC-skjermen. Hold telefonen så tabellen fyller mest mulig av bildet. Du kan bruke opptil 5 mobilbilder. SCAN følger tabellradene fra venstre mot høyre: Runde → S1 → S2 → S3 → Rundetid → Dekk. Dekket leses fra fargen på S/M/H/I/W-symbolet. Kontroller alltid resultatet før lagring. Bildene behandles lokalt.</p>
+ <div class="v14-scan-buttons"><button type="button" class="secondary" data-action="scan-camera" ${scanBusy||scanFiles.length>=5?'disabled':''}>📷 Ta bilde</button><button type="button" class="secondary" data-action="scan-upload" ${scanBusy||scanFiles.length>=5?'disabled':''}>▣ Velg bilder</button></div>
+ <input id="v14-camera" class="v14-hidden-file" type="file" accept="image/*" capture="environment" aria-label="Ta bilde av rundetider">
+ <input id="v14-upload" class="v14-hidden-file" type="file" accept="image/*" multiple aria-label="Velg bilder av rundetider">
+ <div class="v14-file-count">${scanFiles.length} / 5 BILDER VALGT</div>
+ ${scanFiles.length?`<div class="v14-scan-gallery">${scanFiles.map((f,i)=>`<div class="v14-scan-photo"><img src="${esc(f.url)}" alt="Bilde ${i+1}" loading="lazy"><button type="button" data-action="scan-remove" data-value="${i}" aria-label="Fjern bilde ${i+1}" ${scanBusy?'disabled':''}>✕</button><small>${i+1}</small></div>`).join('')}</div>`:''}
+ <button type="button" class="primary full v14-scan-run" data-action="scan-run" ${scanBusy||!scanFiles.length?'disabled':''}>${scanBusy?'SCANNER …':'⌗ SCAN BILDER'}</button>
+ <p id="v14-scan-status" class="v14-scan-status" role="status">${esc(scanStatus||'Du kan legge til bilder fra kamera og bildebibliotek.')}</p>
+ ${scanRows.length?`<div class="v14-review"><div class="v14-review-heading"><div><span class="eyebrow">KONTROLLER FØR LAGRING</span><h3>${scanRows.length} tabellrader funnet</h3></div><button class="ghost" type="button" data-action="scan-add-row">＋ Runde</button></div>
+ <p class="helper">Hver rad er knyttet til dekkikonets farge. Sektorer som ikke kan bekreftes, vises for kontroll. Manglende tider og sektorer blir forsøkt lest på nytt fra hvert enkelt felt. Kontroller markerte rader før lagring. Manglende rundetid må rettes; manglende sektorer er valgfrie.</p>
+ <div class="v14-review-table"><div class="v14-review-header"><span>RUNDE</span><span>TID</span><span>DEKK</span><span></span></div>${scanRows.map((r,i)=>`<div class="v14-review-row ${(!r.time||!r.lapNumber||!r.tyre||r.timeEstimated||r.autoCorrected)?'v24-review-needed':''}"><input inputmode="numeric" aria-label="Runde ${i+1} nummer" data-scan-row="${i}" data-scan-key="lapNumber" value="${esc(r.lapNumber)}" placeholder="Nr."><input type="text" inputmode="text" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Runde ${i+1} tid" data-scan-row="${i}" data-scan-key="time" class="${r.timeEstimated?'v26-estimated':''}" value="${esc(r.time)}" placeholder="f.eks. 1:55.194"><select aria-label="Runde ${i+1} dekk" data-scan-row="${i}" data-scan-key="tyre"><option value="" ${!r.tyre?'selected':''}>Velg</option>${TYRES.map(([name])=>`<option value="${esc(name)}" ${r.tyre===name?'selected':''}>${esc(name)}</option>`).join('')}</select><button class="v14-row-remove" type="button" data-action="scan-delete-row" data-value="${i}" aria-label="Slett runde ${i+1}">✕</button>${r.timeEstimated?`<div class="v26-review-note">⚠ Runde ${esc(r.lapNumber)}: Tiden er beregnet fra S1+S2+S3, ikke lest sikkert fra bildet. Kan avvike 1–2 tusendeler. Kontroller og rett tiden før lagring.</div>`:r.autoCorrected?`<div class="v26-review-note">⚠ Runde ${esc(r.lapNumber)}: Et sektorsiffer er foreslått rettet med kontroll mot total rundetid. Sjekk sektorene før lagring.</div>`:''}</div>`).join('')}</div>
+ <details class="v18-sectors"><summary>Vis / rett sektortider (valgfritt)</summary><div class="v18-sectors-scroll">${scanRows.map((r,i)=>`<div class="v18-sector-row"><strong>Runde ${esc(r.lapNumber||'?')} ${r.autoCorrected?'<span class="v25-sector-warn">· Siffer korrigert, kontroller</span>':r.sectorConfirmed?'✓':'<span class="v25-sector-warn">· Sektorer må kontrolleres</span>'}</strong>${['s1','s2','s3'].map((key,j)=>`<label>S${j+1}<input type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Runde ${i+1} sektor ${j+1}" data-scan-row="${i}" data-scan-key="${key}" value="${esc(r[key]||'')}" placeholder="–"></label>`).join('')}</div>`).join('')}</div><p class="v22-sector-tip">SCAN forsøker nå å lese S1, S2 og S3 fra bildet. Du kan også skrive selv, for eksempel 31.981 eller 1:36.055. Bruk vanlig tastatur med bokstaver og symboler.</p></details>
+ <div class="v14-tyre-best"><span class="eyebrow">BESTE TID PER DEKK</span>${Object.keys(summary).length?Object.entries(summary).map(([tyre,r])=>`<div class="v14-tyre-line">${tyreTag(tyre)}<b>${formatTime(r.timeMs)}</b><small>Runde ${esc(r.lapNumber)}</small></div>`).join(''):'<p class="helper">Velg dekk på rundene for å se de beste tidene.</p>'}</div>
+ <p class="v14-save-help">Når du trykker «Lagre racerunder og resultat», lagres de kontrollerte rundene automatisk i Historikk.</p></div>`:''}
+ <button type="button" class="ghost full" data-action="scan-add-row">＋ Legg til runde manuelt</button>
+ ${scanRawPreview?`<details class="v14-raw"><summary>Se hva SCAN faktisk leste</summary><pre>${esc(scanRawPreview.slice(0,8000))}</pre></details>`:''}
+ </div></details>`;
+}
+function scanAddFiles(list){
+ if(scanBusy)return;
+ const incoming=Array.from(list||[]);let added=0;
+ for(const f of incoming){
+  if(scanFiles.length>=5)break;
+  if(!f.type.startsWith('image/'))continue;
+  if(f.size>20*1024*1024){scanStatus='Et bilde var over 20 MB og ble ikke lagt til.';continue;}
+  scanFiles.push({file:f,url:URL.createObjectURL(f)});added++;
+ }
+ if(incoming.length>added&&scanFiles.length>=5)scanStatus='Maks 5 bilder. Fjern et bilde hvis du vil bytte.';
+ else if(added)scanStatus=`${scanFiles.length} bilde(r) klare. Trykk SCAN når du er ferdig.`;
+ render();
+}
+function scanClearFiles(){for(const f of scanFiles)URL.revokeObjectURL(f.url);scanFiles=[];}
+function scanReset(){scanClearFiles();scanRows=[];scanStatus='';scanRawPreview='';}
+function scanLoadLibrary(){
+ if(window.Tesseract)return Promise.resolve();
+ return new Promise((resolve,reject)=>{
+  const script=document.createElement('script');script.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';script.async=true;
+  script.onload=()=>window.Tesseract?resolve():reject(new Error('OCR-biblioteket kunne ikke startes.'));
+  script.onerror=()=>reject(new Error('OCR krever internett første gang. Prøv igjen når du er tilkoblet.'));
+  document.head.appendChild(script);
+ });
+}
+async function scanImagePrepare(file,mode='table'){
+ const img=typeof createImageBitmap==='function'?await createImageBitmap(file):await new Promise((resolve,reject)=>{const url=URL.createObjectURL(file);const image=new Image();image.onload=()=>{URL.revokeObjectURL(url);resolve(image);};image.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('Kunne ikke lese bildet.'));};image.src=url;});
+ const portrait=img.height>img.width*1.17;
+ // The photo can contain wall and desk. Scan the monitor area, then retry a wider region.
+ let x0=0,y0=0,x1=1,y1=1;
+ if(portrait&&mode==='table'){x0=.012;x1=.96;y0=.43;y1=.75;}
+ if(portrait&&mode==='wide'){x0=0;x1=1;y0=.33;y1=.83;}
+ const sx=Math.round(img.width*x0),sy=Math.round(img.height*y0);
+ const sw=Math.round(img.width*(x1-x0)),sh=Math.round(img.height*(y1-y0));
+ const scale=Math.min(2.5,2700/Math.max(sw,sh));
+ const canvas=document.createElement('canvas');canvas.width=Math.round(sw*scale);canvas.height=Math.round(sh*scale);
+ const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.drawImage(img,sx,sy,sw,sh,0,0,canvas.width,canvas.height);img.close?.();
+ return canvas;
+}
+function scanEnhance(canvas){
+ // Preserve natural F1 colours/edges. V19's high-contrast filter washed out thin white numbers.
+ const out=document.createElement('canvas');out.width=canvas.width;out.height=canvas.height;
+ out.getContext('2d',{willReadFrequently:true}).drawImage(canvas,0,0);
+ return out;
+}
+function scanColumnCanvas(canvas,x0,x1){
+ const x=Math.floor(canvas.width*x0),width=Math.max(1,Math.floor(canvas.width*(x1-x0)));
+ const output=document.createElement('canvas');output.width=width;output.height=canvas.height;
+ output.getContext('2d').drawImage(canvas,x,0,width,canvas.height,0,0,width,canvas.height);
+ return output;
+}
+// V22: OCR for all three F1 25 sector columns, with lap-time cross-check.
+function scanSectorToken(raw){
+ let t=String(raw||'').trim().replace(/[Oo]/g,'0').replace(/[,]/g,'.').replace(/\s/g,'').replace(/[|]/g,'1').replace(/(\d)S\b/g,(_,d)=>d+'5');
+ t=t.replace(/^[^\d]+|[^\d]+$/g,'');
+ if(/^\d{4,6}$/.test(t))t=t.slice(0,-3)+'.'+t.slice(-3);
+ if(/^\d{2,3}\.\d{4}$/.test(t))t=t.slice(0,-1);
+ if(/^\d{2,3}\.\d{3}$/.test(t)){
+  const sec=Number(t);if(sec<10||sec>300)return '';
+  return sec>=60?formatTime(Math.round(sec*1000)):t;
+ }
+ if(/^\d{1,2}:\d{2}\.\d{3}$/.test(t)){
+  const ms=parseTime(t);return ms!=null&&ms>=10000&&ms<=300000?formatTime(ms):'';
+ }
+ return '';
+}
+function scanSectorItems(data){
+ const items=[];
+ for(const w of scanWordList(data)){
+  const value=scanSectorToken(w.text);
+  if(value&&w.bbox)items.push({value,y:(w.bbox.y0+w.bbox.y1)/2});
+ }
+ if(!items.length){
+  for(const line of String(data?.text||'').split(/\r?\n/)){
+   const value=scanSectorToken(line);
+   if(value)items.push({value,y:null});
+  }
+ }
+ return items.sort((a,b)=>(a.y??0)-(b.y??0));
+}
+function scanAttachSectors(rows,sectorCols){
+ // The photographed table is tilted, so matching by row order is usually
+ // more robust than comparing exact Y coordinates across columns.
+ let filled=0;
+ for(let i=0;i<rows.length;i++){
+  const row=rows[i],total=parseTime(row.time);
+  if(total==null)continue;
+  const options=sectorCols.map(col=>{
+   if(!col.length)return [];
+   if(col.length===rows.length)return [col[i]];
+   const near=[];
+   const target=(i+.5)/rows.length;
+   for(let j=0;j<col.length;j++){
+    const relative=(j+.5)/col.length;
+    if(Math.abs(relative-target)<.16||Math.abs(j-i)<=1)near.push(col[j]);
+   }
+   return near.slice(0,5);
+  });
+  if(options.some(a=>!a.length))continue;
+  let best=null;
+  for(const a of options[0])for(const b of options[1])for(const c of options[2]){
+   const ms=[a,b,c].map(v=>parseTime(v.value));
+   if(ms.some(v=>v==null))continue;
+   const error=Math.abs(ms[0]+ms[1]+ms[2]-total);
+   if(error<=110&&(!best||error<best.error))best={error,values:[a.value,b.value,c.value]};
+  }
+  if(best){[row.s1,row.s2,row.s3]=best.values;filled++;}
+ }
+ return filled;
+}
+function scanOCRContrast(canvas,invert=false){
+ const out=document.createElement('canvas');out.width=canvas.width*2;out.height=canvas.height*2;
+ const ctx=out.getContext('2d',{willReadFrequently:true});ctx.imageSmoothingEnabled=true;
+ ctx.drawImage(canvas,0,0,out.width,out.height);
+ const img=ctx.getImageData(0,0,out.width,out.height);
+ for(let i=0;i<img.data.length;i+=4){
+  const p=.2126*img.data[i]+.7152*img.data[i+1]+.0722*img.data[i+2];
+  // OCR usually prefers dark glyphs on a light background.
+  const q=invert?255-p:p;
+  const val=Math.max(0,Math.min(255,(q-128)*1.4+128));
+  img.data[i]=img.data[i+1]=img.data[i+2]=val;
+ }
+ ctx.putImageData(img,0,0);return out;
+}
+// V24: The colored TYRE symbols are independent row anchors. This avoids
+// mixing rows when the monitor is photographed at an angle or OCR skips a cell.
+function scanDetectTyreRows(canvas){
+ const w=canvas.width,h=canvas.height,ctx=canvas.getContext('2d',{willReadFrequently:true});
+ const x0=Math.floor(w*.69),x1=Math.floor(w*.87),img=ctx.getImageData(x0,0,x1-x0,h),stride=img.width*4;
+ const profiles=[];const strideX=Math.max(1,Math.round(w/1200));
+ for(let y=0;y<h;y++){
+  let rcount=0,ycount=0,bcount=0,gcount=0;
+  for(let x=0;x<img.width;x+=strideX){const p=y*stride+x*4,r=img.data[p],g=img.data[p+1],b=img.data[p+2];
+   if(r>125&&r>g*1.35&&r>b*1.25)rcount++;
+   else if(r>140&&g>110&&b<Math.min(r,g)*.72)ycount++;
+   else if(b>105&&g>100&&r<g*.78&&r<b*.78)bcount++;
+   else if(g>110&&g>r*1.38&&g>b*1.15)gcount++;
+  }
+  profiles.push([rcount,ycount,bcount,gcount]);
+ }
+ const radius=Math.max(2,Math.round(h*.003)),candidates=[];
+ for(let y=radius;y<h-radius;y++){
+  const counts=profiles[y],score=counts.reduce((a,b)=>a+b,0);
+  if(score<Math.max(4,Math.round(w*.004/strideX)))continue;
+  let peak=true;
+  for(let k=y-radius;k<=y+radius;k++)if(k!==y&&profiles[k].reduce((a,b)=>a+b,0)>score){peak=false;break;}
+  if(peak)candidates.push({y,score});
+ }
+ candidates.sort((a,b)=>b.score-a.score);
+ const minGap=Math.max(10,Math.round(h*.033));const picked=[];
+ for(const c of candidates){if(picked.every(p=>Math.abs(p.y-c.y)>minGap))picked.push(c);}
+ picked.sort((a,b)=>a.y-b.y);
+ // Remove isolated scenery pixels: real tyre symbols form a regular sequence.
+ if(picked.length>=5){
+  const gaps=picked.slice(1).map((p,i)=>p.y-picked[i].y).filter(d=>d>h*.017&&d<h*.095);
+  const step=scanMedian(gaps);
+  if(step>0){const keep=picked.filter((p,i)=>Math.min(i? p.y-picked[i-1].y:Infinity,i<picked.length-1?picked[i+1].y-p.y:Infinity)<step*1.75);picked.splice(0,picked.length,...keep);}
+ }
+ return picked.map(p=>{
+  const sums=[0,0,0,0];for(let y=Math.max(0,p.y-radius*2);y<Math.min(h,p.y+radius*2+1);y++)for(let j=0;j<4;j++)sums[j]+=profiles[y][j];
+  const ix=sums.indexOf(Math.max(...sums));
+  return {y:p.y,tyre:['Soft','Medium','Wet','Intermediate'][ix],score:p.score};
+ });
+}
+function scanWhiteTyre(canvas,y){
+ // Hard tyres are white: check the outline in the narrow TYRE-icon region,
+ // never classify ordinary white table text as a tyre.
+ const w=canvas.width,h=canvas.height,ctx=canvas.getContext('2d',{willReadFrequently:true});
+ const centerX=Math.round(w*.755),r=Math.max(6,Math.round(w*.008));
+ const x=Math.max(0,centerX-r*2),top=Math.max(0,Math.round(y)-r*2);
+ const ww=Math.min(w-x,r*4+1),hh=Math.min(h-top,r*4+1);
+ const a=ctx.getImageData(x,top,ww,hh).data;
+ let bright=0,dark=0;
+ for(let yy=0;yy<hh;yy++)for(let xx=0;xx<ww;xx++){
+  const dx=x+xx-centerX,dy=top+yy-y,d=Math.sqrt(dx*dx+dy*dy),p=(yy*ww+xx)*4;
+  const v=(a[p]+a[p+1]+a[p+2])/3;
+  if(d>=r*.65&&d<=r*1.3&&v>170)bright++;
+  if(d<r*.5&&v<145)dark++;
+ }
+ return bright>=Math.max(10,Math.round(r*2.5))&&dark>=3;
+}
+function scanMedian(values){if(!values.length)return 0;const a=[...values].sort((x,y)=>x-y);return a[Math.floor(a.length/2)];}
+function scanEstimateStep(ys,h){const d=ys.slice(1).map((v,i)=>v-ys[i]).filter(v=>v>h*.018&&v<h*.09);return scanMedian(d)||Math.max(25,h*.047);}
+function scanCandidates(data,kind){
+ const items=kind==='sector'?scanSectorItems(data):scanColumnItems(data,kind);
+ return items.filter(i=>i.value).map(i=>({...i,confidence:1}));
+}
+function scanMergeCandidates(a,b,step){
+ const out=[...a];
+ for(const item of b){if(!out.some(x=>x.value===item.value&&x.y!=null&&item.y!=null&&Math.abs(x.y-item.y)<step*.22))out.push({...item,confidence:.75});}
+ return out.sort((x,y)=>(x.y??0)-(y.y??0));
+}
+function scanFitColumnOffset(rows,items,guess,step){
+ const ys=items.filter(i=>i.y!=null).map(i=>i.y);
+ if(!ys.length)return guess;
+ let best=guess,score=-Infinity;
+ for(let shift=-.40;shift<=.40;shift+=.05){
+  const offset=guess+shift*step;
+  let hits=0,err=0;
+  for(const y of ys){const d=Math.min(...rows.map(r=>Math.abs(y-r.y-offset)));
+   if(d<step*.37){hits++;err+=d/step;}
+  }
+  const s=hits*5-err*.7-Math.abs(shift)*.45;
+  if(s>score){score=s;best=offset;}
+ }
+ return best;
+}
+function scanNearestCell(items,y,step){
+ let best=null;
+ for(const item of items){if(item.y==null)continue;
+  const d=Math.abs(item.y-y);
+  if(d>step*.42)continue;
+  if(!best||d<best.d)best={...item,d};
+ }
+ return best;
+}
+// V24: Row numbers are the PRIMARY key. Never renumber a row just because
+// OCR missed a lap time, tyre icon, or an entire line.
+function scanRobustStep(values,fallback){
+ const arr=values.filter(x=>Number.isFinite(x)&&x>6&&x<fallback*3.5).sort((a,b)=>a-b);
+ if(!arr.length)return fallback;
+ const short=arr.slice(0,Math.max(1,Math.ceil(arr.length*.68)));
+ return scanMedian(short);
+}
+function scanLapGeometry(laps,colors,times,h){
+ const valid=laps.filter(x=>x.y!=null&&/^\d{1,3}$/.test(x.value)).map(x=>({n:Number(x.value),y:x.y})).filter(x=>x.n>=1&&x.n<=250).sort((a,b)=>a.y-b.y);
+ const rough=Math.max(12,h*.044);
+ const steps=[];
+ for(let i=0;i<valid.length;i++)for(let j=i+1;j<Math.min(i+6,valid.length);j++){
+  const dn=valid[j].n-valid[i].n,dy=valid[j].y-valid[i].y;
+  if(dn>=1&&dn<=7&&dy>0){const d=dy/dn;if(d>h*.018&&d<h*.09)steps.push(d);}
+ }
+ const yvals=[...colors.map(c=>c.y),...times.filter(t=>t.y!=null).map(t=>t.y)].sort((a,b)=>a-b);
+ const gaps=yvals.slice(1).map((y,i)=>y-yvals[i]).filter(v=>v>h*.018&&v<h*.085);
+ let step=steps.length>=2?scanMedian(steps):scanRobustStep(gaps,rough);
+ if(!Number.isFinite(step)||step<h*.016||step>h*.10)step=rough;
+ // RANSAC: one bad OCR lap number must not shift the entire race.
+ let best=null;
+ for(const p of valid){
+  const origin=p.y-p.n*step;
+  const inliers=valid.filter(q=>Math.abs(q.y-(origin+q.n*step))<step*.34&&q.n>=1);
+  const distinct=new Set(inliers.map(q=>q.n)).size;
+  const score=distinct*10-inliers.reduce((sum,q)=>sum+Math.abs(q.y-(origin+q.n*step))/step,0);
+  if(!best||score>best.score)best={origin,score,inliers,distinct};
+ }
+ if(best&&best.distinct>=2){
+  // Recalculate using the median of the agreeing anchors.
+  const origin=scanMedian(best.inliers.map(q=>q.y-q.n*step));
+  const consistent=valid.filter(q=>Math.abs(q.y-(origin+q.n*step))<step*.34);
+  return {step,origin,laps:consistent,reliable:true};
+ }
+ return {step,origin:null,laps:valid,reliable:false};
+}
+function scanFitColumnTransform(rows,items,guess,step,defaultScale=1){
+ const ys=items.filter(x=>x.y!=null).map(x=>x.y).sort((a,b)=>a-b);
+ const diffs=ys.slice(1).map((v,i)=>v-ys[i]).filter(d=>d>step*.62&&d<step*1.28);
+ let scale=diffs.length>=2?scanMedian(diffs)/step:defaultScale;
+ if(!Number.isFinite(scale)||scale<.76||scale>1.20)scale=defaultScale;
+ if(!ys.length)return {scale,offset:guess+(1-scale)*rows[0].y};
+ const target=rows[0].y+guess;
+ const expectedOffset=target-scale*rows[0].y;
+ let best=null;
+ for(let shift=-.75;shift<=.75;shift+=.025){
+  const offset=expectedOffset+shift*step;
+  let hits=0,error=0;
+  for(const y of ys){
+   const d=Math.min(...rows.map(r=>Math.abs(y-(scale*r.y+offset))));
+   if(d<step*.36){hits++;error+=d/step;}
+  }
+  const score=hits*5-error*.7-Math.abs(shift)*.8;
+  if(!best||score>best.score)best={score,scale,offset};
+ }
+ return best||{scale,offset:expectedOffset};
+}
+function scanGridRows(canvas,columns){
+ const colors=scanDetectTyreRows(canvas),h=canvas.height,w=canvas.width;
+ const allLap=columns[0],allTime=columns[4];
+ const geom=scanLapGeometry(allLap,colors,allTime,h);
+ let {step}=geom;
+ const rows=[];
+ if(geom.reliable){
+  const nums=geom.laps.map(x=>x.n);
+  // The F1 LAP column gives actual numbers. Fill gaps even when other cells
+  // were unreadable. Limit the inferred range to the visible part of the photo.
+  const min=Math.max(1,Math.min(...nums));
+  const max=Math.min(250,Math.max(...nums));
+  for(let n=min;n<=max;n++){
+   const y=geom.origin+n*step;
+   if(y>=-step*.2&&y<=h+step*.2)rows.push({y,lapNumber:String(n),source:'rundenummer + tabell'});
+  }
+ }
+ if(rows.length<3){
+  // Fallback: reconstruct a full evenly-spaced grid from ALL available
+  // anchors, rather than using the list index as a lap number.
+  const anchors=[...colors.map(x=>x.y),...allTime.filter(x=>x.y!=null).map(x=>x.y+(.655-.755)*w*.032)].sort((a,b)=>a-b);
+  if(anchors.length<3)return [];
+  const start=anchors[0];
+  const bins=new Map();
+  for(const y of anchors){const k=Math.round((y-start)/step);if(k>=0&&k<250){const list=bins.get(k)||[];list.push(y);bins.set(k,list);}}
+  const keys=[...bins.keys()].sort((a,b)=>a-b);
+  const first=keys[0],last=keys[keys.length-1];
+  for(let k=first;k<=last;k++){
+   const y=bins.has(k)?scanMedian(bins.get(k)):start+k*step;
+   rows.push({y,lapNumber:'',source:'geometrisk rad – kontroller nummer'});
+  }
+ }
+ if(!rows.length)return [];
+ // Tilt correction is learned per column from OCR token Y coordinates.
+ // Reference coordinate is LAP (far left), not the TYRE column.
+ const xs=[.055,.145,.315,.465,.655];
+ const timeScaleGuess=scanFitColumnTransform(rows,allTime,(xs[0]-xs[4])*w*.032,step,1).scale;
+ const transforms=columns.map((items,k)=>scanFitColumnTransform(rows,items,(xs[0]-xs[k])*w*.032,step,k===0?1:timeScaleGuess));
+ const lapItems=allLap.filter(x=>x.y!=null&&/^\d{1,3}$/.test(x.value));
+ const timeUsed=new Set();
+ const output=rows.map((r,i)=>{
+  const lapCell=scanNearestCell(lapItems,r.y*transforms[0].scale+transforms[0].offset,step);
+  // Never overwrite a reliable geometric lap number with a conflicting OCR guess.
+  let lapNumber=r.lapNumber;
+  if(!lapNumber&&lapCell)lapNumber=lapCell.value;
+  const t=scanNearestCell(allTime,r.y*transforms[4].scale+transforms[4].offset,step);
+  const parts=columns.slice(1,4).map((items,k)=>scanNearestCell(items,r.y*transforms[k+1].scale+transforms[k+1].offset,step));
+  const sectorValues=parts.map(v=>v?.value||'');
+  const total=t?parseTime(t.value):null;
+  let valid=sectorValues.every(Boolean)&&sectorValues.every(x=>parseTime(x)!=null);
+  if(valid&&total!=null)valid=Math.abs(sectorValues.map(parseTime).reduce((a,b)=>a+b,0)-total)<=8;
+  else valid=false;
+  // Color icons are on the right, so project the expected row position
+  // from the LAP column using the same perspective slope.
+  const tyreY=r.y*transforms[4].scale+transforms[4].offset+(.655-.755)*w*.032;
+  const nearestColor=colors.map(c=>({...c,d:Math.abs(c.y-tyreY)})).sort((a,b)=>a.d-b.d)[0];
+  let tyre=nearestColor&&nearestColor.d<step*.43?nearestColor.tyre:'';
+  if(!tyre&&scanWhiteTyre(canvas,tyreY))tyre='Hard';
+  const time=t?.value||'';
+  // Keep plausible partial sector reads, so a single missed digit does not erase the whole lap.
+  // Do not claim these sectors are confirmed until their sum matches LAP TIME.
+  const safeParts=sectorValues.map(x=>parseTime(x)!=null?x:'');
+  return {lapNumber,time,tyre,s1:safeParts[0],s2:safeParts[1],s3:safeParts[2],sectorConfirmed:valid,source:r.source,review:!time||!tyre||!valid,
+   _cells:transforms.map(tr=>r.y*tr.scale+tr.offset),_step:step};
+ });
+ // Do not silently drop blank rows in the middle; they are important
+ // evidence that OCR missed a lap and need manual review.
+ return output;
+}
+// V26: Focused second pass on only the cells missed by column OCR.
+// Each crop belongs to a known row and a known column. It cannot shift another lap.
+function scanFocusedCell(canvas,col,centerY,step,variant=0){
+ const bounds=[[.005,.10],[.08,.235],[.23,.40],[.40,.555],[.56,.745]];
+ const [left,right]=bounds[col];
+ const x=Math.max(0,Math.floor(canvas.width*left)),w=Math.max(2,Math.ceil(canvas.width*(right-left)));
+ const pad=Math.max(8,Math.round(step*.34));
+ const y=Math.max(0,Math.round(centerY)-pad),h=Math.max(2,Math.min(canvas.height-y,pad*2));
+ const out=document.createElement('canvas');const scale=Math.min(4,Math.max(2,720/w));
+ out.width=Math.round(w*scale);out.height=Math.round(h*scale);
+ const ctx=out.getContext('2d',{willReadFrequently:true});ctx.imageSmoothingEnabled=true;
+ ctx.drawImage(canvas,x,y,w,h,0,0,out.width,out.height);
+ if(variant){const image=ctx.getImageData(0,0,out.width,out.height);
+  for(let i=0;i<image.data.length;i+=4){const d=image.data;
+   const lum=.299*d[i]+.587*d[i+1]+.114*d[i+2];
+   const v=variant===1?Math.max(0,Math.min(255,(lum-108)*2+145)):255-Math.max(0,Math.min(255,(lum-108)*2+145));
+   d[i]=d[i+1]=d[i+2]=v;
+  }ctx.putImageData(image,0,0);
+ }
+ return out;
+}
+// V26: a second OCR pass looks at the exact missing cell from several offsets.
+// Use the sum of sectors as a consistency check, NOT as an invented exact lap time.
+async function scanFocusedRead(worker,canvas,col,y,step,expectedTime=''){
+ const kind=col===4?'time':'sector',expected=parseTime(expectedTime);
+ const options=[];
+ const offsets=col===4&&expected!=null?[0,-.16,.16]:[0];
+ for(const offset of offsets){
+  for(const variant of [0,1,2]){
+   const crop=scanFocusedCell(canvas,col,y+step*offset,step,variant);
+   try{
+    await worker.setParameters({tessedit_pageseg_mode:'7',tessedit_char_whitelist:'0123456789:.',preserve_interword_spaces:'0'});
+    const result=await worker.recognize(crop);
+    const words=scanWordList(result?.data);
+    const tokens=[...words.map(w=>({text:w.text,conf:w.confidence??w.conf??result?.data?.confidence??0})),{text:result?.data?.text||'',conf:result?.data?.confidence??0}];
+    for(const t of tokens){const value=kind==='time'?scanTimeToken(t.text):scanSectorToken(t.text);
+     if(value){const ms=parseTime(value);if(ms!=null&&ms>0)options.push({value,ms,conf:Number(t.conf)||0});}
+    }
+   }catch(e){/* one cell must not abort the scan */}
+   finally{crop.width=crop.height=0;}
+   if(options.some(o=>expected!=null&&Math.abs(o.ms-expected)<=15&&o.conf>=35))break;
+  }
+  if(options.some(o=>expected!=null&&Math.abs(o.ms-expected)<=15&&o.conf>=35))break;
+ }
+ if(!options.length)return '';
+ // Only accept an OCR time that agrees with three independent sector readings.
+ if(expected!=null&&col===4){
+  const close=options.filter(o=>Math.abs(o.ms-expected)<=15).sort((a,b)=>Math.abs(a.ms-expected)-Math.abs(b.ms-expected)||b.conf-a.conf);
+  if(close.length)return close[0].value;
+  // If the OCR time contradicts all three sectors, leave it unconfirmed.
+  // A sector-based estimate will be shown separately with a warning.
+  return '';
+ }
+ options.sort((a,b)=>b.conf-a.conf);
+ return options[0].value;
+}
+// OCR sometimes confuses 2/3, 1/7 or 5/6. Check one-digit substitutions
+// against the actual lap time. Never change a digit if multiple edits fit.
+function scanReconcileRow(row,allRows=[]){
+ const total=parseTime(row.time),keys=['s1','s2','s3'];
+ const ms=keys.map(k=>parseTime(row[k]));
+ if(total!=null&&ms.every(x=>x!=null)){
+  const sum=ms.reduce((a,b)=>a+b,0),error=Math.abs(sum-total);
+  if(error>12){
+   const fixes=[];
+   // Learn each sector's typical range from OTHER normal laps in the same photo.
+   // This disambiguates 21→31 (S1) from equally summing but implausible
+   // 47→57 (S2) or 29→39 (S3) on the user's example.
+   const medians=keys.map((key,i)=>{
+    const values=Array.isArray(allRows)?allRows.filter(r=>r!==row&&parseTime(r.time)!=null&&parseTime(r.time)<190000).map(r=>parseTime(r[key])).filter(x=>x!=null&&x>=15000&&x<=90000):[];
+    return values.length>=3?scanMedian(values):null;
+   });
+   for(let i=0;i<3;i++){
+    const original=String(row[keys[i]]),other=ms.reduce((a,b,j)=>a+(j===i?0:b),0);
+    for(let k=0;k<original.length;k++){
+     if(!/\d/.test(original[k]))continue;
+     for(let digit=0;digit<10;digit++){
+      if(String(digit)===original[k])continue;
+      const candidate=original.slice(0,k)+digit+original.slice(k+1),v=parseTime(candidate);
+      if(v==null||v<10000||v>300000)continue;
+      const residual=Math.abs(other+v-total);
+      if(residual<=3){
+       const baseline=medians[i];
+       const improvement=baseline==null?0:Math.abs(ms[i]-baseline)-Math.abs(v-baseline);
+       fixes.push({i,candidate,residual,improvement});
+      }
+     }
+    }
+   }
+   fixes.sort((a,b)=>b.improvement-a.improvement||a.residual-b.residual);
+   // Require a strong unique improvement over the other mathematically valid edits.
+   if(fixes.length&&fixes[0].improvement>5000&&(fixes.length===1||fixes[0].improvement-fixes[1].improvement>4000)){
+    row[keys[fixes[0].i]]=fixes[0].candidate;row.autoCorrected=true;
+   }
+  }
+ }
+ const finalParts=keys.map(k=>parseTime(row[k]));
+ if(!row.time&&finalParts.every(x=>x!=null)){
+  const approx=finalParts.reduce((a,b)=>a+b,0);
+  if(approx>=45000&&approx<=1200000){
+   row.time=formatTime(approx);row.timeEstimated=true;
+  }
+ }
+ const t=parseTime(row.time),p=keys.map(k=>parseTime(row[k]));
+ row.sectorConfirmed=t!=null&&p.every(x=>x!=null)&&Math.abs(p.reduce((a,b)=>a+b,0)-t)<=12;
+ row.review=Boolean(!row.time||!row.tyre||!row.sectorConfirmed||row.timeEstimated||row.autoCorrected);
+ return row;
+}
+async function scanRepairMissingCells(worker,canvas,rows){
+ let tries=0,improved=0;
+ // Missing LAP TIME prevents saving, so it always has priority.
+ const pending=[];
+ for(const r of rows){if(r._cells&&r._step&&!r.time)pending.push({r,col:4});}
+ for(const r of rows){if(!r._cells||!r._step)continue;
+  if(r.time&&r.sectorConfirmed)continue;
+  for(let col=1;col<=3;col++)if(!r['s'+col])pending.push({r,col});
+ }
+ for(const {r,col} of pending){if(tries>=22)break;tries++;
+  const y=r._cells[col];if(!Number.isFinite(y))continue;
+  const sectorSum=[r.s1,r.s2,r.s3].map(parseTime);
+  const expected=col===4&&sectorSum.every(x=>x!=null)?formatTime(sectorSum.reduce((a,b)=>a+b,0)):r.time;
+  const value=await scanFocusedRead(worker,canvas,col,y,r._step,expected);
+  if(!value)continue;
+  if(col===4){if(!r.time){r.time=value;improved++;}}
+  else if(!r['s'+col]){r['s'+col]=value;improved++;}
+ }
+ for(const r of rows)scanReconcileRow(r,rows);
+ return improved;
+}
+async function scanOneImage(worker,file,mode){
+ const original=await scanImagePrepare(file,mode);
+ const enhanced=scanEnhance(original);
+ const canvases=[];
+ try{
+  const bounds=[[.005,.10],[.08,.235],[.23,.40],[.40,.555],[.56,.745]];
+  for(const [a,b] of bounds)canvases.push(scanColumnCanvas(enhanced,a,b));
+  const data=[];let raw='--- V26: LAP-ankret tabell | S1 | S2 | S3 | LAP TIME | TYRE ---\n';
+  const names=['RUNDE','SEKTOR 1','SEKTOR 2','SEKTOR 3','RUNDETID'];
+  for(let k=0;k<5;k++){
+   await worker.setParameters({tessedit_pageseg_mode:'6',tessedit_char_whitelist:'0123456789:.',preserve_interword_spaces:'1'});
+   const result=await worker.recognize(canvases[k],{}, {text:true,blocks:true});
+   let items=scanCandidates(result?.data,k===0?'lap':k===4?'time':'sector');
+   raw+='\n--- '+names[k]+' ---\n'+(result?.data?.text||'');
+   // Retry when OCR misses rows. Dark-background F1 text often needs inversion.
+   const approx=scanDetectTyreRows(original).length;
+   if(items.length<Math.max(3,approx*.84)){
+    const inverted=scanOCRContrast(canvases[k],true);
+    try{
+     const retry=await worker.recognize(inverted,{}, {text:true,blocks:true});
+     const extra=scanCandidates(retry?.data,k===0?'lap':k===4?'time':'sector').map(c=>({...c,y:c.y==null?null:c.y/2}));
+     const step=scanEstimateStep(items.filter(c=>c.y!=null).map(c=>c.y),original.height);
+     items=scanMergeCandidates(items,extra,step);
+     raw+='\n[alternativ OCR] '+(retry?.data?.text||'');
+    }finally{inverted.width=inverted.height=0;}
+   }
+   data.push(items);
+  }
+  const colors=scanDetectTyreRows(original);
+  raw+='\n--- DEKKFUNN FRA FARGER ---\n'+colors.map(c=>c.tyre+' @'+Math.round(c.y)).join(' · ');
+  // Grid reader prefers independent color anchors and column-specific row tilt.
+  let rows=scanGridRows(original,data);
+  if(rows.length<3){
+   const timeItems=data[4],lapItems=data[0];
+   rows=scanSequence(timeItems,lapItems,original);
+   scanAttachSectors(rows,data.slice(1,4));
+   raw+='\n[Reserve: kolonnelesning]';
+  }
+  const recovered=await scanRepairMissingCells(worker,original,rows);
+  raw+='\n[Detaljskanning: '+recovered+' ekstra felter funnet]';
+  raw+='\n--- KOBLET TIL RADER ---\n'+rows.map(r=>[r.lapNumber||'?',r.s1||'-',r.s2||'-',r.s3||'-',r.time||'-',r.tyre||'?'].join(' | ')).join('\n');
+  return {rows,raw,quality:rows.filter(r=>r.lapNumber&&r.time&&r.tyre).length+rows.filter(r=>r.s1&&r.s2&&r.s3).length*.5};
+ }finally{
+  for(const col of canvases){col.width=col.height=0;}
+  original.width=original.height=enhanced.width=enhanced.height=0;
+ }
+}
+async function scanRun(){
+ if(scanBusy||!scanFiles.length)return;
+ scanBusy=true;scanStatus='Forbereder bilder …';render();
+ let worker=null;const files=[...scanFiles];
+ try{
+  await scanLoadLibrary();
+  let current=0;
+  worker=await Tesseract.createWorker('eng',1,{logger:m=>{if(m.status==='recognizing text'){const el=$('#v14-scan-status');if(el)el.textContent=`Leser bilde ${current+1}/${files.length} · ${Math.round((m.progress||0)*100)} %`;}}});
+  const all=[];let combined='';
+  for(current=0;current<files.length;current++){
+   const status=$('#v14-scan-status');if(status)status.textContent=`Leser F1-tabellen i bilde ${current+1}/${files.length} …`;
+   let result=await scanOneImage(worker,files[current].file,'table');
+   if(result.rows.filter(r=>r.time&&r.lapNumber).length<15){
+    const retry=await scanOneImage(worker,files[current].file,'wide');
+    const merged=new Map();
+    for(const row of [...result.rows,...retry.rows]){
+     const key=String(row.lapNumber||'');if(!key)continue;
+     const old=merged.get(key);
+     if(!old){merged.set(key,{...row});continue;}
+     const candidate={...old};
+     for(const f of ['time','tyre','s1','s2','s3'])if((!candidate[f]||(f==='time'&&candidate.timeEstimated&&!row.timeEstimated))&&row[f]){candidate[f]=row[f];if(f==='time')candidate.timeEstimated=Boolean(row.timeEstimated);}
+     const t=parseTime(candidate.time),parts=[candidate.s1,candidate.s2,candidate.s3].map(parseTime);
+     candidate.sectorConfirmed=t!=null&&parts.every(x=>x!=null)&&Math.abs(parts.reduce((a,b)=>a+b,0)-t)<=12;
+     merged.set(key,candidate);
+    }
+    result={...result,rows:[...merged.values()].sort((a,b)=>Number(a.lapNumber)-Number(b.lapNumber))};
+    combined+=`\n--- Alternativ lesning ${current+1} ---\n${retry.raw}`;
+   }
+   all.push(...result.rows);combined+=`\n--- Bilde ${current+1} ---\n${result.raw}`;
+  }
+  const dedup=new Map();let missing=0;
+  for(const row of [...all,...scanRows]){
+   const key=row.lapNumber?String(row.lapNumber):`ukjent-${missing++}`;
+   const old=dedup.get(key);
+   if(!old)dedup.set(key,{...row});else{
+    const merged={...old};for(const f of ['time','tyre','s1','s2','s3'])if((!merged[f]||(f==='time'&&merged.timeEstimated&&!row.timeEstimated))&&row[f]){merged[f]=row[f];if(f==='time')merged.timeEstimated=Boolean(row.timeEstimated);}
+    const ms=parseTime(merged.time),p=[merged.s1,merged.s2,merged.s3].map(parseTime);
+    merged.sectorConfirmed=ms!=null&&p.every(x=>x!=null)&&Math.abs(p.reduce((a,b)=>a+b,0)-ms)<=12;
+    dedup.set(key,merged);
+   }
+  }
+  scanRows=[...dedup.values()].sort((a,b)=>(Number(a.lapNumber)||9999)-(Number(b.lapNumber)||9999));for(const r of scanRows)scanReconcileRow(r,scanRows);scanRawPreview=combined;
+  if(scanRows.length){
+   const maxLap=Math.max(...scanRows.map(r=>Number(r.lapNumber)||0));
+   if(!ui.raceLaps&&maxLap)ui.raceLaps=String(maxLap);
+   const unknown=scanRows.filter(r=>!r.lapNumber||!r.tyre).length;
+   const withSectors=scanRows.filter(r=>r.sectorConfirmed===true).length;
+   const needsReview=scanRows.filter(r=>!r.time||!r.tyre||!r.lapNumber||r.timeEstimated||r.autoCorrected).length;
+   scanStatus=`Fant ${scanRows.length} tabellrader og ${withSectors} bekreftede sektorsett. ${unknown?`${unknown} rader mangler rundenummer eller dekk. `:''}Kontroller alle rader før du lagrer.${needsReview?` ${needsReview} rader må kontrolleres, se gule markeringer.`:''}`;
+  }else scanStatus='Ingen rundetider ble funnet. Trykk «Se hva SCAN faktisk leste» for feilsøking, eller beskjær bildet til LAP DELTA-tabellen og prøv igjen.';
+ }catch(e){scanStatus=`SCAN-feil: ${e?.message||'Ukjent feil'}. Du kan legge inn rundene manuelt.`;}
+ finally{try{await worker?.terminate();}catch{}scanBusy=false;render();}
+}
+function raceEntryV12(){
+ const raceResults=data.races.filter(r=>r.trackId===ui.trackId&&r.season===data.season&&r.car===ui.car).sort((a,b)=>b.createdAt.localeCompare(a.createdAt));
+ const used=new Set(ui.raceUsedTyres||[]);
+ const valid=scanRows.filter(r=>parseTime(r.time)!=null&&r.tyre&&/^\d+$/.test(String(r.lapNumber)));
+ const best=valid.length?valid.reduce((a,b)=>parseTime(a.time)<=parseTime(b.time)?a:b):null;
+ return `<div class="v15-race-flow">
+ <div class="v15-stage-heading"><span class="v15-stage-number">01</span><div><span class="eyebrow">RACE / LAP DATA</span><h2>Racerunder<span class="red-dot">.</span></h2><p>Ta bilde av rundene dine eller velg bilder fra telefonen. Maks 5 bilder. SCAN fyller inn tidene automatisk, og du kan rette dem før du lagrer.</p></div></div>
+ ${raceDirectImportPanel()}
+ ${scanPanel()}
+ ${best?`<div class="v15-scan-result"><span>RASKESTE REGISTRERTE RUNDE</span><strong>${esc(best.time)}</strong><div>${tyreTag(best.tyre)} <small>Runde ${esc(best.lapNumber)} · ${valid.length} runder lagt inn</small></div></div>`:`<div class="v15-no-scan">Du kan også legge inn rundetider manuelt. Trykk <b>＋ Legg til runde</b> under SCAN.</div>`}
+ <div class="v15-stage-heading v15-stage-second"><span class="v15-stage-number">02</span><div><span class="eyebrow">RACE / RESULTAT</span><h2>Løpsresultat<span class="red-dot">.</span></h2><p>Legg inn antall runder og resultat. Har du scannet rundene, fylles beste tid ut automatisk.</p></div></div>
+ <div class="panel v12-race-entry v15-result-entry">
+ <div class="v12-race-grid"><div class="field"><label for="raceLaps">ANTALL KJØRTE RUNDER *</label><input ${inputAttrs()} id="raceLaps" data-field="raceLaps" value="${esc(ui.raceLaps)}" placeholder="F.eks. 35"></div><div class="field"><label for="raceBestLap">${best?'BESTE TID PÅ RUNDE NR. (AUTO)':'BESTE TID PÅ RUNDE NR.'}</label><input ${inputAttrs()} id="raceBestLap" data-field="raceBestLap" value="${esc(best?best.lapNumber:ui.raceBestLap)}" ${best?'readonly':''} placeholder="F.eks. 18"></div></div>
+ <div class="field v12-best-time"><label for="raceBestTime">${best?'BESTE RUNDETID · FRA RACERUNDER':'DIN BESTE RUNDETID *'}</label><input ${inputAttrs()} id="raceBestTime" data-field="raceBestTime" value="${esc(best?best.time:ui.raceBestTime)}" ${best?'readonly':''} placeholder="1:47.081"></div>
+ ${!best?`<div class="v12-used-tyres"><span class="label">DEKK DU BRUKTE I LØPET</span><p class="helper">Trykk for å velge dekk. Trykk på det samme dekket igjen for å fjerne det. Ingen dekk er forhåndsvalgt.</p><div class="v12-used-row">${TYRES.map(([name,code])=>`<button type="button" class="v12-used-chip ${tyreClass(name)} ${used.has(name)?'on':''}" data-action="race-used-tyre" data-value="${name}" aria-pressed="${used.has(name)}"><span>${code}</span>${name}</button>`).join('')}</div>${used.size?`<div class="field v21-best-tyre"><label for="raceBestTyre">DEKK PÅ DIN BESTE RUNDE</label><select id="raceBestTyre" data-field="raceBestTyre">${[...used].map(name=>`<option value="${name}" ${ui.raceBestTyre===name?'selected':''}>${name}</option>`).join('')}</select><p class="helper">Hvis du brukte flere dekk, velg hvilket dekk du satte beste rundetid på.</p></div>`:''}</div>`:`<p class="v15-auto-note">✓ Dekk og beste tid beregnes fra rundene du har kontrollert. Du trenger ikke skrive dem to ganger.</p>`}
+ <details class="v12-extras"><summary>＋ Sektorer, plassering og pitstopp <span>valgfritt</span></summary><div class="v12-extras-inner"><div class="form-grid">${['s1','s2','s3'].map((k,i)=>`<div class="field"><label>SEKTOR ${i+1}</label><input ${inputAttrs()} data-field="${k}" value="${esc(ui[k])}" placeholder="32.456" ${best?'disabled':''}></div>`).join('')}</div><div class="v12-race-grid"><div class="field"><label>STARTPOSISJON</label><input ${inputAttrs()} data-field="raceStart" value="${esc(ui.raceStart)}" placeholder="P8"></div><div class="field"><label>SLUTTPLASSERING</label><input ${inputAttrs()} data-field="raceFinish" value="${esc(ui.raceFinish)}" placeholder="P3"></div><div class="field"><label>PITSTOPP</label><input ${inputAttrs()} data-field="racePits" value="${esc(ui.racePits)}" placeholder="1"></div><div class="field"><label for="raceStatus">RESULTAT</label><select id="raceStatus" data-field="raceStatus">${['Fullført','DNF','DSQ'].map(x=>`<option value="${x}" ${ui.raceStatus===x?'selected':''}>${x}</option>`).join('')}</select></div></div><div class="field"><label>NOTATER</label><textarea data-field="raceNotes" placeholder="Strategi, safety car, dekkbytter …">${esc(ui.raceNotes)}</textarea></div></div></details>
+ <button class="primary full v12-race-save" data-action="save-race-v12">🏁 LAGRE RACERUNDER OG RESULTAT ↗</button><p class="helper v12-autosave-note">Lagrer rundene dine én gang. De vises automatisk i Historikk.</p></div></div>
+ ${raceResults.length?`<div class="v12-race-results"><span class="eyebrow">MINE LØP · ${data.season}</span>${raceResults.map(r=>`<div class="v12-race-result"><div class="v12-race-result-head"><div><strong>${r.bestTimeMs?formatTime(r.bestTimeMs):r.status==='Fullført'&&r.finishPos?'P'+r.finishPos:esc(r.status||'Løp')}</strong><small>${esc(r.car)} · ${new Date(r.createdAt).toLocaleDateString('nb-NO')}</small></div><button class="danger" data-action="delete-race" data-value="${esc(r.id)}" aria-label="Slett løp">✕</button></div><div class="v12-race-result-meta"><span>🏁 ${esc(r.laps||'–')} runder</span>${r.bestLapNumber?`<span>⏱ Runde ${esc(r.bestLapNumber)}</span>`:''}${r.finishPos?`<span>P${esc(r.finishPos)}</span>`:''}</div><div class="v12-race-tyres">${(r.usedTyres?.length?r.usedTyres:(r.bestTyre?[r.bestTyre]:[])).map(tyreTag).join('')} ${r.bestTyre?`<small>Beste tid: ${esc(r.bestTyre)}</small>`:''}</div>${r.bestByTyre?`<div class="v14-saved-best">${Object.entries(r.bestByTyre).map(([t,x])=>`<span>${esc(t)} <b>${formatTime(x.timeMs)}</b></span>`).join('')}</div>`:''}</div>`).join('')}</div>`:''}`;
+}
+function laps(){
+ const list=data.laps.filter(l=>l.trackId===ui.trackId&&l.season===data.season).sort((a,b)=>b.createdAt.localeCompare(a.createdAt));
+ const filtered=ui.logFilter==='Alle'?list:list.filter(l=>l.session===ui.logFilter);
+ return `<section class="section v12-lap-section"><div class="section-heading"><div><span class="eyebrow">RACE WEEKEND</span><h2>Rundetider<span class="red-dot">.</span></h2></div><span class="count-pill">${data.season}</span></div><p class="sub">Registrer én gang – tiden vises automatisk i både Setup og Historikk.</p>
+ ${selectors('laps')}
+ ${ui.session==='Løp'?raceEntryV12():`<div class="v12-session-note">${sessionBadge(ui.session)} <span>Lagres automatisk i Rundetider og Historikk – også når du registrerer fra Setup.</span></div>${timingEntry()}`}
+ </section>
+ <section class="section v12-records"><div class="section-heading"><div><span class="eyebrow">HISTORIKK</span><h2>Lagrede tider</h2></div><span class="count-pill">${list.length}</span></div>
+ ${bestSessionCards(list)}
+ <div class="log-filters" aria-label="Filtrer rundetider">${['Alle',...SESSIONS].map(s=>chip(s==='Løp'?'Race':s,'log-filter',s,ui.logFilter===s,true)).join('')}</div>
+ ${filtered.length?filtered.map(l=>`<div class="record lap-record tyre-record-${tyreClass(l.tyre)}"><div class="record-left"><div class="record-session">${sessionBadge(l.session)}<span>${new Date(l.createdAt).toLocaleDateString('nb-NO')}</span></div><div class="record-time">${formatTime(l.totalMs)} ${tyreTag(l.tyre)}</div><p class="sub">${esc(l.car)} · ${esc(l.weather)}${l.tyreAge?` · ${esc(l.tyreAge)} runder på dekk`:''}${l.lapNumber?` · Runde ${esc(l.lapNumber)}`:''}<br><span class="sector-readout">S1 ${esc(l.s1||'–')} &nbsp; S2 ${esc(l.s2||'–')} &nbsp; S3 ${esc(l.s3||'–')}</span></p></div><button class="danger" data-action="delete-lap" data-value="${esc(l.id)}" aria-label="Slett rundetid">✕</button></div>`).join(''):'<div class="empty">Ingen rundetider for denne økten ennå.</div>'}</section>`;
+}
+function coach(){const laps=data.laps.filter(l=>l.trackId===ui.trackId&&l.season===data.season&&l.car===ui.car&&l.session===ui.session&&l.weather===ui.weather&&(l.tyre||'Ukjent')===ui.tyre).sort((a,b)=>b.createdAt.localeCompare(a.createdAt));const last=laps[0],prior=laps.slice(1).sort((a,b)=>a.totalMs-b.totalMs)[0];let text='Registrer minst to runder med samme bil, dekk og forhold, så sammenligner jeg resultatene dine.';let deltas='';if(last&&!prior){text=`Siste runde på ${ui.tyre}: ${formatTime(last.totalMs)}. Legg inn en runde til med samme bil, dekk og forhold for å sammenligne.`;}if(last&&prior){const delta=last.totalMs-prior.totalMs;text=`Siste runde ${formatTime(last.totalMs)} · tidligere beste ${formatTime(prior.totalMs)}. ${delta<0?`Du forbedret deg med ${(Math.abs(delta)/1000).toFixed(3)} sekunder!`:delta>0?`Du var ${(delta/1000).toFixed(3)} sekunder tregere.`:'Samme rundetid.'}`;const sectors=[1,2,3].map(i=>{const a=parseTime(last['s'+i]),b=parseTime(prior['s'+i]);return a!=null&&b!=null?a-b:null;});if(sectors.every(v=>v!=null)){deltas=`<div class="best-grid" style="margin-top:13px">${sectors.map((v,i)=>`<div class="mini"><span class="label">SEKTOR ${i+1}</span><strong style="font-size:17px;color:${v>0?'var(--yellow)':'var(--green)'}">${v>0?'+':''}${(v/1000).toFixed(3)} s</strong></div>`).join('')}</div>`;const max=Math.max(...sectors);if(max>0)text+=` Størst tidstap i sektor ${sectors.indexOf(max)+1}. Sjekk først kjørelinje og bremsepunkter.`;}else text+=' Legg inn S1, S2 og S3 for sektor-analyse.';}const a=adjust(setup());return `<div class="coach"><div class="eyebrow">AI-STYLE INSIGHTS / DINE DATA</div><h3>⏱ DIN RACE ENGINEER</h3><div class="coach-filter">${tyreTag(ui.tyre)} <span>${esc(ui.car)} · ${esc(ui.session)}</span></div><p>${esc(text)}</p>${deltas}<div class="divider"></div><span class="label">HVA MERKER DU MED BILEN?</span><div class="select-wrap" style="margin-top:12px">${Object.entries(ISSUES).map(([k,label])=>chip(label,'issue',k,ui.issue===k,true)).join('')}</div>${ui.issue!=='none'?`<div class="panel" style="background:#0f2028"><strong style="color:var(--green)">FORSLAG Å TESTE</strong><p class="sub" style="margin-top:10px">${esc(a.why)}</p>${a.changes.map(v=>`<p style="color:var(--cyan);font-weight:800">↗ ${esc(v)}</p>`).join('')}<button class="secondary full" data-action="use-adjusted">Bruk testverdiene i mitt setup →</button></div>`:''}<p class="helper">Dette er forslag, ikke en sikker diagnose. Test én endring om gangen.</p></div>`;}
+function setupGroups(values){return GROUPS.map(([title,fields],i)=>`<div class="setup-group"><h3><span style="color:var(--red)">${String(i+1).padStart(2,'0')}</span> &nbsp; ${esc(title)}</h3>${fields.map(([key,label])=>`<div class="setup-line"><span>${esc(label)}</span><strong>${esc(formattedValue(key,values[key]))}</strong></div>`).join('')}</div>`).join('');}
+function setupPage(){const base=setup();const saved=data.setups.filter(s=>s.trackId===ui.trackId&&s.season===data.season&&s.car===ui.car).sort((a,b)=>b.createdAt.localeCompare(a.createdAt));const values=ui.editValues||base;return `<div class="setup-head"><div class="overline">RACE ENGINEER / SETUP SHEET</div><h2>Komplett banesetup</h2><p class="sub">${esc(track().name)} · ${data.season} · Logitech G29</p><span class="label" style="color:var(--green)">ALLE 20 INNSTILLINGER · F1 25</span></div>${selectors('setup')}<section class="section setup-telemetry-section"><div class="section-heading"><div><span class="eyebrow">SETUP PERFORMANCE</span><h2>Rundetid og sektorer<span class="red-dot">.</span></h2></div></div><p class="sub">Registrer tiden én gang her. Den vises automatisk under Rundetider og Historikk.</p>${sessionTimingSummary()}${timingEntry('setup')}</section><div class="tyre-recommendation"><span class="eyebrow">TYRE STRATEGY</span><div>Valgt dekk: ${tyreTag(ui.tyre)} <small>${ui.weather==='Vått'?'Våte forhold: vurder Intermediate eller Wet etter hvor mye vann som ligger på banen.':'Tørt: Soft kan gi rask kvalifiseringsrunde, mens Medium og Hard ofte passer lengre stint.'}</small></div></div>${coach()}<div class="notice">🏁 Anbefalt startoppsett for ${esc(track().name)}. ${ui.weather==='Vått'?'Vått: mer kontroll og tilpasset bakkeklaring.':ui.session==='Trening'?'Trening: stabilitet og jevne runder.':'Kvalifisering: fokus på én rask runde.'} Community-basert utgangspunkt tilpasset G29 uten assists – ikke testet som besteoppsett for akkurat din bil.</div><section class="section"><h2>Hele anbefalingen</h2><p class="sub">Alle verdiene er synlige. Du trenger ikke redigere noe.</p>${setupGroups(base)}</section><button class="secondary full" data-action="use-recommended">Bruk anbefalingen i mitt setup</button><button class="ghost full" style="margin-top:12px" data-action="toggle-editor">${ui.editor?'− Skjul redigering':'+ Vil du endre eller lagre setup?'}</button>${ui.editor?`<div class="panel editor"><h2>Mitt biloppsett</h2><p class="sub">Redigering er valgfritt.</p>${GROUPS.map(([title,fields])=>`<h3 style="margin-bottom:8px">${esc(title)}</h3><div class="edit-grid">${fields.map(([key,label])=>`<div class="field"><label>${esc(label)}</label><input data-setup="${key}" type="text" inputmode="text" value="${esc(values[key]||'')}"></div>`).join('')}</div>`).join('')}<div class="field"><label>Notater</label><textarea id="setup-note" placeholder="Hva fungerte bra?">${esc(ui.editNote)}</textarea></div><button class="primary full" data-action="save-setup">＋ Lagre biloppsett</button></div>`:''}<section class="section"><h2>Mine lagrede setup</h2><p class="sub">${saved.length} oppsett for ${esc(ui.car)} i ${data.season}</p>${saved.length?saved.map(s=>`<div class="record"><div><strong style="font-size:16px">${esc(s.car)} · ${esc(s.session)}</strong><p class="sub">${esc(s.weather)} · ${esc(s.tyre||'Dekk ikke registrert')} · ${new Date(s.createdAt).toLocaleDateString('nb-NO')}<br>${s.lapSnapshot?`<span class="saved-lap-meta">⏱ ${formatTime(s.lapSnapshot.totalMs)} · S1 ${esc(s.lapSnapshot.s1||'–')} · S2 ${esc(s.lapSnapshot.s2||'–')} · S3 ${esc(s.lapSnapshot.s3||'–')}</span><br>`:''}${esc(s.note||'Ingen notat')}</p><button class="secondary" data-action="load-setup" data-value="${esc(s.id)}">Åpne setup</button></div><button class="danger" data-action="delete-setup" data-value="${esc(s.id)}">Slett</button></div>`).join(''):'<div class="empty">Du har ikke lagret egne oppsett ennå.</div>'}</section>`;}
+function detailHistory(){const laps=data.laps.filter(l=>l.trackId===ui.trackId),setups=data.setups.filter(s=>s.trackId===ui.trackId);const years=[...new Set([...laps.map(l=>l.season),...setups.map(s=>s.season)])].sort();return `<section class="section"><h2>Sesong for sesong</h2><p class="sub">Sammenlign trening, kvalifisering og race på ${esc(track().name)}.</p>${years.length?years.map(y=>{const list=laps.filter(l=>l.season===y),q=bestLap(list,'Kvalifisering'),p=bestLap(list,'Trening'),r=bestLap(list,'Løp');return `<div class="panel"><h3>SESONG ${y}</h3><div class="best-grid"><div class="mini"><span class="label">TRENING / PRACTICE</span><strong>${formatTime(p?.totalMs)}</strong></div><div class="mini"><span class="label">KVALIFISERING</span><strong>${formatTime(q?.totalMs)}</strong></div></div><div class="race-history-line">🏁 Beste race-runde <b>${formatTime(r?.totalMs)}</b></div><p class="sub" style="margin-top:12px">${setups.filter(s=>s.season===y).length} lagrede setup</p></div>`;}).join(''):'<div class="empty">Ingen historikk på denne banen ennå.</div>'}</section>`;}
+function detail(){return detailHeader()+(ui.tab==='laps'?laps():ui.tab==='setup'?setupPage():detailHistory());}
+function history(){const tracks=[...new Set(data.laps.map(l=>l.trackId))];return `<section class="section"><h2>Din sesonghistorikk</h2><p class="sub">Sammenlign rundetider fra år til år.</p><div class="stats"><div class="stat"><small>RUNDER TOTALT</small><strong>${data.laps.length}</strong></div><div class="stat"><small>LAGREDE SETUP</small><strong>${data.setups.length}</strong></div></div><p class="history-race-count">🏁 ${data.races.length} lagrede løpsresultater</p>${tracks.length?tracks.map(id=>{const t=TRACKS.find(t=>t.id===id);if(!t)return '';const years=[...new Set(data.laps.filter(l=>l.trackId===id).map(l=>l.season))].sort();return `<div class="panel"><h3>${esc(t.flag)} ${esc(t.name)}</h3>${years.map(y=>{const list=data.laps.filter(l=>l.trackId===id&&l.season===y);return `<div class="history-row"><div><b>${y}</b><small>Trening ${formatTime(bestLap(list,'Trening')?.totalMs)}</small><small>Race ${formatTime(bestLap(list,'Løp')?.totalMs)}</small></div><strong>Kvalifisering<br>${formatTime(bestLap(list,'Kvalifisering')?.totalMs)}</strong></div>`;}).join('')}<button class="ghost full" style="margin-top:15px" data-action="track" data-value="${id}">Åpne bane →</button></div>`;}).join(''):'<div class="empty">Ingen historikk ennå. Legg inn første rundetid under «Baner».</div>'}</section>`;}
+function news(){return `<section class="section"><h2>Ekte Formel 1 🏁</h2><p class="sub">Nyheter og resultater fra virkelighetens F1. Nyheter krever internett.</p><div class="panel"><h3>Følg F1 direkte</h3><div class="button-row"><button class="secondary" data-action="external" data-value="https://www.formula1.com/en/latest/all">F1-nyheter ↗</button><button class="secondary" data-action="external" data-value="https://www.formula1.com/en/racing/2026">Løpskalender ↗</button></div><div class="button-row" style="margin-top:10px"><button class="ghost" data-action="external" data-value="https://www.formula1.com/en/results/2026/races">Resultater ↗</button><button class="ghost" data-action="external" data-value="https://www.bbc.com/sport/formula1">BBC Sport ↗</button></div></div><button class="primary full" data-action="news-refresh">↻ Hent nyhetsoverskrifter</button><p class="helper">${esc(ui.newsStatus||'Trykk for å hente ferske overskrifter fra BBC Sport.')}</p>${ui.news.map(n=>`<div class="news-card"><span class="news-date">${esc(n.date||'F1-nyhet')}</span><h3>${esc(n.title)}</h3><p>${esc(n.description||'')}</p><a href="${esc(n.url)}" target="_blank" rel="noopener noreferrer">Les saken ↗</a></div>`).join('')}<div class="notice">Nyhetsoverskrifter hentes fra en ekstern tjeneste og kan være midlertidig utilgjengelige. Lenker til de offisielle sidene fungerer uavhengig av dette.</div></section>`;}
+function settings(){return `<section class="section"><h2>Innstillinger og sikkerhetskopi</h2><p class="sub">Rundetider og setup lagres lokalt på denne telefonen. De deles ikke automatisk med andre enheter.</p><div class="panel"><h3>Ta vare på rundetidene dine</h3><p class="sub">Lagre en sikkerhetskopi på iCloud Drive eller Mac. Hvis du sletter nettsteddata eller bytter telefon, kan lokal lagring forsvinne.</p><button class="primary full" data-action="export">↓ Last ned sikkerhetskopi</button><div class="field"><label>Gjenopprett sikkerhetskopi</label><input type="file" id="import-file" accept="application/json,.json"></div><button class="secondary full" data-action="import">↑ Importer fil</button></div><div class="panel"><h3>Om denne appen</h3><p class="sub">Gratis webapp V27 med banekart, dekkregistrering, sektorregistrering og 20 setup-verdier. Setup-forslag er startpunkter, ikke garanterte optimaloppsett.</p><button class="ghost full" data-action="settings">← Tilbake</button></div></section>`;}
+function render(resetScroll=false){const content=ui.settings?settings():ui.trackId?detail():ui.screen==='home'?home():ui.screen==='tracks'?tracks():ui.screen==='history'?history():news();const theme=ui.trackId&&!ui.settings?` tyre-theme tyre-theme-${tyreClass(ui.tyre)}`:'';$('#app').innerHTML=`<div class="app-shell${theme}">${header()}${ui.notice?`<div class="success">${esc(ui.notice)}</div>`:''}${content}<p class="footer">F1 25 Lap Tracker V27 · Privat lagring på denne enheten<br>Banekart: F1-Track-Layouts-SVG / Wikimedia</p></div>${nav()}`;if(resetScroll)window.scrollTo({top:0,behavior:'instant'});}
+function notify(s){ui.notice=s;render();}
+function openTrack(id){scanReset();ui.trackId=id;ui.tab='laps';ui.issue='none';ui.editor=false;ui.editValues=null;ui.notice='';render(true);}
+function saveLap(){
+ const values=[ui.s1,ui.s2,ui.s3],parsed=values.map(parseTime);
+ if(values.some((v,i)=>v.trim()&&parsed[i]==null)){alert('Ugyldig sektortid. Bruk f.eks. 32.456 eller 32,456.');return;}
+ const total=parsed.every(v=>v!=null)?parsed.reduce((a,b)=>a+b,0):parseTime(ui.total);
+ if(total==null){alert('Fyll inn alle tre sektorer eller skriv total rundetid, f.eks. 1:51.806');return;}
+ const age=String(ui.tyreAge||'').trim();const lapNumber=String(ui.lapNumber||'').trim();
+ if(lapNumber&&(!/^(?:\d{1,3})$/.test(lapNumber)||Number(lapNumber)<1)){alert('Rundenummer må være et positivt heltall.');return;}
+ if(age&&!/^(?:\d{1,3})$/.test(age)){alert('Antall runder på dekket må være et helt tall, f.eks. 5.');return;}
+ data.laps.unshift({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),trackId:ui.trackId,season:data.season,car:ui.car,session:ui.session,weather:ui.weather,tyre:ui.tyre,tyreAge:age,lapNumber:ui.session==='Løp'?lapNumber:'',s1:ui.s1.trim(),s2:ui.s2.trim(),s3:ui.s3.trim(),totalMs:total,createdAt:new Date().toISOString()});
+ ui.s1=ui.s2=ui.s3=ui.total=ui.tyreAge=ui.lapNumber='';
+ persist();notify(`${sessionLabel(ui.session)}: ${formatTime(total)} på ${ui.tyre}-dekk er lagret!`);
+}
+function saveRaceV12(){
+ const digits=(v,min,max,label,required=false)=>{const str=String(v??'').trim().replace(/^P/i,'');if(!str){if(required)throw Error(`Fyll inn ${label}.`);return null;}if(!/^\d+$/.test(str)||Number(str)<min||Number(str)>max)throw Error(`${label} må være mellom ${min} og ${max}.`);return Number(str);};
+ try{
+  const prepared=[];const seen=new Set();
+  for(let i=0;i<scanRows.length;i++){
+   const row=scanRows[i];const lap=digits(row.lapNumber,1,999,`rundenummer i rad ${i+1}`,true);
+   if(seen.has(lap))throw Error(`Runde ${lap} finnes flere ganger. Slett eller korriger den ene.`);
+   seen.add(lap);
+   const ms=parseTime(row.time);
+   if(!ms||ms<45000||ms>1200000){
+    // Keep incomplete rows in the review until user chooses to omit them.
+    // Never invent a time and never silently save a missing lap.
+    throw Error(`Runde ${lap} mangler gyldig rundetid. Åpne Racerunder og rett tiden før lagring. Du kan også slette den ufullstendige raden hvis du ikke vil lagre den.`);
+   }
+   if(!TYRES.some(t=>t[0]===row.tyre))throw Error(`Velg dekk for runde ${lap}.`);
+   const parts=[row.s1,row.s2,row.s3].map(v=>String(v||'').trim());
+   const partsMs=parts.map(parseTime);
+   const validSectors=parts.every(Boolean)&&partsMs.every(v=>v!=null)&&Math.abs(partsMs.reduce((a,b)=>a+b,0)-ms)<15;
+   prepared.push({lapNumber:lap,totalMs:ms,tyre:row.tyre,s1:validSectors?parts[0]:'',s2:validSectors?parts[1]:'',s3:validSectors?parts[2]:''});
+  }
+  const estimated=scanRows.filter(r=>r.timeEstimated).map(r=>r.lapNumber);
+  if(estimated.length&&!confirm(`Rundetid på runde ${estimated.join(', ')} er beregnet fra sektorene, ikke sikkert lest fra bildet. Den kan avvike noen tusendeler. Har du kontrollert og godtar tiden?`))return;
+  const inferredLaps=prepared.length?Math.max(...prepared.map(r=>r.lapNumber)):null;
+  const laps=digits(ui.raceLaps||inferredLaps,1,999,'antall kjørte runder',true);
+  if(prepared.some(r=>r.lapNumber>laps))throw Error('Et scannet rundenummer er høyere enn antall kjørte runder.');
+  const best=prepared.length?prepared.reduce((a,b)=>a.totalMs<b.totalMs?a:b):null;
+  const time=best?best.totalMs:parseTime(ui.raceBestTime);
+  if(!time)throw Error('Skriv beste rundetid eller scan bilder først.');
+  const lapNumber=best?best.lapNumber:digits(ui.raceBestLap,1,laps,'rundenummer for beste tid');
+  const start=digits(ui.raceStart,1,20,'startposisjon');
+  const finish=digits(ui.raceFinish,1,20,'sluttplassering');
+  const pits=digits(ui.racePits,0,99,'pitstopp');
+  const sectors=prepared.length?['','','']:[ui.s1,ui.s2,ui.s3].map(v=>String(v||'').trim());
+  if(sectors.some(x=>x)&&sectors.some(x=>!x))throw Error('Fyll inn alle tre sektorer, eller la alle stå tomme.');
+  if(sectors.some(x=>x)&&sectors.some(x=>parseTime(x)==null))throw Error('En sektortid er ugyldig.');
+  if(sectors.every(Boolean)&&Math.abs(sectors.map(parseTime).reduce((a,b)=>a+b,0)-time)>2)throw Error('Sektorene må til sammen bli lik beste rundetid.');
+  const id=crypto.randomUUID?crypto.randomUUID():String(Date.now());
+  const chosenTyres=ui.raceUsedTyres||[];
+  if(!prepared.length&&!chosenTyres.length)throw Error('Velg minst ett dekk du brukte i løpet.');
+  const bestTyre=best?best.tyre:(chosenTyres.includes(ui.raceBestTyre)?ui.raceBestTyre:chosenTyres[0]);
+  const used=[...new Set(prepared.length?prepared.map(r=>r.tyre):chosenTyres)];
+  const byTyre={};for(const r of prepared){if(!byTyre[r.tyre]||r.totalMs<byTyre[r.tyre].totalMs)byTyre[r.tyre]={timeMs:r.totalMs,lapNumber:r.lapNumber};}
+  if(!prepared.length)byTyre[bestTyre]={timeMs:time,lapNumber:lapNumber||null};
+  const createdAt=new Date().toISOString();
+  const newRace={id,trackId:ui.trackId,season:data.season,car:ui.car,weather:ui.weather,status:ui.raceStatus,startPos:start,finishPos:finish,laps,pits,notes:ui.raceNotes.trim(),bestTimeMs:time,bestLapNumber:lapNumber,bestTyre,usedTyres:used,bestByTyre:byTyre,scannedLaps:prepared.length,createdAt};
+  const toSave=prepared.length?prepared:[{lapNumber:lapNumber||'',totalMs:time,tyre:bestTyre}];
+  const newLaps=toSave.map((r,i)=>({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+i+1),raceId:id,trackId:ui.trackId,season:data.season,car:ui.car,session:'Løp',weather:ui.weather,tyre:r.tyre,tyreAge:'',lapNumber:r.lapNumber,s1:prepared.length?r.s1:sectors[0],s2:prepared.length?r.s2:sectors[1],s3:prepared.length?r.s3:sectors[2],totalMs:r.totalMs,createdAt}));
+  data.races.unshift(newRace);data.laps.unshift(...newLaps);
+  if(!persist()){data.races.shift();data.laps.splice(0,newLaps.length);alert('Kunne ikke lagre på telefonen. Ta sikkerhetskopi og prøv igjen.');return;}
+  ui.raceLaps=ui.raceBestTime=ui.raceBestLap=ui.raceStart=ui.raceFinish=ui.racePits=ui.raceNotes='';
+  ui.raceUsedTyres=[];ui.raceBestTyre='';ui.raceStatus='Fullført';ui.s1=ui.s2=ui.s3='';scanReset();
+  notify(`🏁 Race lagret med ${newLaps.length} rundetid${newLaps.length===1?'':'er'}! Alle vises også i Historikk.`);
+ }catch(e){alert(e.message);}
+}
+function saveRace(){
+ const fields=[['raceStart','Startposisjon',1,20],['raceFinish','Sluttplassering',1,20],['raceLaps','Antall runder',1,999],['racePits','Pitstopp',0,99]];
+ const vals={};
+ for(const [key,label,min,max] of fields){const raw=String(ui[key]||'').trim();if(raw&&(!/^\d+$/.test(raw)||Number(raw)<min||Number(raw)>max)){alert(`${label} må være et helt tall mellom ${min} og ${max}.`);return;}vals[key]=raw?Number(raw):null;}
+ if(!vals.raceStart){alert('Fyll inn startposisjon.');return;}
+ if(ui.raceStatus==='Fullført'&&!vals.raceFinish){alert('Fyll inn sluttplassering, eller velg DNF / DSQ.');return;}
+ if(!vals.raceLaps){alert('Fyll inn antall kjørte runder.');return;}
+ data.races.unshift({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),trackId:ui.trackId,season:data.season,car:ui.car,weather:ui.weather,status:ui.raceStatus,startPos:vals.raceStart,finishPos:ui.raceStatus==='Fullført'?vals.raceFinish:null,laps:vals.raceLaps,pits:vals.racePits,notes:ui.raceNotes.trim(),createdAt:new Date().toISOString()});
+ ui.raceStart=ui.raceFinish=ui.raceLaps=ui.racePits=ui.raceNotes='';ui.raceStatus='Fullført';
+ persist();notify('🏁 Løpsresultatet er lagret!');
+}
+function saveSetup(){const values=ui.editValues||setup();if(!Object.values(values).some(v=>String(v).trim())){alert('Fyll inn setup-verdier først.');return;}const matched=data.laps.filter(l=>l.trackId===ui.trackId&&l.season===data.season&&l.car===ui.car&&l.session===ui.session&&l.weather===ui.weather&&l.tyre===ui.tyre).sort((a,b)=>a.totalMs-b.totalMs)[0];const lapSnapshot=matched?{totalMs:matched.totalMs,s1:matched.s1,s2:matched.s2,s3:matched.s3,tyre:matched.tyre,tyreAge:matched.tyreAge}:null;data.setups.unshift({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),trackId:ui.trackId,season:data.season,car:ui.car,session:ui.session,weather:ui.weather,tyre:ui.tyre,lapSnapshot,values:{...values},note:ui.editNote,createdAt:new Date().toISOString()});persist();notify(matched?'Biloppsettet er lagret med beste registrerte tid og sektorer!':'Biloppsettet er lagret! Legg inn en tid for å sammenligne ytelsen.');}
+function downloadBackup(){const blob=new Blob([JSON.stringify({format:'F1-25-Lap-Tracker-Backup',version:1,...data},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`f1-25-backup-${new Date().toISOString().slice(0,10)}.json`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function decodeXml(s){return String(s||'').replace(/<[^>]*>/g,' ').replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/\s+/g,' ').trim();}
+async function refreshNews(){ui.newsStatus='Henter nyheter …';render();try{const feed='https://feeds.bbci.co.uk/sport/formula1/rss.xml';const endpoint='https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(feed);const res=await fetch(endpoint,{cache:'no-store'});if(!res.ok)throw Error('Kunne ikke hente');const json=await res.json();if(!Array.isArray(json.items)||!json.items.length)throw Error('Tom strøm');ui.news=json.items.slice(0,12).filter(x=>/^https?:\/\//.test(x.link)).map(x=>({title:decodeXml(x.title),description:decodeXml(x.description).slice(0,160),url:x.link,date:x.pubDate?new Date(x.pubDate).toLocaleDateString('nb-NO'):''}));ui.newsStatus=`Oppdatert ${new Date().toLocaleTimeString('nb-NO',{hour:'2-digit',minute:'2-digit'})}`;}catch{ui.newsStatus='Nyhetsstrømmen er utilgjengelig nå. Bruk lenkene til F1 eller BBC over.';}render();}
+$('#app').addEventListener('change',async e=>{const el=e.target;if(el.id==='v27-race-file'){const f=el.files?.[0];if(f){try{if(f.size>1024*1024)throw Error('Filen er for stor.');raceImportText(await f.text());}catch(err){alert('Kunne ikke importere: '+err.message);}}return;}if(el.id==='v14-camera'||el.id==='v14-upload'){scanAddFiles(el.files);return;}if(el.dataset.scanRow!==undefined){const row=scanRows[Number(el.dataset.scanRow)];if(row){row[el.dataset.scanKey]=el.value;if(el.dataset.scanKey==='time')row.timeEstimated=false;if(['s1','s2','s3'].includes(el.dataset.scanKey))row.autoCorrected=false;scanReconcileRow(row,scanRows);render();}return;}if(el.id==='raceBestTyre'){ui.raceBestTyre=el.value;return;}if(el.id==='season-select'){data.season=Number(el.value);persist();render();}else if(el.id==='car-select'){ui.car=el.value;ui.issue='none';ui.editValues=null;render();}});
+$('#app').addEventListener('input',e=>{const el=e.target;if(el.id==='search'){ui.search=el.value;const list=TRACKS.filter(t=>`${t.name} ${t.country}`.toLowerCase().includes(ui.search.trim().toLowerCase()));$('#track-list').innerHTML=list.map(card).join('')||'<div class="empty">Fant ingen baner.</div>';return;}if(el.dataset.scanRow!==undefined){const row=scanRows[Number(el.dataset.scanRow)];if(row)row[el.dataset.scanKey]=el.value;return;}if(el.dataset.field){ui[el.dataset.field]=el.value;if(['s1','s2','s3'].includes(el.dataset.field)){const vals=[ui.s1,ui.s2,ui.s3].map(parseTime);const total=$('#total');if(vals.every(v=>v!=null)){total.value=formatTime(vals.reduce((a,b)=>a+b,0));total.readOnly=true;}else{total.value=ui.total;total.readOnly=false;}}return;}if(el.dataset.setup){ui.editValues=ui.editValues||setup();ui.editValues[el.dataset.setup]=el.value;return;}if(el.id==='setup-note'){ui.editNote=el.value;}});
+$('#app').addEventListener('click',async e=>{const btn=e.target.closest('[data-action]');if(!btn)return;const action=btn.dataset.action,v=btn.dataset.value;switch(action){case 'nav':scanReset();ui.screen=v;ui.trackId=null;ui.settings=false;ui.notice='';render(true);break;case 'settings':ui.settings=!ui.settings;ui.trackId=null;ui.notice='';render(true);break;case 'season':data.season=Number(v);persist();render();break;case 'track':ui.settings=false;openTrack(v);break;case 'back':scanReset();ui.trackId=null;ui.screen='tracks';ui.notice='';render(true);break;case 'detailtab':ui.tab=v;if(v==='setup'&&ui.session==='Løp')ui.session='Trening';ui.notice='';render();break;case 'car':ui.car=v;ui.issue='none';ui.editValues=null;render();break;case 'session':ui.session=v;ui.editValues=null;render();break;case 'log-filter':ui.logFilter=v;render();break;case 'race-status':ui.raceStatus=v;render();break;case 'weather':ui.weather=v;if(v==='Vått'&&!['Intermediate','Wet'].includes(ui.tyre))ui.tyre='Intermediate';if(v==='Tørt'&&['Intermediate','Wet'].includes(ui.tyre))ui.tyre='Medium';ui.editValues=null;render();break;case 'tyre':ui.tyre=v;render();break;case 'issue':ui.issue=v;render();break;case 'save-lap':saveLap();break;case 'save-race':saveRace();break;case 'save-race-v12':saveRaceV12();break;case 'scan-camera':$('#v14-camera')?.click();break;case 'scan-upload':$('#v14-upload')?.click();break;case 'scan-run':await scanRun();break;case 'race-import-paste':try{raceImportText($('#v27-race-paste')?.value||'');}catch(err){alert('Kunne ikke importere: '+err.message);}break;case 'scan-remove':{const i=Number(v);if(scanFiles[i]){URL.revokeObjectURL(scanFiles[i].url);scanFiles.splice(i,1);scanStatus='Bilde fjernet.';render();}break;}case 'scan-add-row':scanRows.push({lapNumber:'',time:'',tyre:''});scanStatus='Fyll inn runden og velg dekk.';render();break;case 'scan-delete-row':scanRows.splice(Number(v),1);render();break;case 'race-used-tyre':ui.raceUsedTyres=ui.raceUsedTyres||[];ui.raceUsedTyres=ui.raceUsedTyres.includes(v)?ui.raceUsedTyres.filter(t=>t!==v):[...ui.raceUsedTyres,v];if(!ui.raceUsedTyres.includes(ui.raceBestTyre))ui.raceBestTyre=ui.raceUsedTyres[0]||'';render();break;case 'delete-race':if(confirm('Slette dette løpsresultatet?')){data.races=data.races.filter(r=>r.id!==v);data.laps=data.laps.filter(l=>l.raceId!==v);persist();render();}break;case 'delete-lap':if(confirm('Slette denne rundetiden?')){data.laps=data.laps.filter(l=>l.id!==v);persist();render();}break;case 'use-recommended':ui.editValues={...setup()};ui.editor=true;notify('Anbefalingen er lagt inn i «Mitt biloppsett». Du kan lagre eller redigere den.');break;case 'use-adjusted':ui.editValues={...adjust(setup()).values};ui.editor=true;notify('Testverdiene er lagt inn i «Mitt biloppsett».');break;case 'toggle-editor':ui.editor=!ui.editor;if(ui.editor&&!ui.editValues)ui.editValues={...setup()};render();break;case 'save-setup':saveSetup();break;case 'delete-setup':if(confirm('Slette dette biloppsettet?')){data.setups=data.setups.filter(s=>s.id!==v);persist();render();}break;case 'load-setup':{const found=data.setups.find(s=>s.id===v);if(found){ui.editValues={...found.values};ui.editNote=found.note||'';ui.editor=true;notify('Lagret setup åpnet.');}break;}case 'news-refresh':await refreshNews();break;case 'external':if(/^https:\/\//.test(v))window.open(v,'_blank','noopener,noreferrer');break;case 'export':downloadBackup();break;case 'import':{const file=$('#import-file')?.files?.[0];if(!file){alert('Velg en sikkerhetskopi først.');break;}try{const parsed=JSON.parse(await file.text());if(!Array.isArray(parsed.laps)||!Array.isArray(parsed.setups))throw Error('Ugyldig fil');if(!confirm('Dette erstatter rundetidene og setupene i denne appen. Fortsette?'))break;data={laps:parsed.laps,setups:parsed.setups,races:Array.isArray(parsed.races)?parsed.races:[],season:Number(parsed.season)||2025};persist();notify('Sikkerhetskopien er gjenopprettet!');}catch{alert('Kunne ikke lese sikkerhetskopien.');}break;}}});
+render();
+// V21: no SW registration. Single-file app is immune to missing JS/CSS asset deploys.
+
+</script>
+</body>
+</html>

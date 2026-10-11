@@ -1,0 +1,10 @@
+F1 25 Pro Garage V27 – gratis CSV-import av racerunder
+
+1. Publiser index.html på ditt nettsted (Netlify/GitHub Pages).
+2. Velg bane og Race/Løp i appen.
+3. Trykk «Velg fil» under «Importer rundetider uten SCAN».
+4. Velg F1-25-RACERUNDER-1-25.csv.
+5. Kontroller 25 runder og beste tid 1:11.476 (runde 4, Soft).
+6. Trykk «LAGRE RACERUNDER OG RESULTAT».
+
+Viktig: Sikkerhetskopier eksisterende historikk før bytte av nettsted. Data på ulike domener deles ikke automatisk.
